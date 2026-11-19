@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Th.S Nguyễn Ngọc Kiên - 0987 473 509</title>
+    <style>
+        * { box-sizing: border-box; }
+        [hidden] { display: none !important; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; font-family: Arial, sans-serif; background: #f7fbff; color: #1c2b3a; line-height: 1.6; padding-bottom: 72px; }
+
+        .topbar { position: sticky; top: 0; z-index: 50; background: #1e88e5; color: #fff; padding: 8px 14px; box-shadow: 0 2px 6px rgba(30,136,229,.25); }
+        .topbar .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; max-width: 860px; margin: auto; }
+        .topbar h1 { margin: 0; font-size: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 200px; min-width: 0; }
+        .tools { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tbtn { background: #fff; color: #1565c0; border: none; border-radius: 4px; padding: 5px 12px; font-weight: bold; cursor: pointer; font-size: 13px; white-space: nowrap; }
+        .tbtn:hover { background: #e3f0fb; }
+
+        main { max-width: 860px; margin: auto; padding: 14px; }
+        mjx-container { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+        .lz { margin: 0 0 12px; }
+        .txt { margin: 8px 0; }
+
+        /* ---- tiêu đề ---- */
+        h2.hd1 { color: #1565c0; border-bottom: 3px solid #b3d4fc; padding-bottom: 6px; margin: 30px 0 12px; font-size: 22px; }
+        h3.hd2 { color: #1565c0; border-bottom: 2px solid #b3d4fc; padding-bottom: 4px; margin: 24px 0 10px; font-size: 18px; }
+        h4.hd3 { color: #0d47a1; margin: 20px 0 8px; font-size: 16px; }
+        .sub-banner { text-align: center; font-weight: bold; font-size: 17px; color: #0d47a1; margin: 18px 0 10px; padding: 4px 10px; }
+        .hd { scroll-margin-top: 104px; }
+
+        /* ---- khung lý thuyết ---- */
+        .box { border: 2px solid var(--bc, #b3d4fc); background: var(--bg, #eef6fc); border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .box .bh { background: var(--bc, #b3d4fc); color: var(--fg, #0d47a1); font-weight: bold; padding: 5px 12px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+        .box .bsub { font-weight: normal; }
+        .box .bb { padding: 8px 14px; overflow-x: auto; }
+        .box .box { margin: 8px 0; }
+        .box .bb > .tp:first-child { margin-top: 2px; }
+        .k-def  { --bc: #b3d4fc; --bg: #eef6fc; --fg: #0d47a1; }
+        .k-thm  { --bc: #c5b3f5; --bg: #f5f1fe; --fg: #3b1e8a; }
+        .k-note { --bc: #ffe08a; --bg: #fffbea; --fg: #7a5600; }
+        .k-warn { --bc: #ffb4a8; --bg: #fff3f0; --fg: #9a2410; }
+        .k-key  { --bc: #a5dfb5; --bg: #f0fbf3; --fg: #14602b; }
+        .k-sum  { --bc: #9ed8e3; --bg: #eefafc; --fg: #0b5563; }
+        .k-try  { --bc: #f5c18c; --bg: #fff6ec; --fg: #8a4a00; }
+        .k-ask  { --bc: #d5d5d5; --bg: #f7f7f7; --fg: #333; }
+
+        /* ---- dạng toán (cỡ chữ tiêu đề 18px bằng subsection) ---- */
+        .dang { border: 2px solid #1e88e5; border-radius: 8px; margin: 22px 0 12px; background: #fff; overflow: hidden; scroll-margin-top: 104px; }
+        .dang .dh { background: #1e88e5; color: #fff; padding: 7px 14px; font-weight: bold; font-size: 18px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+        .dang .dno { background: #fff; color: #1565c0; border-radius: 12px; padding: 0 10px; white-space: nowrap; }
+        .dang .db { padding: 8px 14px; overflow-x: auto; }
+
+        /* ---- ví dụ / câu hỏi ---- */
+        .q { background: #fff; border: 2px solid #b3d4fc; border-radius: 8px; padding: 12px 14px; margin: 14px 0; overflow-x: auto; }
+        .q.s-correct { border-color: #28a745; }
+        .q.s-wrong { border-color: #dc3545; }
+        .q.s-partial { border-color: #ff9800; }
+        .q .eh { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+        .q .el { background: #1e88e5; color: #fff; font-weight: bold; padding: 2px 12px; border-radius: 14px; }
+        .q.ex .el { background: #00897b; }
+        .q .tag { font-size: 12px; color: #1565c0; border: 1px solid #b3d4fc; border-radius: 10px; padding: 0 8px; background: #eef6fc; }
+        .qtext { margin-bottom: 8px; word-wrap: break-word; }
+
+        .opt { display: flex; gap: 8px; align-items: flex-start; background: #fff; border: 1px solid #b3d4fc; border-radius: 4px; padding: 8px 11px; margin: 6px 0; cursor: pointer; transition: .2s; }
+        .opt:hover:not(.locked):not(.static) { background: #e3f0fb; border-color: #1e88e5; }
+        .opt:focus-visible, .tfb button:focus-visible { outline: 3px solid #ff9800; outline-offset: 1px; }
+        .opt.static { cursor: default; }
+        .opt.locked { cursor: default; }
+        .opt.locked:not(.correct):not(.wrong) { opacity: .55; }
+        .opt.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+        .opt.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+        .lab { font-weight: bold; min-width: 1.7em; }
+        .ob { flex: 1; min-width: 0; overflow-x: auto; }
+
+        .tfrow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; background: #fff; border: 1px solid #b3d4fc; border-radius: 4px; padding: 7px 10px; margin: 6px 0; }
+        .tfrow.r-ok { border-color: #28a745; }
+        .tfrow.r-bad { border-color: #dc3545; }
+        .tfc { flex: 1 1 60%; min-width: 0; overflow-x: auto; }
+        .tfb { display: flex; gap: 8px; }
+        .tfb button { padding: 6px 16px; font-weight: bold; border: 2px solid #b3d4fc; background: #fff; border-radius: 5px; cursor: pointer; }
+        .tfb button:hover:not(:disabled) { background: #e3f0fb; }
+        .tfb button:disabled { cursor: default; }
+        .tfb button.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+        .tfb button.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+
+        .shortrow { display: flex; gap: 8px; flex-wrap: wrap; }
+        .sans { width: 190px; max-width: 100%; padding: 8px 12px; font-size: 17px; font-weight: bold; border: 2px solid #1e88e5; border-radius: 5px; color: #1565c0; }
+        .sans.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+        .sans.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+        .chk { background: #ffc107; border: none; border-radius: 5px; padding: 0 18px; font-weight: bold; cursor: pointer; min-height: 40px; }
+        .chk:disabled { background: #ccc; cursor: default; }
+        .true-ans { margin-top: 8px; color: #28a745; font-weight: bold; }
+
+        .fb { margin-top: 6px; font-weight: bold; min-height: 1.2em; }
+        .f-correct { color: #28a745; } .f-wrong { color: #dc3545; } .f-partial { color: #ef6c00; }
+        .qtools { margin-top: 6px; display: flex; gap: 8px; flex-wrap: wrap; }
+        .sol-btn { background: #17a2b8; color: #fff; border: none; border-radius: 4px; padding: 6px 14px; cursor: pointer; font-weight: bold; }
+        .sol-btn:hover { background: #138496; }
+        .redo-btn { background: #fff; color: #1565c0; border: 1px solid #1e88e5; border-radius: 4px; padding: 6px 12px; cursor: pointer; font-weight: bold; }
+        .solution-box { display: none; margin-top: 10px; padding: 12px 14px; background: #e8f4fc; border-left: 5px solid #0288d1; border-radius: 4px; overflow-x: auto; }
+
+        /* ---- mục lục (ngăn kéo) ---- */
+        .drawer { position: fixed; top: 0; bottom: 0; left: 0; width: min(360px, 88vw); z-index: 80; background: #fff; box-shadow: 4px 0 18px rgba(0,0,0,.25); transform: translateX(-105%); transition: transform .25s; display: flex; flex-direction: column; }
+        .drawer.open { transform: none; }
+        .drawer .dtop { background: #1e88e5; color: #fff; padding: 10px 14px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .drawer .dtop button { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
+        .toc { overflow-y: auto; padding: 8px 6px 20px; }
+        .toc a { display: block; padding: 5px 10px; color: #1c2b3a; text-decoration: none; border-radius: 4px; font-size: 14px; line-height: 1.4; }
+        .toc a:hover { background: #e3f0fb; }
+        .toc a.l1 { font-weight: bold; color: #1565c0; margin-top: 8px; }
+        .toc a.l2 { padding-left: 18px; }
+        .toc a.l3 { padding-left: 30px; font-size: 13px; }
+        .toc a.l4 { padding-left: 30px; font-size: 13px; color: #00695c; }
+        .veil { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 70; display: none; }
+        .veil.open { display: block; }
+
+        .foot { text-align: center; font-size: 12px; color: #5f7b94; padding: 10px; }
+        .foot:empty { display: none; }
+        @media screen { .foot { display: none; } }
+
+        /* ---- góc dưới phải ---- */
+        .fab { position: fixed; right: 14px; bottom: 14px; z-index: 40; display: flex; align-items: center; gap: 8px; max-width: calc(100vw - 28px); pointer-events: none; }
+        .fab > * { pointer-events: auto; }
+        .credit { display: flex; align-items: center; flex-wrap: wrap; gap: 0 12px; min-height: 42px; padding: 4px 14px; background: #fff; color: #1565c0; border: 1px solid #b3d4fc; border-radius: 21px; font-size: 12px; line-height: 1.35; box-shadow: 0 2px 8px rgba(30,136,229,.18); min-width: 0; }
+        .credit:empty { display: none; }
+        .credit .cr-i { white-space: nowrap; }
+        .credit .cr-i b { font-weight: bold; }
+        #toTop { flex: 0 0 42px; background: #1e88e5; color: #fff; border: none; border-radius: 50%; width: 42px; height: 42px; font-size: 18px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+
+        /* ---- tiến độ học tập ---- */
+        .prow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; max-width: 860px; margin: 6px auto 0; font-size: 13px; }
+        .ptxt { font-weight: bold; white-space: nowrap; }
+        .ptrack { flex: 1 1 90px; min-width: 70px; height: 8px; background: rgba(255,255,255,.35); border-radius: 4px; overflow: hidden; }
+        .pfill { height: 100%; width: 0; background: #fff; transition: width .3s; }
+        .fsel { background: #fff; color: #1565c0; border: none; border-radius: 4px; padding: 3px 6px; font-weight: bold; font-size: 13px; max-width: 100%; }
+        .lswarn { background: #fff3cd; color: #7a5600; border-radius: 4px; padding: 0 8px; font-size: 12px; }
+        .fltnote { margin: 4px 0 10px; padding: 6px 12px; background: #fff6ec; border: 1px solid #f5c18c; border-radius: 6px; color: #8a4a00; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+        /* ---- trạng thái từng câu ---- */
+        .stt { font-size: 12px; font-weight: bold; border: 1px solid transparent; border-radius: 10px; padding: 0 8px; }
+        .stt:empty { display: none; }
+        .s-correct .stt { color: #155724; background: #d4edda; border-color: #28a745; }
+        .s-partial .stt { color: #8a4a00; background: #fff3e0; border-color: #ff9800; }
+        .s-wrong .stt { color: #721c24; background: #f8d7da; border-color: #dc3545; }
+        .tfb button.sel { background: #e3f0fb; border-color: #1e88e5; color: #1565c0; }
+        .tf-chk { background: #ffc107; border: none; border-radius: 5px; padding: 0 18px; font-weight: bold; cursor: pointer; min-height: 40px; margin-top: 6px; }
+        .tf-chk:disabled { background: #ccc; cursor: default; }
+        .rv-btn { background: #fff; color: #8a4a00; border: 1px solid #f5c18c; border-radius: 4px; padding: 6px 12px; cursor: pointer; font-weight: bold; }
+        .rv-btn.on { background: #fff6ec; border-color: #ff9800; }
+        .rate { margin-top: 10px; padding: 8px 12px; background: #f7fbff; border: 1px dashed #b3d4fc; border-radius: 6px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+        .rate .rq { font-weight: bold; color: #1565c0; margin-right: 4px; }
+        .rb { border: 2px solid #b3d4fc; background: #fff; border-radius: 5px; padding: 5px 14px; font-weight: bold; cursor: pointer; }
+        .rb:hover { background: #e3f0fb; }
+        .rb.ok.on { background: #d4edda; border-color: #28a745; color: #155724; }
+        .rb.near.on { background: #fff3e0; border-color: #ff9800; color: #8a4a00; }
+        .rb.no.on { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+
+        /* ---- tổng kết ---- */
+        .dsum { margin-top: 10px; padding: 6px 12px; background: #eef6fc; border: 1px solid #b3d4fc; border-radius: 6px; font-size: 14px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        .dsum:empty { display: none; }
+        .dbtn { background: #fff; color: #1565c0; border: 1px solid #1e88e5; border-radius: 4px; padding: 3px 10px; cursor: pointer; font-weight: bold; }
+        .dbtn:disabled { color: #999; border-color: #ccc; cursor: default; }
+        .sumsec { margin: 34px 0 10px; scroll-margin-top: 104px; }
+        .sumsec .sline { font-weight: bold; color: #0d47a1; }
+        .sgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 8px; margin: 10px 0 14px; }
+        .scard { background: #fff; border: 2px solid #b3d4fc; border-radius: 8px; padding: 8px 10px; text-align: center; }
+        .scard b { display: block; font-size: 22px; color: #1565c0; }
+        .scard span { font-size: 12px; color: #5f7b94; }
+        .swrap { overflow-x: auto; }
+        .stab { border-collapse: collapse; width: 100%; background: #fff; }
+        .stab th, .stab td { border: 1px solid #b3d4fc; padding: 5px 10px; text-align: center; }
+        .stab th { background: #e8f4fc; color: #0d47a1; }
+        .stab td:first-child { text-align: left; }
+        .skind { margin: 6px 0; padding-left: 20px; }
+        .sbtns { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 6px; }
+        .sbtns .dbtn { padding: 7px 14px; }
+        .snote { font-size: 12px; color: #5f7b94; margin: 4px 0; }
+
+        /* --- SVG / ẢNH + KHUNG ZOOM --- */
+        :root {
+            --zoom-accent: #1e88e5; --zoom-accent-hover: #1565c0;
+            --zoom-border: #b3d4fc; --zoom-bar-bg: #eef6fc; --zoom-max-h: none;
+        }
+        svg { max-width: 100%; height: auto; display: block; margin: 10px auto; overflow: visible; }
+        svg text { font-family: Arial, sans-serif; }
+        img { max-width: 100%; height: auto; }
+        .zoom-container { display: flex; align-items: flex-start; gap: 10px; margin: 15px 0; }
+        .zoom-viewport {
+            flex: 1 1 auto; min-width: 0;
+            overflow: auto; -webkit-overflow-scrolling: touch;
+            border: 1px solid var(--zoom-border); border-radius: 4px; background: #fff;
+            box-sizing: border-box; padding: 4px;
+        }
+        .zoom-viewport.can-pan { cursor: grab; max-height: var(--zoom-max-h); overscroll-behavior: contain; }
+        .zoom-viewport.dragging { cursor: grabbing; user-select: none; }
+        .zoom-toolbar { display: flex; flex-direction: column; gap: 5px; background: var(--zoom-bar-bg); padding: 5px; border-radius: 4px; border: 1px solid var(--zoom-border); flex-shrink: 0; }
+        .zoom-btn { background: var(--zoom-accent); color: #fff; border: none; padding: 6px 10px; font-size: 14px; border-radius: 4px; cursor: pointer; transition: background .2s, opacity .2s; white-space: nowrap; }
+        .zoom-btn:hover:not(:disabled) { background: var(--zoom-accent-hover); }
+        .zoom-btn:disabled { background: #ccc; cursor: not-allowed; opacity: .6; }
+        .zoom-media { display: block; margin: 0 auto; max-width: 100%; height: auto; user-select: none; -webkit-user-drag: none; }
+        .zoom-media.zoomed { width: var(--zw) !important; max-width: none !important; height: auto !important; }
+
+        /* --- BẢNG DÀI & BẢNG RỘNG --- */
+        .table-scroll { display: block; width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; margin: 10px 0; }
+        .table-scroll > table { margin: 0; max-width: 100%; border-collapse: collapse; }
+        .table-scroll th, .table-scroll td { overflow-wrap: break-word; }
+        .table-responsive { display: block; width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; margin: 15px 0; }
+        .tbl-box { position: relative; margin: 12px 0; max-width: 100%; min-width: 0; }
+        .tbl-box > .tbl-wrap { position: relative; }
+        .tbl-box .table-responsive, .tbl-box .table-scroll { margin: 0; }
+        .tbl-hint { display: none; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 4px; font-size: 12.5px; color: #5f7b94; }
+        .tbl-box.has-scroll > .tbl-hint { display: flex; }
+        .tbl-open { font: inherit; font-size: 12.5px; padding: 4px 10px; border-radius: 14px; border: 1px solid var(--zoom-border); background: var(--zoom-bar-bg); color: var(--zoom-accent-hover); cursor: pointer; white-space: nowrap; }
+        .tbl-fade { display: none; position: absolute; top: 0; right: 0; bottom: 0; width: 30px; pointer-events: none; background: linear-gradient(to right, rgba(255,255,255,0), rgba(120,140,160,.28)); }
+        .tbl-box.has-scroll:not(.at-end) .tbl-fade { display: block; }
+        .tbl-box.has-scroll table.sticky-first tr > :first-child { position: sticky; left: 0; z-index: 2; background: #fff; box-shadow: 2px 0 4px -2px rgba(0,0,0,.35); }
+        @media (max-width: 600px) {
+            .tbl-box td, .tbl-box th { font-size: 14px; padding: 4px 7px !important; }
+        }
+        #tblOverlay { position: fixed; inset: 0; z-index: 99999; background: #fff; display: none; flex-direction: column; }
+        #tblOverlay.open { display: flex; }
+        .tbl-ov-bar { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: var(--zoom-bar-bg); border-bottom: 1px solid var(--zoom-border); }
+        .tbl-ov-bar .ttl { flex: 1; min-width: 0; font-size: 13px; font-weight: bold; color: #333; }
+        .tbl-ov-body { flex: 1; overflow: auto; -webkit-overflow-scrolling: touch; padding: 10px; touch-action: pan-x pan-y; }
+        .tbl-ov-body table { margin: 0; width: auto; max-width: none; border-collapse: collapse; font-size: calc(15px * var(--tbl-s, 1)); }
+        .tbl-ov-body td, .tbl-ov-body th { font-size: inherit !important; padding: 5px 9px; }
+
+        /* ===== Bổ sung định dạng TeX2HTML ===== */
+        .tp { margin: 6px 0; }
+        .center { text-align: center; }
+        .lvl { display: inline-block; margin-left: 8px; padding: 1px 10px; border-radius: 12px; border: 1px solid; font-size: 12px; font-weight: bold; line-height: 1.6; white-space: nowrap; vertical-align: middle; cursor: help; }
+        .lvl .dots { letter-spacing: 1px; margin-right: 4px; }
+        .lvl.lv1 { background: #e6f4ea; border-color: #34a853; color: #1b6b32; }
+        .lvl.lv2 { background: #e3f0fb; border-color: #4a90d9; color: #0d47a1; }
+        .lvl.lv3 { background: #fff3e0; border-color: #fb8c00; color: #8a4b00; }
+        .lvl.lv4 { background: #fdeaea; border-color: #e53935; color: #a31515; }
+        .figure svg, .figure img { max-width: 100%; height: auto; }
+        .fig-error { color: #b00020; border: 1px dashed #b00020; padding: 6px 10px; text-align: center; margin: 8px 0; font-size: 14px; }
+        .fbox { border: 1px solid currentColor; padding: 0 4px; }
+        blockquote { margin: 8px 20px; }
+        img { max-width: 100%; height: auto; }
+        ul, ol { margin: 6px 0; padding-left: 24px; }
+        ul.desc, li.cl { list-style: none; }
+        li.cl .lbl { font-weight: bold; margin-right: .4em; }
+        ol[class^="paren-"] { list-style: none; counter-reset: pc; padding-left: 2.2em; }
+        ol[class^="paren-"] > li { counter-increment: pc; position: relative; margin: 4px 0; }
+        ol[class^="paren-"] > li::before { position: absolute; left: -2.2em; width: 2em; text-align: right; font-weight: bold; }
+        ol.paren-a > li::before { content: counter(pc, lower-alpha) ")"; }
+        ol.paren-A > li::before { content: counter(pc, upper-alpha) ")"; }
+        ol.paren-i > li::before { content: counter(pc, lower-roman) ")"; }
+        ol.paren-I > li::before { content: counter(pc, upper-roman) ")"; }
+        ol.paren-1 > li::before { content: counter(pc, decimal) ")"; }
+        table.tex-table { border-collapse: collapse; margin: 8px auto; }
+        table.tex-table td { padding: 4px 10px; }
+        table.tex-table.bordered td { border: 1px solid #555; }
+        .tex-fa { margin: 0 .25em; font-style: normal; }
+
+        @media (max-width: 600px) {
+            main { padding: 10px; } .q { padding: 10px; } .tfc { flex-basis: 100%; }
+            .tbtn { padding: 5px 9px; }
+            .credit { flex-direction: column; align-items: flex-start; justify-content: center; gap: 0; font-size: 11px; padding: 3px 10px; border-radius: 14px; }
+        }
+        @media print {
+            .topbar, .fab, #toTop, .drawer, .veil, .qtools, .rate, .tf-chk, .dsum, .fltnote, .sumsec { display: none !important; }
+            .solution-box.show-print { display: block !important; }
+        }
+    </style>
+
+    <script>
+        window.MathJax = {
+          tex: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'], ['\\[','\\]']], processEscapes: true, macros: {"wideparen": ["\\overset{\\frown}{#1}", 1], "overarc": ["\\overset{\\frown}{#1}", 1]} },
+          startup: { typeset: false },
+          options: { enableMenu: false, ignoreHtmlClass: 'tex2jax_ignore', processHtmlClass: 'tex2jax_process' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+<style>
+.lz-lock { position: fixed; inset: 0; z-index: 100000; display: none; align-items: center; justify-content: center; padding: 14px; background: rgba(0,0,0,.5); }
+.lz-lock.open { display: flex; }
+.lz-lock-box { background: #fff; color: #1c2b3a; width: 100%; max-width: 360px; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,.35); font-family: Arial, sans-serif; }
+.lz-lock-box h4 { margin: 0 0 6px; color: #1565c0; font-size: 18px; }
+.lz-lock-box p { margin: 0 0 12px; font-size: 14px; color: #555; }
+.lz-lock-box input { width: 100%; box-sizing: border-box; padding: 10px; font-size: 16px; border: 2px solid #1e88e5; border-radius: 6px; }
+.lz-lock-box input.bad { border-color: #dc3545; animation: lzshake .3s; }
+.lz-lock-err { min-height: 1.3em; margin: 6px 0 2px; font-size: 13px; color: #dc3545; font-weight: bold; }
+.lz-lock-btns { display: flex; gap: 8px; margin-top: 8px; }
+.lz-lock-btns button { flex: 1; padding: 10px; border: none; border-radius: 6px; font-weight: bold; font-size: 15px; cursor: pointer; color: #fff; background: #1e88e5; }
+.lz-lock-btns button.cancel { background: #6c757d; }
+@keyframes lzshake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+</style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="row">
+            <h1 id="ttl">Th.S Nguyễn Ngọc Kiên - 0987 473 509</h1>
+            <div class="tools">
+                <button type="button" class="tbtn" id="btnToc">☰ Mục lục</button>
+                <button type="button" class="tbtn" id="btnAll">👁 Hiện tất cả lời giải</button>
+                <button type="button" class="tbtn" id="btnSum" hidden>📊 Tổng kết</button>
+            </div>
+        </div>
+        <div class="prow" id="prow" hidden>
+            <span class="ptxt" id="ptxt">Đã làm 0/0 · đúng 0</span>
+            <div class="ptrack"><div class="pfill" id="pfill"></div></div>
+            <select class="fsel" id="fltSel" aria-label="Lọc câu hỏi">
+                <option value="all">Tất cả</option>
+                <option value="todo">Chưa làm</option>
+                <option value="rev">Cần ôn lại</option>
+            </select>
+            <span class="lswarn" id="lsWarn" hidden>⚠ Trình duyệt không cho lưu tiến độ</span>
+        </div>
+    </div>
+
+    <div class="veil" id="veil"></div>
+    <aside class="drawer" id="drawer" aria-label="Mục lục">
+        <div class="dtop"><span>Mục lục</span><button type="button" id="btnTocClose" aria-label="Đóng">✕</button></div>
+        <nav class="toc" id="toc"><a class="l1" href="#sec1">Biểu thức toạ độ của phép toán vectơ</a><a class="l4" style="padding-left:16px;" href="#d1">Dạng 1. Các phép toán tuyến tính</a><a class="l4" style="padding-left:16px;" href="#d2">Dạng 2. Tích vô hướng và ứng dụng</a></nav>
+    </aside>
+
+    <main id="content">
+<div class="lz"><h2 class="hd hd1" id="sec1">Biểu thức toạ độ của phép toán vectơ</h2></div><div class="lz"><div class="dang" id="d1"><div class="dh"><span class="dno">Dạng 1</span><span class="dtt">Các phép toán tuyến tính</span></div><div class="db"><div class="txt"><div class="tp">Cho hai vectơ $\overrightarrow{a} = (x_1; y_1; z_1)$, $\overrightarrow{b} = (x_2; y_2; z_2)$ và số thực $k \in \mathbb{R}$: <ul><li><b>Tổng hai vectơ:</b> $\overrightarrow{a} + \overrightarrow{b} = (x_1 + x_2; \, y_1 + y_2; \, z_1 + z_2)$.</li><li><b>Hiệu hai vectơ:</b> $\overrightarrow{a} - \overrightarrow{b} = (x_1 - x_2; \, y_1 - y_2; \, z_1 - z_2)$.</li><li><b>Tích của một số với một vectơ:</b> $k\overrightarrow{a} = (kx_1; \, ky_1; \, kz_1)$.</li><li><b>Điều kiện hai vectơ cùng phương ($\overrightarrow{b} \neq \overrightarrow{0}$):</b> $\overrightarrow{a} = k\overrightarrow{b} \Leftrightarrow \begin{cases} x_1 = kx_2 \\ y_1 = ky_2 \\ z_1 = kz_2 \end{cases}$ (hay $\dfrac{x_1}{x_2} = \dfrac{y_1}{y_2} = \dfrac{z_1}{z_2}$ nếu $x_2, y_2, z_2 \neq 0$).</li></ul></div></div></div></div></div><div class="lz"><div class="q ex" id="ex1" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 1</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho ba vectơ $\overrightarrow{a} = (2; -1; 3)$, $\overrightarrow{b} = (1; 4; -2)$ và $\overrightarrow{c} = (-3; 2; 1)$. <ol><li>Tìm tọa độ của vectơ $\overrightarrow{u} = \overrightarrow{a} + \overrightarrow{b} - \overrightarrow{c}$;</li><li>Tìm tọa độ của vectơ $\overrightarrow{v} = 2\overrightarrow{a} - 3\overrightarrow{b} + 4\overrightarrow{c}$;</li><li>Tìm tọa độ của vectơ $\overrightarrow{w} = \dfrac{1}{2}\overrightarrow{a} + \dfrac{3}{2}\overrightarrow{c} - \overrightarrow{b}$;</li><li>Tìm $\overrightarrow{x}$ sao cho $2\overrightarrow{x} - 3\overrightarrow{a} = \overrightarrow{b} - 2\overrightarrow{c}$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex2" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 2</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho ba điểm $A(1; -2; 3)$, $B(3; 0; -1)$ và $C(-1; 4; 2)$. <ol><li>Tìm tọa độ các vectơ $\overrightarrow{AB}$, $\overrightarrow{BC}$, $\overrightarrow{AC}$ và kiểm tra lại đẳng thức $\overrightarrow{AB} + \overrightarrow{BC} = \overrightarrow{AC}$;</li><li>Tìm tọa độ của vectơ $\overrightarrow{u} = 2\overrightarrow{AB} - 3\overrightarrow{AC} + \overrightarrow{BC}$;</li><li>Tìm tọa độ điểm $M$ sao cho $\overrightarrow{AM} = 2\overrightarrow{BC} - \overrightarrow{AB}$;</li><li>Tìm tọa độ điểm $N$ sao cho $\overrightarrow{NA} + 2\overrightarrow{NB} - \overrightarrow{NC} = \overrightarrow{0}$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex3" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 3</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho ba vectơ $\overrightarrow{a} = (1; -1; 2)$, $\overrightarrow{b} = (2; 1; -1)$ và $\overrightarrow{c} = (0; -2; 1)$. <ol><li>Tìm các số thực $m$, $n$, $p$ sao cho vectơ $\overrightarrow{d} = (5; 3; -1)$ được biểu diễn dưới dạng $\overrightarrow{d} = m\overrightarrow{a} + n\overrightarrow{b} + p\overrightarrow{c}$;</li><li>Biểu diễn vectơ đơn vị $\overrightarrow{i} = (1; 0; 0)$ theo ba vectơ $\overrightarrow{a}$, $\overrightarrow{b}$, $\overrightarrow{c}$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex4" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 4</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho bốn điểm $A(2; -1; 4)$, $B(4; 3; -2)$, $C(0; 1; 7)$ và $D(-2; 5; 3)$. <ol><li>Tìm tọa độ trung điểm $M$ của đoạn thẳng $AB$ và trung điểm $N$ của đoạn thẳng $CD$;</li><li>Tìm tọa độ trọng tâm $G$ của tam giác $ABC$;</li><li>Tìm tọa độ trọng tâm $I$ của tứ diện $ABCD$;</li><li>Chứng minh rằng $I$ là trung điểm của đoạn thẳng $MN$ và kiểm tra đẳng thức $\overrightarrow{DI} = \dfrac{3}{4}\overrightarrow{DG}$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex5" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 5</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho tam giác $ABC$ biết đỉnh $A(1; 3; -2)$, trung điểm của cạnh $AB$ là điểm $M(2; 1; 0)$ và trọng tâm của tam giác $ABC$ là điểm $G(2; 0; 1)$. <ol><li>Tìm tọa độ các đỉnh $B$ và $C$;</li><li>Tìm tọa độ trung điểm $N$ của cạnh $BC$;</li><li>Tìm tọa độ điểm $E$ sao cho $\overrightarrow{EA} + 2\overrightarrow{EB} = \overrightarrow{0}$;</li><li>Tìm $F$ sao cho $2\overrightarrow{FA} - 3\overrightarrow{FC} = \overrightarrow{FB}$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex6" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 6</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho tứ diện $ABCD$ có $A(1; 0; 2)$, $B(-1; 2; 4)$ và trọng tâm của tứ diện là điểm $I(1; -1; 2)$. Biết rằng trung điểm của cạnh $CD$ là điểm $M$, hãy tìm tọa độ của điểm $M$ và tìm tọa độ đỉnh $D$ khi biết $C(3; -4; 1)$.</div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex7" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 7</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho ba điểm $A(1; 2; -1)$, $B(3; -1; 2)$ và $C(2; 3; 4)$. <ol><li>Tìm tọa độ điểm $D$ sao cho $ABCD$ là hình bình hành. Tìm tọa độ tâm $I$ của hình bình hành đó;</li><li>Tìm tọa độ điểm $E$ sao cho tứ giác $ABEC$ là hình bình hành;</li><li>Tìm tọa độ điểm $M$ thuộc mặt phẳng $(Oxy)$ và điểm $N$ thuộc trục $Oz$ sao cho tứ giác $AMBN$ là hình bình hành.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex8" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 8</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho hình hộp $ABCD.A'B'C'D'$ có tọa độ các đỉnh $A(1; 0; 1)$, $B(2; 1; 2)$, $D(1; -1; 1)$ và $C'(4; 5; -5)$. <ol><li>Tìm tọa độ đỉnh $C$ ở mặt đáy $ABCD$;</li><li>Tìm tọa độ các đỉnh còn lại $A'$, $B'$, $D'$ của hình hộp;</li><li>Tìm tọa độ tâm $O'$ của hình hộp $ABCD.A'B'C'D'$;</li><li>Tìm tọa độ trọng tâm $G$ của tam giác $A'BD$ và chứng minh $\overrightarrow{AC'} = 3\overrightarrow{AG}$.</li></ol></div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='132.367014pt' height='110.294217pt' viewBox='-69.011212 -69.011208 132.367014 110.294217'>
+<defs>
+<path id='g0-48' d='M1.876961-2.809465C1.918804-2.899128 1.93076-2.964882 1.93076-3.000747C1.93076-3.186052 1.763387-3.341469 1.566127-3.341469C1.327024-3.341469 1.255293-3.132254 1.231382-3.048568L.394521-.490162C.382565-.454296 .364633-.406476 .364633-.382565C.364633-.280946 .603736-.233126 .609714-.233126C.663512-.233126 .687422-.286924 .711333-.334745L1.876961-2.809465Z'/>
+<path id='g1-65' d='M1.474471-.948443C1.107846-.366625 .781071-.286924 .494147-.263014C.414446-.255044 .318804-.247073 .318804-.111582C.318804-.087671 .334745 0 .430386 0C.502117 0 .549938-.02391 1.107846-.02391C1.649813-.02391 1.833126 0 1.872976 0S2.032379 0 2.032379-.151432C2.032379-.255044 1.928767-.263014 1.888917-.263014C1.721544-.270984 1.554172-.334745 1.554172-.510087C1.554172-.629639 1.617933-.73325 1.769365-.964384L2.311333-1.841096H4.495143L4.662516-.494147C4.662516-.382565 4.519054-.263014 4.144458-.263014C4.024907-.263014 3.921295-.263014 3.921295-.111582C3.921295-.103611 3.929265 0 4.056787 0C4.136488 0 4.439352-.01594 4.511083-.02391H5.0132C5.730511-.02391 5.866002 0 5.929763 0C5.961644 0 6.089166 0 6.089166-.151432C6.089166-.263014 5.985554-.263014 5.858032-.263014C5.419676-.263014 5.411706-.334745 5.387796-.533998L4.758157-5.459527C4.734247-5.634869 4.726276-5.69066 4.590785-5.69066C4.447323-5.69066 4.399502-5.610959 4.351681-5.531258L1.474471-.948443ZM2.478705-2.10411L4.128518-4.726276L4.463263-2.10411H2.478705Z'/>
+<path id='g1-66' d='M1.346949-.629639C1.275218-.326775 1.259278-.263014 .669489-.263014C.518057-.263014 .422416-.263014 .422416-.111582C.422416 0 .526027 0 .661519 0H3.618431C4.933499 0 5.913823-.932503 5.913823-1.705604C5.913823-2.287422 5.411706-2.757659 4.614695-2.84533C5.539228-3.020672 6.336239-3.626401 6.336239-4.327771C6.336239-4.925529 5.754421-5.443587 4.750187-5.443587H1.968618C1.825156-5.443587 1.721544-5.443587 1.721544-5.292154C1.721544-5.180573 1.817186-5.180573 1.952677-5.180573C2.215691-5.180573 2.446824-5.180573 2.446824-5.053051C2.446824-5.021171 2.438854-5.0132 2.414944-4.909589L1.346949-.629639ZM2.590286-2.940971L3.076463-4.885679C3.148194-5.156663 3.156164-5.180573 3.482939-5.180573H4.630635C5.411706-5.180573 5.587049-4.670486 5.587049-4.343711C5.587049-3.666252 4.861768-2.940971 3.841594-2.940971H2.590286ZM2.040349-.263014C1.968618-.278954 1.944707-.278954 1.944707-.334745C1.944707-.398506 1.960648-.462267 1.976588-.510087L2.534496-2.717808H4.152428C4.893649-2.717808 5.140722-2.215691 5.140722-1.769365C5.140722-.988294 4.375592-.263014 3.419178-.263014H2.040349Z'/>
+<path id='g1-67' d='M6.344209-5.395766C6.352179-5.427646 6.36812-5.475467 6.36812-5.515318C6.36812-5.571108 6.320299-5.610959 6.264508-5.610959S6.184807-5.587049 6.121046-5.515318L5.563138-4.901619C5.491407-5.00523 5.068991-5.610959 4.136488-5.610959C2.287422-5.610959 .422416-3.897385 .422416-2.064259C.422416-.67746 1.474471 .167372 2.741719 .167372C3.785803 .167372 4.670486-.470237 5.100872-1.091905C5.363885-1.482441 5.467497-1.865006 5.467497-1.912827C5.467497-1.984558 5.419676-2.016438 5.347945-2.016438C5.252304-2.016438 5.236364-1.976588 5.212453-1.888917C4.877709-.789041 3.801743-.095641 2.84533-.095641C2.032379-.095641 1.179577-.573848 1.179577-1.793275C1.179577-2.048319 1.267248-3.379328 2.15193-4.375592C2.749689-5.045081 3.56264-5.347945 4.192279-5.347945C5.196513-5.347945 5.610959-4.542964 5.610959-3.785803C5.610959-3.674222 5.579078-3.52279 5.579078-3.427148C5.579078-3.323537 5.68269-3.323537 5.71457-3.323537C5.818182-3.323537 5.834122-3.355417 5.866002-3.498879L6.344209-5.395766Z'/>
+<path id='g1-68' d='M1.331009-.629639C1.259278-.326775 1.243337-.263014 .653549-.263014C.502117-.263014 .406476-.263014 .406476-.111582C.406476 0 .510087 0 .645579 0H3.387298C5.068991 0 6.742715-1.609963 6.742715-3.387298C6.742715-4.606725 5.929763-5.443587 4.742217-5.443587H1.952677C1.809215-5.443587 1.705604-5.443587 1.705604-5.292154C1.705604-5.180573 1.801245-5.180573 1.936737-5.180573C2.199751-5.180573 2.430884-5.180573 2.430884-5.053051C2.430884-5.021171 2.422914-5.0132 2.399004-4.909589L1.331009-.629639ZM3.092403-4.885679C3.164134-5.156663 3.172105-5.180573 3.498879-5.180573H4.463263C5.395766-5.180573 6.025405-4.646575 6.025405-3.674222C6.025405-3.411208 5.913823-2.11208 5.220423-1.219427C4.869738-.773101 4.184309-.263014 3.243836-.263014H2.056289C1.984558-.278954 1.960648-.278954 1.960648-.334745C1.960648-.398506 1.976588-.462267 1.992528-.510087L3.092403-4.885679Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(-25.22713,3.487091)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M-29.87444-25.6067L0 0H59.74919M0 0L12.8035 59.74919' fill='none'/>
+</g>
+<path d='M-29.87444-25.6067L29.87395-25.60602L59.74919 0M-29.87444-25.6067L-17.07047 34.14157M29.87395-25.60602L42.6763 34.14226M59.74919 0L72.55075 59.74759' fill='none'/>
+<path d='M12.8035 59.74919L72.55075 59.74759L42.6763 34.14226L-17.07047 34.14157Z' fill='none'/>
+<path d='M.9 0C.9 .49706 .49706 .9 0 .9S-.9 .49706-.9 0S-.49706-.9 0-.9S.9-.49706 .9 0ZM0 0' stroke='none'/>
+<g transform='translate(-9.89891,3.53215)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-25.22713,3.487091)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-25.22713' y='3.487091' xlink:href='#g1-65'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M60.64919 0C60.64919 .49706 60.24625 .9 59.74919 .9C59.25214 .9 58.8492 .49706 58.8492 0S59.25214-.9 59.74919-.9C60.24625-.9 60.64919-.49706 60.64919 0ZM59.74919 0' stroke='none'/>
+<g transform='translate(63.28134,-2.73332)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-25.22713,3.487091)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-25.22713' y='3.487091' xlink:href='#g1-66'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M30.77394-25.60602C30.77394-25.10896 30.371-24.70602 29.87395-24.70602C29.37689-24.70602 28.97395-25.10896 28.97395-25.60602C28.97395-26.10307 29.37689-26.50601 29.87395-26.50601C30.371-26.50601 30.77394-26.10307 30.77394-25.60602ZM29.87395-25.60602' stroke='none'/>
+<g transform='translate(33.4061,-34.60481)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-25.22713,3.487091)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-25.22713' y='3.487091' xlink:href='#g1-67'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M-28.97444-25.6067C-28.97444-25.10965-29.37738-24.70671-29.87444-24.70671C-30.37149-24.70671-30.77443-25.10965-30.77443-25.6067C-30.77443-26.10376-30.37149-26.5067-29.87444-26.5067C-29.37738-26.5067-28.97444-26.10376-28.97444-25.6067ZM-29.87444-25.6067' stroke='none'/>
+<g transform='translate(-40.61612,-34.6055)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-25.22713,3.487091)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-25.22713' y='3.487091' xlink:href='#g1-68'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M13.70349 59.74919C13.70349 60.24625 13.30055 60.64919 12.8035 60.64919C12.30644 60.64919 11.9035 60.24625 11.9035 59.74919C11.9035 59.25214 12.30644 58.8492 12.8035 58.8492C13.30055 58.8492 13.70349 59.25214 13.70349 59.74919ZM12.8035 59.74919' stroke='none'/>
+<g transform='translate(0.21016,63.28134)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-25.22713,3.487091)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-25.22713' y='3.487091' xlink:href='#g1-65'/>
+<use x='-18.884156' y='.674305' xlink:href='#g0-48'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M73.45074 59.74759C73.45074 60.24464 73.0478 60.64758 72.55075 60.64758S71.65076 60.24464 71.65076 59.74759C71.65076 59.25053 72.0537 58.8476 72.55075 58.8476S73.45074 59.25053 73.45074 59.74759ZM72.55075 59.74759' stroke='none'/>
+<g transform='translate(76.0829,63.27974)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-25.22713,3.487091)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-25.22713' y='3.487091' xlink:href='#g1-66'/>
+<use x='-18.446922' y='.674305' xlink:href='#g0-48'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M43.5763 34.14226C43.5763 34.63931 43.17336 35.04225 42.6763 35.04225S41.7763 34.63931 41.7763 34.14226C41.7763 33.6452 42.17924 33.24226 42.6763 33.24226S43.5763 33.6452 43.5763 34.14226ZM42.6763 34.14226' stroke='none'/>
+<g transform='translate(46.20845,31.06392)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-25.22713,3.487091)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-25.22713' y='3.487091' xlink:href='#g1-67'/>
+<use x='-18.628462' y='.674305' xlink:href='#g0-48'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M-16.17047 34.14157C-16.17047 34.63863-16.57341 35.04156-17.07047 35.04156C-17.56752 35.04156-17.97046 34.63863-17.97046 34.14157C-17.97046 33.64452-17.56752 33.24158-17.07047 33.24158C-16.57341 33.24158-16.17047 33.64452-16.17047 34.14157ZM-17.07047 34.14157' stroke='none'/>
+<g transform='translate(-30.50658,31.06323)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-25.22713,3.487091)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-25.22713' y='3.487091' xlink:href='#g1-68'/>
+<use x='-18.044531' y='.674305' xlink:href='#g0-48'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex9" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 9</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho hình lăng trụ tam giác $ABC.A'B'C'$ có $A(1; 2; -1)$, $B(0; 3; 2)$, $C(-2; 1; 1)$ và đỉnh $B'(2; -1; 5)$. <ol><li>Tìm tọa độ các đỉnh $A'$ và $C'$;</li><li>Tìm tọa độ trung điểm $I$ của đoạn thẳng nối hai trọng tâm của hai đáy $ABC$ và $A'B'C'$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex10" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 10</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, giải quyết các bài toán về hai vectơ cùng phương sau: <ol><li>Tìm các số thực $m$ và $n$ để hai vectơ $\overrightarrow{u} = (2; m - 1; 3)$ và $\overrightarrow{v} = (-4; 6; n + 1)$ cùng phương;</li><li>Cho $\overrightarrow{a} = (1; -2; 3)$ và $\overrightarrow{b} = (-3; 6; -9)$. Hai vectơ $\overrightarrow{a}$ và $\overrightarrow{b}$ cùng hướng hay ngược hướng? Vì sao?</li><li>Tìm tất cả các giá trị thực của $m$ để hai vectơ $\overrightarrow{p} = (m; 2; -1)$ và $\overrightarrow{q} = (8; m; -2)$ cùng hướng.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex11" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 11</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, xét tính thẳng hàng của các điểm trong mỗi trường hợp sau: <ol><li>Kiểm tra xem ba điểm $A(1; -2; 3)$, $B(3; 2; -1)$ và $C(2; 0; 1)$ có thẳng hàng hay không;</li><li>Chứng minh rằng ba điểm $D(1; 1; 1)$, $E(2; 3; 0)$, $F(4; 7; -1)$ là ba đỉnh của một tam giác;</li><li>Tìm các số thực $x$, $y$ để ba điểm $M(1; 2; -1)$, $N(3; -1; 2)$ và $P(x; y; 5)$ thẳng hàng.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex12" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 12</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho hai điểm $A(2; -1; 4)$ và $B(5; 2; -2)$. <ol><li>Tìm tọa độ giao điểm $M$ của đường thẳng $AB$ với mặt phẳng tọa độ $(Oxy)$;</li><li>Tương tự, tìm tọa độ giao điểm $N$ và $P$ của đường thẳng $AB$ lần lượt với hai mặt phẳng tọa độ $(Oyz)$ và $(Ozx)$;</li><li>Tìm tọa độ điểm $E$ thuộc trục $Ox$ và điểm $F$ thuộc mặt phẳng $(Oyz)$ sao cho đường thẳng $EF$ đi qua điểm $A$ và thỏa mãn $\overrightarrow{EA} = 2\overrightarrow{AF}$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex13" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 13</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$ với gốc $O$ đặt tại đài kiểm soát không lưu (đơn vị trên mỗi trục là kilômét), một thiết bị bay khảo sát xuất phát từ vị trí $A(2; 1; 0{,}5)$, bay thẳng đều theo một hướng cố định và sau $2$ giờ thì đến vị trí $B(10; 7; 1{,}3)$. <ol><li>Tìm tọa độ vectơ độ dịch chuyển $\overrightarrow{AB}$ và suy ra tọa độ vectơ vận tốc $\overrightarrow{v}$ của thiết bị bay (tính theo đơn vị km/h);</li><li>Nếu giữ nguyên hướng bay và tốc độ, hãy xác định tọa độ vị trí $M$ của thiết bị bay sau $5$ giờ kể từ lúc xuất phát tại $A$;</li><li>Tại thời điểm thiết bị bay ở vị trí $B$, trạm radar phát hiện một khí cầu thời tiết đang đứng yên tại vị trí $C(16; 11{,}5; 1{,}9)$. Hỏi nếu tiếp tục bay thẳng, thiết bị bay có va chạm với khí cầu tại $C$ hay không? Nếu có, sự cố xảy ra sau bao lâu kể từ lúc ở vị trí $B$?</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex14" data-kind="essay" data-dang="d1"><div class="eh"><span class="el">Câu 14</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, một chất điểm đặt tại vị trí cân bằng chịu tác dụng đồng thời của ba lực $\overrightarrow{F}_1 = (30; -20; 10)$, $\overrightarrow{F}_2 = (-10; 50; 20)$ và $\overrightarrow{F}_3 = (20; -10; -40)$ (đơn vị trên các trục tính bằng Newton). <ol><li>Tìm tọa độ của hợp lực $\overrightarrow{F} = \overrightarrow{F}_1 + \overrightarrow{F}_2 + \overrightarrow{F}_3$ tác dụng lên chất điểm;</li><li>Để giữ cho chất điểm đứng yên ở trạng thái cân bằng tĩnh ($\overrightarrow{F}_1 + \overrightarrow{F}_2 + \overrightarrow{F}_3 + \overrightarrow{F}_4 = \overrightarrow{0}$), người ta cần tác dụng thêm một lực thứ tư $\overrightarrow{F}_4$. Tìm tọa độ của lực $\overrightarrow{F}_4$;</li><li>Một chiếc giá đỡ máy trắc địa có ba chân đặt trên mặt phẳng nằm ngang $(Oxy)$ tại các vị trí $A(0{,}6; 0; 0)$, $B(-0{,}3; 0{,}5; 0)$, $C(-0{,}3; -0{,}5; 0)$ và đỉnh hội tụ của giá đỡ ở vị trí $S(0; 0; 1{,}2)$ (đơn vị: mét). Tìm tọa độ trọng tâm $G$ của tam giác đáy $ABC$ và chứng minh rằng đường thẳng nối đỉnh $S$ với trọng tâm $G$ vuông góc với mặt đất $(Oxy)$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="dang" id="d2"><div class="dh"><span class="dno">Dạng 2</span><span class="dtt">Tích vô hướng và ứng dụng</span></div><div class="db"><div class="txt"><ul><li><b>Tích vô hướng của hai vectơ:</b> $\overrightarrow{a} \cdot \overrightarrow{b} = x_1x_2 + y_1y_2 + z_1z_2$.</li><li><b>Độ dài (môđun) của vectơ:</b> $|\overrightarrow{a}| = \sqrt{x_1^2 + y_1^2 + z_1^2}$.</li><li><b>Góc giữa hai vectơ ($\overrightarrow{a}, \overrightarrow{b} \neq \overrightarrow{0}$):</b> $\cos(\overrightarrow{a}, \overrightarrow{b}) = \dfrac{\overrightarrow{a} \cdot \overrightarrow{b}}{|\overrightarrow{a}| \cdot |\overrightarrow{b}|} = \dfrac{x_1x_2 + y_1y_2 + z_1z_2}{\sqrt{x_1^2 + y_1^2 + z_1^2} \cdot \sqrt{x_2^2 + y_2^2 + z_2^2}}$.</li><li><b>Điều kiện hai vectơ vuông góc:</b> $\overrightarrow{a} \perp \overrightarrow{b} \Leftrightarrow \overrightarrow{a} \cdot \overrightarrow{b} = 0 \Leftrightarrow x_1x_2 + y_1y_2 + z_1z_2 = 0$.</li></ul></div></div></div></div><div class="lz"><div class="q ex" id="ex15" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 1</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho ba điểm $A(1; 2; -1)$, $B(3; 1; 1)$ và $C(2; 4; 1)$. <ol><li>Tính các tích vô hướng $\overrightarrow{AB} \cdot \overrightarrow{AC}$ và $\overrightarrow{BA} \cdot \overrightarrow{BC}$;</li><li>Tính độ dài các cạnh $AB$, $AC$, $BC$ và suy ra chu vi của tam giác $ABC$;</li><li>Gọi $M$ là trung điểm của cạnh $BC$. Tính độ dài đường trung tuyến $AM$ của tam giác $ABC$;</li><li>Cho hai vectơ $\overrightarrow{a}$ và $\overrightarrow{b}$ thỏa mãn $|\overrightarrow{a}| = 3$, $|\overrightarrow{b}| = 4$ và $\overrightarrow{a} \cdot \overrightarrow{b} = -6$. Tính độ dài của vectơ $\overrightarrow{c} = 2\overrightarrow{a} + 3\overrightarrow{b}$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex16" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 2</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho điểm $M(3; -4; 12)$. <ol><li>Tính khoảng cách từ điểm $M$ đến gốc tọa độ $O$;</li><li>Tính khoảng cách từ điểm $M$ đến từng mặt phẳng tọa độ $(Oxy)$, $(Oyz)$, $(Ozx)$;</li><li>Tính khoảng cách từ điểm $M$ đến từng trục tọa độ $Ox$, $Oy$, $Oz$;</li><li>Tìm tất cả các giá trị thực của tham số $m$ để điểm $N(2; m - 1; -3)$ cách trục $Oy$ một khoảng bằng $\sqrt{13}$ và cách mặt phẳng $(Ozx)$ một khoảng bằng $2$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex17" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 3</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$. <ol><li>Tìm $m$ để hai vectơ $\overrightarrow{u} = (m; -2; m + 1)$ và $\overrightarrow{v} = (3; m - 4; -1)$ vuông góc với nhau;</li><li>Cho hai vectơ $\overrightarrow{a} = (1; -2; 1)$ và $\overrightarrow{b} = (2; 1; -1)$. Tìm $k$ sao cho vectơ $\overrightarrow{u} = \overrightarrow{a} + k\overrightarrow{b}$ vuông góc với vectơ $\overrightarrow{c} = (3; -1; 2)$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex18" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 4</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho ba điểm $A(1; 2; 0)$, $B(3; 0; -2)$ và $C(2; 4; -1)$. <ol><li>Chứng minh rằng tam giác $ABC$ là tam giác vuông tại $A$. Tính diện tích của tam giác $ABC$;</li><li>Tìm tọa độ tâm $I$ và bán kính $R$ của đường tròn ngoại tiếp tam giác $ABC$;</li><li>Cho điểm $D(m; m + 1; -3)$. Tìm giá trị của tham số $m$ để đường thẳng $AD$ vuông góc với đường thẳng $BC$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex19" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 5</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho hai vectơ $\overrightarrow{a} = (2; -1; 1)$ và $\overrightarrow{b} = (1; 1; -2)$. <ol><li>Tìm tọa độ vectơ $\overrightarrow{u} = (x; y; 3)$ biết $\overrightarrow{u}$ đồng thời vuông góc với cả hai vectơ $\overrightarrow{a}$ và $\overrightarrow{b}$;</li><li>Tìm tọa độ vectơ $\overrightarrow{v}$ biết $\overrightarrow{v}$ vuông góc với cả hai vectơ $\overrightarrow{a}$ và $\overrightarrow{b}$, đồng thời có độ dài $|\overrightarrow{v}| = 3\sqrt{3}$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex20" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 6</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, tính côsin và số đo góc giữa các cặp vectơ trong mỗi trường hợp sau: <ol><li>$\overrightarrow{u} = (1; 1; 0)$ và $\overrightarrow{v} = (1; 0; 1)$;</li><li>$\overrightarrow{a} = (2; -1; 1)$ và $\overrightarrow{b} = (-1; 1; 3)$;</li><li>$\overrightarrow{p} = (1; \sqrt{2}; 1)$ và $\overrightarrow{q} = (-1; \sqrt{2}; -1)$;</li><li>Vectơ $\overrightarrow{w} = (2; -2; 1)$ và các vectơ $\overrightarrow{i}$, $\overrightarrow{j}$, $\overrightarrow{k}$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex21" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 7</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho tam giác $ABC$ có ba đỉnh $A(1; 2; -1)$, $B(3; 1; 1)$ và $C(-3; 4; 3)$. <ol><li>Tính côsin của các góc $\widehat{A}$, $\widehat{B}$, $\widehat{C}$ của tam giác $ABC$;</li><li>Gọi $AD$ là đường phân giác trong của góc $\widehat{BAC}$ ($D \in BC$). Tìm tọa độ điểm $D$ và tính độ dài đoạn phân giác $AD$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex22" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 8</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho hai vectơ $\overrightarrow{u} = (1; m; -1)$ và $\overrightarrow{v} = (2; -1; 2)$. <ol><li>Tìm tất cả các giá trị thực của tham số $m$ để góc giữa hai vectơ $\overrightarrow{u}$ và $\overrightarrow{v}$ bằng $45^\circ$;</li><li>Tìm điều kiện của tham số $m$ để góc giữa hai vectơ $\overrightarrow{u}$ và $\overrightarrow{v}$ là một góc tù.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex23" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 9</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho hai điểm $A(2; -1; 3)$ và $B(4; 3; -1)$. <ol><li>Tìm tọa độ điểm $M$ thuộc trục $Ox$ sao cho $M$ cách đều hai điểm $A$ và $B$ ($MA = MB$);</li><li>Tìm tọa độ điểm $N$ thuộc trục $Oy$ sao cho khoảng cách từ $N$ đến điểm $A$ bằng $\sqrt{14}$;</li><li>Tìm tọa độ điểm $P$ thuộc trục $Oz$ sao cho tam giác $PAB$ vuông tại $P$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex24" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 10</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho ba điểm $A(2; 0; 1)$, $B(0; 4; 3)$ và $C(2; 4; -1)$. <ol><li>Tìm tọa độ điểm $I$ thuộc mặt phẳng $(Oxy)$ sao cho $I$ cách đều ba điểm $A$, $B$, $C$;</li><li>Tìm tọa độ điểm $K$ thuộc mặt phẳng $(Oyz)$ sao cho tam giác $ABK$ vuông cân tại $A$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex25" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 11</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho tam giác $ABC$ có các đỉnh $A(1; 2; 3)$, $B(0; 1; 1)$ và $C(2; 3; 1)$. Gọi $H$ là chân đường cao kẻ từ đỉnh $A$ xuống cạnh $BC$. <ol><li>Gọi $\overrightarrow{BH} = t\overrightarrow{BC}$ ($t \in \mathbb{R}$), hãy biểu diễn tọa độ của điểm $H$ và vectơ $\overrightarrow{AH}$ theo tham số $t$;</li><li>Dựa vào điều kiện $\overrightarrow{AH} \cdot \overrightarrow{BC} = 0$, hãy tìm $t$, từ đó suy ra tọa độ chân đường cao $H$ và tính diện tích tam giác $ABC$;</li><li>Tìm tọa độ trực tâm $K$ của tam giác $ABC$.</li></ol></div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='123.430247pt' height='87.213021pt' viewBox='-69.011212 -69.011213 123.430247 87.213021'>
+<defs>
+<path id='g0-65' d='M1.474471-.948443C1.107846-.366625 .781071-.286924 .494147-.263014C.414446-.255044 .318804-.247073 .318804-.111582C.318804-.087671 .334745 0 .430386 0C.502117 0 .549938-.02391 1.107846-.02391C1.649813-.02391 1.833126 0 1.872976 0S2.032379 0 2.032379-.151432C2.032379-.255044 1.928767-.263014 1.888917-.263014C1.721544-.270984 1.554172-.334745 1.554172-.510087C1.554172-.629639 1.617933-.73325 1.769365-.964384L2.311333-1.841096H4.495143L4.662516-.494147C4.662516-.382565 4.519054-.263014 4.144458-.263014C4.024907-.263014 3.921295-.263014 3.921295-.111582C3.921295-.103611 3.929265 0 4.056787 0C4.136488 0 4.439352-.01594 4.511083-.02391H5.0132C5.730511-.02391 5.866002 0 5.929763 0C5.961644 0 6.089166 0 6.089166-.151432C6.089166-.263014 5.985554-.263014 5.858032-.263014C5.419676-.263014 5.411706-.334745 5.387796-.533998L4.758157-5.459527C4.734247-5.634869 4.726276-5.69066 4.590785-5.69066C4.447323-5.69066 4.399502-5.610959 4.351681-5.531258L1.474471-.948443ZM2.478705-2.10411L4.128518-4.726276L4.463263-2.10411H2.478705Z'/>
+<path id='g0-66' d='M1.346949-.629639C1.275218-.326775 1.259278-.263014 .669489-.263014C.518057-.263014 .422416-.263014 .422416-.111582C.422416 0 .526027 0 .661519 0H3.618431C4.933499 0 5.913823-.932503 5.913823-1.705604C5.913823-2.287422 5.411706-2.757659 4.614695-2.84533C5.539228-3.020672 6.336239-3.626401 6.336239-4.327771C6.336239-4.925529 5.754421-5.443587 4.750187-5.443587H1.968618C1.825156-5.443587 1.721544-5.443587 1.721544-5.292154C1.721544-5.180573 1.817186-5.180573 1.952677-5.180573C2.215691-5.180573 2.446824-5.180573 2.446824-5.053051C2.446824-5.021171 2.438854-5.0132 2.414944-4.909589L1.346949-.629639ZM2.590286-2.940971L3.076463-4.885679C3.148194-5.156663 3.156164-5.180573 3.482939-5.180573H4.630635C5.411706-5.180573 5.587049-4.670486 5.587049-4.343711C5.587049-3.666252 4.861768-2.940971 3.841594-2.940971H2.590286ZM2.040349-.263014C1.968618-.278954 1.944707-.278954 1.944707-.334745C1.944707-.398506 1.960648-.462267 1.976588-.510087L2.534496-2.717808H4.152428C4.893649-2.717808 5.140722-2.215691 5.140722-1.769365C5.140722-.988294 4.375592-.263014 3.419178-.263014H2.040349Z'/>
+<path id='g0-67' d='M6.344209-5.395766C6.352179-5.427646 6.36812-5.475467 6.36812-5.515318C6.36812-5.571108 6.320299-5.610959 6.264508-5.610959S6.184807-5.587049 6.121046-5.515318L5.563138-4.901619C5.491407-5.00523 5.068991-5.610959 4.136488-5.610959C2.287422-5.610959 .422416-3.897385 .422416-2.064259C.422416-.67746 1.474471 .167372 2.741719 .167372C3.785803 .167372 4.670486-.470237 5.100872-1.091905C5.363885-1.482441 5.467497-1.865006 5.467497-1.912827C5.467497-1.984558 5.419676-2.016438 5.347945-2.016438C5.252304-2.016438 5.236364-1.976588 5.212453-1.888917C4.877709-.789041 3.801743-.095641 2.84533-.095641C2.032379-.095641 1.179577-.573848 1.179577-1.793275C1.179577-2.048319 1.267248-3.379328 2.15193-4.375592C2.749689-5.045081 3.56264-5.347945 4.192279-5.347945C5.196513-5.347945 5.610959-4.542964 5.610959-3.785803C5.610959-3.674222 5.579078-3.52279 5.579078-3.427148C5.579078-3.323537 5.68269-3.323537 5.71457-3.323537C5.818182-3.323537 5.834122-3.355417 5.866002-3.498879L6.344209-5.395766Z'/>
+<path id='g0-72' d='M6.36812-4.798007C6.447821-5.108842 6.463761-5.180573 7.021669-5.180573C7.204981-5.180573 7.300623-5.180573 7.300623-5.332005C7.300623-5.339975 7.292653-5.443587 7.165131-5.443587C7.013699-5.443587 6.822416-5.427646 6.670984-5.419676H6.168867C5.403736-5.419676 5.196513-5.443587 5.140722-5.443587C5.108842-5.443587 4.98132-5.443587 4.98132-5.292154C4.98132-5.180573 5.084932-5.180573 5.212453-5.180573C5.475467-5.180573 5.7066-5.180573 5.7066-5.053051C5.7066-5.021171 5.69863-5.0132 5.67472-4.909589L5.196513-2.964882H2.630137L3.092403-4.821918C3.164134-5.108842 3.180075-5.180573 3.761893-5.180573C3.921295-5.180573 4.016936-5.180573 4.016936-5.332005C4.016936-5.339975 4.008966-5.443587 3.881445-5.443587C3.730012-5.443587 3.53873-5.427646 3.387298-5.419676H2.885181C2.12005-5.419676 1.912827-5.443587 1.857036-5.443587C1.825156-5.443587 1.697634-5.443587 1.697634-5.292154C1.697634-5.180573 1.801245-5.180573 1.928767-5.180573C2.191781-5.180573 2.422914-5.180573 2.422914-5.053051C2.422914-5.021171 2.414944-5.0132 2.391034-4.909589L1.323039-.629639C1.251308-.326775 1.235367-.263014 .645579-.263014C.494147-.263014 .398506-.263014 .398506-.111582C.398506-.079701 .422416 0 .526027 0C.67746 0 .868742-.01594 1.020174-.02391H1.530262C2.295392-.02391 2.502615 0 2.558406 0C2.606227 0 2.717808 0 2.717808-.151432C2.717808-.263014 2.614197-.263014 2.478705-.263014C2.454795-.263014 2.311333-.263014 2.175841-.278954C2.008468-.294894 1.992528-.318804 1.992528-.390535C1.992528-.430386 2.008468-.478207 2.016438-.518057L2.558406-2.701868H5.124782C4.893649-1.761395 4.582814-.518057 4.574844-.518057C4.503113-.270984 4.359651-.270984 3.881445-.263014C3.785803-.263014 3.682192-.263014 3.682192-.111582C3.682192-.079701 3.706102 0 3.809714 0C3.961146 0 4.152428-.01594 4.303861-.02391H4.813948C5.579078-.02391 5.786301 0 5.842092 0C5.889913 0 6.001494 0 6.001494-.151432C6.001494-.263014 5.897883-.263014 5.762391-.263014C5.738481-.263014 5.595019-.263014 5.459527-.278954C5.292154-.294894 5.276214-.318804 5.276214-.390535C5.276214-.430386 5.292154-.478207 5.300125-.518057L6.36812-4.798007Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(-55.392346,5.916929)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<path d='M36.27579 62.87817L0 0H96.73546Z' fill='none'/>
+<path d='M36.27579 62.87817V0' fill='none'/>
+<path d='M36.27579 0V6.04623H42.32202V0ZM42.32202 6.04623' fill='none'/>
+<path d='M37.29579 62.87817C37.29579 63.44151 36.83913 63.89818 36.27579 63.89818S35.25578 63.44151 35.25578 62.87817S35.71245 61.85817 36.27579 61.85817S37.29579 62.31483 37.29579 62.87817ZM36.27579 62.87817' stroke='none'/>
+<g transform='translate(33.0924,66.41032)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-55.392346,5.916929)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-55.392346' y='5.916929' xlink:href='#g0-65'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M1.02 0C1.02 .56334 .56334 1.02 0 1.02S-1.02 .56334-1.02 0S-.56334-1.02 0-1.02S1.02-.56334 1.02 0ZM0 0' stroke='none'/>
+<g transform='translate(-10.33778,-8.9988)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-55.392346,5.916929)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-55.392346' y='5.916929' xlink:href='#g0-66'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M97.75546 0C97.75546 .56334 97.2988 1.02 96.73546 1.02S95.71545 .56334 95.71545 0S96.17212-1.02 96.73546-1.02S97.75546-.56334 97.75546 0ZM96.73546 0' stroke='none'/>
+<g transform='translate(100.26761,-8.9988)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-55.392346,5.916929)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-55.392346' y='5.916929' xlink:href='#g0-67'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M37.29579 0C37.29579 .56334 36.83913 1.02 36.27579 1.02S35.25578 .56334 35.25578 0S35.71245-1.02 36.27579-1.02S37.29579-.56334 37.29579 0ZM36.27579 0' stroke='none'/>
+<g transform='translate(32.47644,-8.9988)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-55.392346,5.916929)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-55.392346' y='5.916929' xlink:href='#g0-72'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex26" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 12</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho ba điểm $A(1; -2; 3)$, $B(2; 4; -1)$ và $C(3; 1; 4)$. <ol><li>Tìm tọa độ điểm $M$ thuộc mặt phẳng $(Oxy)$ sao cho biểu thức $T = \left|\overrightarrow{MA} + \overrightarrow{MB} + \overrightarrow{MC}\right|$ đạt giá trị nhỏ nhất và tính giá trị nhỏ nhất đó;</li><li>Tìm tọa độ điểm $N$ thuộc trục $Oz$ sao cho biểu thức $P = \left|2\overrightarrow{NA} + \overrightarrow{NB} - \overrightarrow{NC}\right|$ đạt giá trị nhỏ nhất;</li><li>Tìm tọa độ điểm $E$ thuộc mặt phẳng $(Oxy)$ sao cho $S = EA^2 + EB^2 + EC^2$ đạt giá trị nhỏ nhất.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex27" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 13</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho hai điểm $A(1; 2; 2)$ và $B(5; 6; 4)$. <ol><li>Nhận xét vị trí của hai điểm $A$ và $B$ đối với mặt phẳng tọa độ $(Oxy)$. Tìm tọa độ điểm $A'$ đối xứng với $A$ qua mặt phẳng $(Oxy)$;</li><li>Tìm tọa độ điểm $M$ thuộc mặt phẳng $(Oxy)$ sao cho $MA + MB$ đạt giá trị nhỏ nhất và tính giá trị nhỏ nhất đó;</li><li>Tìm tọa độ điểm $N$ thuộc mặt phẳng $(Oxy)$ sao cho $\left|NA - NB\right|$ đạt giá trị lớn nhất;</li><li>Tìm tọa độ điểm $P$ thuộc mặt phẳng $(Oxy)$ sao cho tích vô hướng $\overrightarrow{PA} \cdot \overrightarrow{PB}$ đạt giá trị nhỏ nhất.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex28" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 14</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho bốn điểm $A(2; 4; -2)$, $B(3; -1; 4)$, $C(0; 6; 2)$ và $D(4; 2; 6)$. <ol><li>Tìm điểm $M$ thuộc mặt phẳng tọa độ $(Oyz)$ sao cho $T_1 = \left|\overrightarrow{MA} + 2\overrightarrow{MB} - \overrightarrow{MC}\right|$ đạt giá trị nhỏ nhất;</li><li>Tìm tọa độ điểm $N$ thuộc trục $Ox$ sao cho $T_2 = \left|3\overrightarrow{NA} - 2\overrightarrow{NB} + \overrightarrow{NC}\right|$ đạt giá trị nhỏ nhất và tính giá trị nhỏ nhất đó;</li><li>Tìm tọa độ điểm $P$ thuộc mặt phẳng tọa độ $(Oxy)$ sao cho biểu thức $T_3 = \left|\overrightarrow{PA} + \overrightarrow{PB} + \overrightarrow{PC} + \overrightarrow{PD}\right|$ đạt giá trị nhỏ nhất.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex29" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 15</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho bốn điểm $A(1; 1; 2)$, $B(3; 5; 2)$, $C(2; 0; -1)$ và $D(6; 8; -5)$. <ol><li>Tìm $M$ thuộc mặt phẳng $(Oxy)$ sao cho $P = \left|\overrightarrow{MA} + \overrightarrow{MB}\right| + \left|\overrightarrow{MC} + \overrightarrow{MD}\right|$ đạt giá trị nhỏ nhất;</li><li>Tìm $N$ thuộc mặt phẳng $(Oxy)$ sao cho $Q = \Big|\left|\overrightarrow{NA} + \overrightarrow{NB}\right| - \left|\overrightarrow{NC} + \overrightarrow{ND}\right|\Big|$ đạt giá trị lớn nhất;</li><li>Tìm $E$ thuộc mặt phẳng $(Oyz)$ sao cho $\left|\overrightarrow{EA} + \overrightarrow{EB}\right| + 2EC$ đạt giá trị nhỏ nhất.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex30" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 16</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho ba điểm $A(1; 2; -1)$, $B(3; 0; 3)$ và $C(2; 4; 1)$. <ol><li>Chứng minh rằng vectơ $\overrightarrow{u} = \overrightarrow{MA} + \overrightarrow{MB} - 2\overrightarrow{MC}$ không phụ thuộc vào vị trí điểm $M$ và tính độ dài của vectơ $\overrightarrow{u}$;</li><li>Tìm tọa độ điểm $M$ thuộc mặt phẳng $(Oxy)$ sao cho biểu thức $F = \left|2\overrightarrow{MA} + \overrightarrow{MB} - \overrightarrow{MC}\right| + \left|\overrightarrow{MA} + \overrightarrow{MB} - 2\overrightarrow{MC}\right|$ đạt giá trị nhỏ nhất.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex31" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 17</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho ba điểm $A(1; -1; 2)$, $B(3; 5; -4)$ và $C(-1; 2; 5)$. <ol><li>Tìm tọa độ điểm $M$ thuộc mặt phẳng $(Ozx)$ sao cho biểu thức $S_1 = MA^2 + MB^2 + MC^2$ đạt giá trị nhỏ nhất;</li><li>Tìm tọa độ điểm $N$ thuộc trục $Oy$ sao cho biểu thức $S_2 = 2NA^2 + NB^2 - NC^2$ đạt giá trị nhỏ nhất;</li><li>Tìm tọa độ điểm $P$ thuộc mặt phẳng $(Oxy)$ sao cho biểu thức $S_3 = 3PA^2 - 2PB^2 - 2PC^2$ đạt giá trị lớn nhất và tính giá trị lớn nhất đó.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex32" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 18</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho ba điểm $A(2; -2; 1)$, $B(4; 2; 3)$ và $C(0; 6; -1)$. <ol><li>Tìm tọa độ điểm $M$ thuộc mặt phẳng $(Oyz)$ sao cho tích vô hướng $\overrightarrow{MA} \cdot \overrightarrow{MB}$ đạt giá trị nhỏ nhất;</li><li>Tìm tọa độ điểm $N$ thuộc trục $Ox$ sao cho biểu thức $P = \overrightarrow{NA} \cdot \overrightarrow{NB} + 2\overrightarrow{NB} \cdot \overrightarrow{NC} + \overrightarrow{NC} \cdot \overrightarrow{NA}$ đạt giá trị nhỏ nhất;</li><li>Tìm tọa độ điểm $K$ thuộc mặt phẳng $(Oxy)$ sao cho biểu thức $Q = \overrightarrow{KA} \cdot \overrightarrow{KB} + \overrightarrow{KB} \cdot \overrightarrow{KC} + \overrightarrow{KC} \cdot \overrightarrow{KA}$ đạt giá trị nhỏ nhất.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex33" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 19</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho hai điểm $A(1; 2; 3)$ và $B(3; -2; 1)$. <ol><li>Tìm tọa độ điểm $M$ thuộc mặt phẳng $(Oxy)$ sao cho biểu thức $T = \overrightarrow{MA} \cdot \overrightarrow{MB} + OM^2$ đạt giá trị nhỏ nhất;</li><li>Tìm tọa độ điểm $N$ thuộc trục $Oz$ sao cho biểu thức $H = 2\overrightarrow{NA} \cdot \overrightarrow{NB} - 3NO^2$ đạt giá trị lớn nhất.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex34" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 20</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho bốn điểm $A(1; -3; 2)$, $B(5; 1; -4)$, $C(3; 5; 4)$ và $D(-1; 1; 2)$. <ol><li>Tìm tọa độ điểm $M$ thuộc mặt phẳng $(Oxy)$ sao cho $MA + MB$ đạt giá trị nhỏ nhất;</li><li>Tìm tọa độ điểm $N$ thuộc mặt phẳng $(Oxy)$ sao cho $|NA - NB|$ đạt giá trị lớn nhất;</li><li>Tìm tọa độ điểm $P$ thuộc mặt phẳng $(Oxy)$ sao cho $PC + PD$ đạt giá trị nhỏ nhất;</li><li>Tìm tọa độ điểm $Q$ thuộc mặt phẳng $(Oxy)$ sao cho $|QC - QD|$ đạt giá trị lớn nhất.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex35" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 21</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, sử dụng phương pháp đại số (bất đẳng thức $\sqrt{u^2 + v^2} + \sqrt{m^2 + n^2} \ge \sqrt{(u + m)^2 + (v + n)^2}$) để giải các bài toán cực trị trên trục tọa độ sau: <ol><li>Cho hai điểm $A(1; 3; 4)$ và $B(7; -4; 3)$. Tìm tọa độ điểm $M$ thuộc trục $Ox$ sao cho tổng khoảng cách $MA + MB$ đạt giá trị nhỏ nhất và tính giá trị nhỏ nhất đó;</li><li>Cho hai điểm $C(2; 5; 0)$ và $D(0; -1; 4)$. Tìm tọa độ điểm $N$ thuộc trục $Oy$ sao cho tổng khoảng cách $NC + ND$ đạt giá trị nhỏ nhất;</li><li>Cho hai điểm $P(1; 0; 3)$ và $Q(5; 4; -3)$. Tìm tọa độ điểm $K$ thuộc trục $Ox$ sao cho biểu thức $|KP - KQ|$ đạt giá trị lớn nhất và tính giá trị lớn nhất đó.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex36" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 22</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho điểm $A(3; 4; 3)$. Gọi $M$, $N$ lần lượt là hình chiếu vuông góc của điểm $A$ lên các trục tọa độ $Ox$ và $Oy$. Giả sử $P(0; 0; z)$ là một điểm di động trên trục $Oz$. <ol><li>Tìm tọa độ điểm $P$ để tam giác $PMN$ có chu vi nhỏ nhất và tính giá trị nhỏ nhất đó;</li><li>Biểu diễn $\cos\widehat{MPN}$ theo $z$, từ đó tìm tọa độ điểm $P$ sao cho góc $\widehat{MPN}$ đạt giá trị lớn nhất;</li><li>Tìm tọa độ điểm $P$ thuộc tia $Oz$ ($z &gt; 0$) sao cho biểu thức $\dfrac{PM^2 + PN^2}{OP}$ đạt giá trị nhỏ nhất.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex37" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 23</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho điểm $A(2; 3; 0)$ thuộc mặt phẳng $(Oxy)$ và điểm $B(0; 4; 2)$ thuộc mặt phẳng $(Oyz)$. Gọi $M$ là điểm di động trên tia $Ox$ và $N$ là điểm di động trên tia $Oz$. <ol><li>Gọi $M(x; 0; 0)$ và $N(0; 0; z)$ ($x, z \ge 0$). Hãy biểu diễn tổng độ dài đường gấp khúc $L = AM + MN + NB$ theo $x$ và $z$;</li><li>Bằng cách trải phẳng hai mặt phẳng $(Oxy)$ và $(Oyz)$ lên mặt phẳng $(Ozx)$ (hoặc sử dụng bất đẳng thức Minkowski cho ba căn thức), hãy tìm giá trị nhỏ nhất của độ dài đường gấp khúc $AM + MN + NB$ và xác định tọa độ của $M$, $N$ khi đó.</li></ol></div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='140.464867pt' height='107.863362pt' viewBox='-69.011212 -69.011209 140.464867 107.863362'>
+<defs>
+<path id='g0-65' d='M1.474471-.948443C1.107846-.366625 .781071-.286924 .494147-.263014C.414446-.255044 .318804-.247073 .318804-.111582C.318804-.087671 .334745 0 .430386 0C.502117 0 .549938-.02391 1.107846-.02391C1.649813-.02391 1.833126 0 1.872976 0S2.032379 0 2.032379-.151432C2.032379-.255044 1.928767-.263014 1.888917-.263014C1.721544-.270984 1.554172-.334745 1.554172-.510087C1.554172-.629639 1.617933-.73325 1.769365-.964384L2.311333-1.841096H4.495143L4.662516-.494147C4.662516-.382565 4.519054-.263014 4.144458-.263014C4.024907-.263014 3.921295-.263014 3.921295-.111582C3.921295-.103611 3.929265 0 4.056787 0C4.136488 0 4.439352-.01594 4.511083-.02391H5.0132C5.730511-.02391 5.866002 0 5.929763 0C5.961644 0 6.089166 0 6.089166-.151432C6.089166-.263014 5.985554-.263014 5.858032-.263014C5.419676-.263014 5.411706-.334745 5.387796-.533998L4.758157-5.459527C4.734247-5.634869 4.726276-5.69066 4.590785-5.69066C4.447323-5.69066 4.399502-5.610959 4.351681-5.531258L1.474471-.948443ZM2.478705-2.10411L4.128518-4.726276L4.463263-2.10411H2.478705Z'/>
+<path id='g0-66' d='M1.346949-.629639C1.275218-.326775 1.259278-.263014 .669489-.263014C.518057-.263014 .422416-.263014 .422416-.111582C.422416 0 .526027 0 .661519 0H3.618431C4.933499 0 5.913823-.932503 5.913823-1.705604C5.913823-2.287422 5.411706-2.757659 4.614695-2.84533C5.539228-3.020672 6.336239-3.626401 6.336239-4.327771C6.336239-4.925529 5.754421-5.443587 4.750187-5.443587H1.968618C1.825156-5.443587 1.721544-5.443587 1.721544-5.292154C1.721544-5.180573 1.817186-5.180573 1.952677-5.180573C2.215691-5.180573 2.446824-5.180573 2.446824-5.053051C2.446824-5.021171 2.438854-5.0132 2.414944-4.909589L1.346949-.629639ZM2.590286-2.940971L3.076463-4.885679C3.148194-5.156663 3.156164-5.180573 3.482939-5.180573H4.630635C5.411706-5.180573 5.587049-4.670486 5.587049-4.343711C5.587049-3.666252 4.861768-2.940971 3.841594-2.940971H2.590286ZM2.040349-.263014C1.968618-.278954 1.944707-.278954 1.944707-.334745C1.944707-.398506 1.960648-.462267 1.976588-.510087L2.534496-2.717808H4.152428C4.893649-2.717808 5.140722-2.215691 5.140722-1.769365C5.140722-.988294 4.375592-.263014 3.419178-.263014H2.040349Z'/>
+<path id='g0-77' d='M7.738979-4.798007C7.81868-5.108842 7.83462-5.180573 8.392528-5.180573C8.575841-5.180573 8.671482-5.180573 8.671482-5.332005C8.671482-5.443587 8.56787-5.443587 8.424408-5.443587H7.396264C7.181071-5.443587 7.157161-5.443587 7.053549-5.284184L4.048817-.73325L3.339477-5.228394C3.307597-5.427646 3.299626-5.443587 3.060523-5.443587H1.984558C1.841096-5.443587 1.737484-5.443587 1.737484-5.292154C1.737484-5.180573 1.841096-5.180573 1.968618-5.180573C2.231631-5.180573 2.462765-5.180573 2.462765-5.053051C2.462765-5.021171 2.454795-5.0132 2.430884-4.909589L1.41868-.852802C1.323039-.454296 1.115816-.278954 .581818-.263014C.533998-.263014 .438356-.255044 .438356-.111582C.438356-.063761 .478207 0 .557908 0C.589788 0 .773101-.02391 1.346949-.02391C1.976588-.02391 2.096139 0 2.16787 0C2.199751 0 2.319303 0 2.319303-.151432C2.319303-.247073 2.231631-.263014 2.175841-.263014C1.888917-.270984 1.649813-.318804 1.649813-.597758C1.649813-.637609 1.673724-.749191 1.673724-.757161L2.757659-5.084932H2.765629L3.53873-.215193C3.56264-.087671 3.57061 0 3.682192 0S3.849564-.087671 3.897385-.159402L7.173101-5.148692L7.181071-5.140722L6.057285-.629639C5.985554-.326775 5.969614-.263014 5.379826-.263014C5.228394-.263014 5.132752-.263014 5.132752-.111582C5.132752-.079701 5.156663 0 5.260274 0S5.602989-.01594 5.71457-.02391H6.224658C6.965878-.02391 7.157161 0 7.212951 0C7.260772 0 7.372354 0 7.372354-.151432C7.372354-.263014 7.268742-.263014 7.13325-.263014C7.10934-.263014 6.965878-.263014 6.830386-.278954C6.663014-.294894 6.647073-.318804 6.647073-.390535C6.647073-.430386 6.663014-.478207 6.670984-.518057L7.738979-4.798007Z'/>
+<path id='g0-78' d='M6.312329-4.574844C6.40797-4.96538 6.583313-5.156663 7.157161-5.180573C7.236862-5.180573 7.300623-5.228394 7.300623-5.332005C7.300623-5.379826 7.260772-5.443587 7.181071-5.443587C7.12528-5.443587 6.973848-5.419676 6.38406-5.419676C5.746451-5.419676 5.642839-5.443587 5.571108-5.443587C5.443587-5.443587 5.419676-5.355915 5.419676-5.292154C5.419676-5.188543 5.523288-5.180573 5.595019-5.180573C6.081196-5.164633 6.081196-4.94944 6.081196-4.837858C6.081196-4.798007 6.081196-4.758157 6.049315-4.630635L5.172603-1.139726L3.251806-5.300125C3.188045-5.443587 3.172105-5.443587 2.980822-5.443587H1.944707C1.801245-5.443587 1.697634-5.443587 1.697634-5.292154C1.697634-5.180573 1.793275-5.180573 1.960648-5.180573C2.024408-5.180573 2.263512-5.180573 2.446824-5.132752L1.378829-.852802C1.283188-.454296 1.075965-.278954 .541968-.263014C.494147-.263014 .398506-.255044 .398506-.111582C.398506-.063761 .438356 0 .518057 0C.549938 0 .73325-.02391 1.307098-.02391C1.936737-.02391 2.056289 0 2.12802 0C2.1599 0 2.279452 0 2.279452-.151432C2.279452-.247073 2.191781-.263014 2.13599-.263014C1.849066-.270984 1.609963-.318804 1.609963-.597758C1.609963-.637609 1.633873-.749191 1.633873-.757161L2.677958-4.917559H2.685928L4.901619-.143462C4.95741-.01594 4.96538 0 5.053051 0C5.164633 0 5.172603-.03188 5.204483-.167372L6.312329-4.574844Z'/>
+<path id='g0-79' d='M6.224658-3.427148C6.224658-4.734247 5.316065-5.610959 4.040847-5.610959C2.183811-5.610959 .406476-3.769863 .406476-1.992528C.406476-.765131 1.267248 .167372 2.606227 .167372C4.391532 .167372 6.224658-1.546202 6.224658-3.427148ZM2.669988-.095641C1.857036-.095641 1.195517-.67746 1.195517-1.817186C1.195517-1.944707 1.195517-3.275716 2.11208-4.407472C2.406974-4.766127 3.124284-5.363885 3.985056-5.363885C4.782067-5.363885 5.483437-4.813948 5.483437-3.706102C5.483437-3.267746 5.316065-2.024408 4.495143-1.052055C4.032877-.502117 3.347447-.095641 2.669988-.095641Z'/>
+<path id='g0-120' d='M3.993026-3.180075C3.642341-3.092403 3.626401-2.781569 3.626401-2.749689C3.626401-2.574346 3.761893-2.454795 3.937235-2.454795S4.383562-2.590286 4.383562-2.933001C4.383562-3.387298 3.881445-3.514819 3.58655-3.514819C3.211955-3.514819 2.909091-3.251806 2.725778-2.940971C2.550436-3.363387 2.13599-3.514819 1.809215-3.514819C.940473-3.514819 .454296-2.518555 .454296-2.295392C.454296-2.223661 .510087-2.191781 .573848-2.191781C.669489-2.191781 .68543-2.231631 .70934-2.327273C.892653-2.909091 1.370859-3.291656 1.785305-3.291656C2.096139-3.291656 2.247572-3.068493 2.247572-2.781569C2.247572-2.622167 2.15193-2.255542 2.088169-2.000498C2.032379-1.769365 1.857036-1.060025 1.817186-.908593C1.705604-.478207 1.41868-.143462 1.060025-.143462C1.028144-.143462 .820922-.143462 .653549-.255044C1.020174-.342715 1.020174-.67746 1.020174-.68543C1.020174-.868742 .876712-.980324 .70137-.980324C.486177-.980324 .255044-.797011 .255044-.494147C.255044-.127522 .645579 .079701 1.052055 .079701C1.474471 .079701 1.769365-.239103 1.912827-.494147C2.088169-.103611 2.454795 .079701 2.83736 .079701C3.706102 .079701 4.184309-.916563 4.184309-1.139726C4.184309-1.219427 4.120548-1.243337 4.064757-1.243337C3.969116-1.243337 3.953176-1.187547 3.929265-1.107846C3.769863-.573848 3.315567-.143462 2.8533-.143462C2.590286-.143462 2.399004-.318804 2.399004-.653549C2.399004-.812951 2.446824-.996264 2.558406-1.44259C2.614197-1.681694 2.789539-2.383064 2.82939-2.534496C2.940971-2.948941 3.219925-3.291656 3.57858-3.291656C3.618431-3.291656 3.825654-3.291656 3.993026-3.180075Z'/>
+<path id='g0-121' d='M4.128518-3.004732C4.160399-3.116314 4.160399-3.132254 4.160399-3.188045C4.160399-3.387298 4.000996-3.435118 3.905355-3.435118C3.865504-3.435118 3.682192-3.427148 3.57858-3.219925C3.56264-3.180075 3.490909-2.893151 3.451059-2.725778L2.972852-.812951C2.964882-.789041 2.622167-.143462 2.040349-.143462C1.649813-.143462 1.514321-.430386 1.514321-.789041C1.514321-1.251308 1.785305-1.960648 1.968618-2.422914C2.048319-2.622167 2.072229-2.693898 2.072229-2.83736C2.072229-3.275716 1.721544-3.514819 1.354919-3.514819C.565878-3.514819 .239103-2.391034 .239103-2.295392C.239103-2.223661 .294894-2.191781 .358655-2.191781C.462267-2.191781 .470237-2.239601 .494147-2.319303C.70137-3.012702 1.044085-3.291656 1.331009-3.291656C1.45056-3.291656 1.522291-3.211955 1.522291-3.028643C1.522291-2.86127 1.458531-2.677958 1.40274-2.534496C1.075965-1.689664 .940473-1.283188 .940473-.908593C.940473-.127522 1.530262 .079701 2.000498 .079701C2.375093 .079701 2.646077-.087671 2.83736-.270984C2.725778 .175342 2.646077 .486177 2.343213 .868742C2.080199 1.195517 1.761395 1.40274 1.40274 1.40274C1.267248 1.40274 .964384 1.378829 .804981 1.139726C1.227397 1.107846 1.259278 .749191 1.259278 .70137C1.259278 .510087 1.115816 .406476 .948443 .406476C.773101 .406476 .494147 .541968 .494147 .932503C.494147 1.307098 .836862 1.625903 1.40274 1.625903C2.215691 1.625903 3.132254 .972354 3.371357 .00797L4.128518-3.004732Z'/>
+<path id='g0-122' d='M1.155666-.6934C1.44259-.988294 1.530262-1.075965 2.231631-1.657783C2.319303-1.729514 2.87721-2.191781 3.092403-2.399004C3.594521-2.893151 3.905355-3.331507 3.905355-3.419178C3.905355-3.490909 3.841594-3.514819 3.785803-3.514819C3.706102-3.514819 3.698132-3.498879 3.618431-3.379328C3.371357-3.012702 3.196015-2.948941 3.052553-2.948941C2.901121-2.948941 2.805479-3.012702 2.646077-3.172105C2.438854-3.371357 2.279452-3.514819 2.024408-3.514819C1.3868-3.514819 .988294-2.797509 .988294-2.582316C.988294-2.574346 .988294-2.486675 1.115816-2.486675C1.195517-2.486675 1.211457-2.518555 1.243337-2.606227C1.346949-2.83736 1.689664-2.917061 1.928767-2.917061C2.11208-2.917061 2.303362-2.86924 2.494645-2.81345C2.82939-2.725778 2.901121-2.725778 3.084433-2.725778C2.917061-2.550436 2.693898-2.327273 2.080199-1.825156C1.745455-1.546202 1.41071-1.275218 1.195517-1.067995C.605729-.486177 .350685-.095641 .350685-.01594C.350685 .055791 .406476 .079701 .470237 .079701C.549938 .079701 .565878 .055791 .605729 0C.765131-.239103 1.012204-.486177 1.315068-.486177C1.498381-.486177 1.578082-.414446 1.729514-.263014C1.984558-.01594 2.12802 .079701 2.359153 .079701C3.188045 .079701 3.690162-.908593 3.690162-1.155666C3.690162-1.227397 3.634371-1.259278 3.57061-1.259278C3.482939-1.259278 3.466999-1.211457 3.435118-1.131756C3.283686-.73325 2.84533-.518057 2.446824-.518057C2.295392-.518057 2.12005-.557908 1.880946-.621669C1.546202-.70934 1.466501-.70934 1.346949-.70934C1.267248-.70934 1.219427-.70934 1.155666-.6934Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(-10.635365,4.053844)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<path d='M0 0L-45.2585-28.80077' fill='none'/>
+<g transform='matrix(-0.84361,-0.53685,0.53685,-0.84361,-45.2585,-28.80075)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+<g transform='translate(-55.2626,-31.59665)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-10.635365,4.053844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-10.635365' y='4.053844' xlink:href='#g0-120'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M0 0H74.8205' fill='none'/>
+<g transform='translate(74.8205,0.0)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+<g transform='translate(74.57623,-6.9766)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-10.635365,4.053844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-10.635365' y='4.053844' xlink:href='#g0-121'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M0 0V66.28471' fill='none'/>
+<g transform='matrix(0.0,1.0,-1.0,0.0,0.0,66.28471)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+<g transform='translate(-7.82387,66.56247)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-10.635365,4.053844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-10.635365' y='4.053844' xlink:href='#g0-122'/>
+</g>
+</g>
+</g>
+</g>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M17.07124-19.20493L38.41125 0M17.07124-19.20493L-21.33955-13.44402' fill='none'/>
+</g>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M46.9457 34.14249L46.94696 0M46.9457 34.14249L0 34.1434' fill='none'/>
+</g>
+<g stroke-width='0.8'>
+<path d='M17.07124-19.20493L-25.6067-16.21748L0 32.00845L46.9457 34.14249' fill='none'/>
+</g>
+<path d='M.9 0C.9 .49706 .49706 .9 0 .9S-.9 .49706-.9 0S-.49706-.9 0-.9S.9-.49706 .9 0ZM0 0' stroke='none'/>
+<g transform='translate(-10.21779,3.53215)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-10.635365,4.053844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-10.635365' y='4.053844' xlink:href='#g0-79'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M-24.70671-16.21748C-24.70671-15.72043-25.10965-15.31749-25.6067-15.31749C-26.10376-15.31749-26.5067-15.72043-26.5067-16.21748C-26.5067-16.71454-26.10376-17.11748-25.6067-17.11748C-25.10965-17.11748-24.70671-16.71454-24.70671-16.21748ZM-25.6067-16.21748' stroke='none'/>
+<g transform='translate(-38.15424,-18.9508)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-10.635365,4.053844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-10.635365' y='4.053844' xlink:href='#g0-77'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M.9 32.00845C.9 32.50551 .49706 32.90845 0 32.90845S-.9 32.50551-.9 32.00845C-.9 31.5114-.49706 31.10846 0 31.10846S.9 31.5114 .9 32.00845ZM0 32.00845' stroke='none'/>
+<g transform='translate(-11.13084,29.27513)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-10.635365,4.053844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-10.635365' y='4.053844' xlink:href='#g0-78'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M17.97124-19.20493C17.97124-18.70787 17.5683-18.30493 17.07124-18.30493C16.57419-18.30493 16.17125-18.70787 16.17125-19.20493C16.17125-19.70198 16.57419-20.10492 17.07124-20.10492C17.5683-20.10492 17.97124-19.70198 17.97124-19.20493ZM17.07124-19.20493' stroke='none'/>
+<g transform='translate(13.88786,-28.20372)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-10.635365,4.053844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-10.635365' y='4.053844' xlink:href='#g0-65'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M47.84569 34.14249C47.84569 34.63954 47.44275 35.04248 46.9457 35.04248C46.44864 35.04248 46.0457 34.63954 46.0457 34.14249C46.0457 33.64543 46.44864 33.2425 46.9457 33.2425C47.44275 33.2425 47.84569 33.64543 47.84569 34.14249ZM46.9457 34.14249' stroke='none'/>
+<g transform='translate(50.47784,37.67464)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-10.635365,4.053844)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-10.635365' y='4.053844' xlink:href='#g0-66'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex38" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 24</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$ (đơn vị trên mỗi trục tọa độ là kilômét), mặt phẳng $(Oxy)$ biểu diễn mặt đất bằng phẳng. Có hai trạm thu phát viễn thông đặt trên đỉnh hai tháp cao tại các vị trí $A(1; 2; 0{,}3)$ và $B(5; 6; 0{,}5)$. Người ta cần đặt một trạm trung chuyển cáp quang tại vị trí $M$ trên mặt đất $(Oxy)$ để nối hai đường cáp thẳng từ $M$ đến $A$ và từ $M$ đến $B$. <ol><li>Tìm tọa độ vị trí đặt trạm $M$ trên mặt đất sao cho tổng chiều dài dây cáp $L = MA + MB$ cần sử dụng là ngắn nhất và tính chiều dài ngắn nhất đó (làm tròn đến hàng phần trăm của kilômét);</li><li>Giả sử ngoài hai trạm $A$, $B$ còn có thêm trạm thứ ba tại vị trí $C(3; 1; 0{,}4)$. Do tổn hao năng lượng trên đường truyền tỉ lệ thuận với bình phương chiều dài dây dẫn, các kỹ sư muốn đặt trạm phân phối điện tại điểm $N$ trên mặt đất $(Oxy)$ sao cho tổng tổn hao $H = NA^2 + NB^2 + NC^2$ là nhỏ nhất. Hãy xác định tọa độ của trạm $N$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex39" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 25</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$ (đơn vị trên mỗi trục là mét), một con kênh thoát nước thẳng chạy dọc theo trục $Ox$. Hai khu nhà máy được xây dựng trên hai sườn đồi ở các vị trí có tọa độ $A(20; 60; 80)$ và $B(140; 80; 60)$. Ban quản lý dự án muốn xây một trạm bơm nước tại vị trí $M$ nằm trên bờ kênh (coi như nằm trên trục $Ox$) để dẫn nước trực tiếp theo hai đường ống thẳng $MA$ và $MB$ lên hai nhà máy. <ol><li>Nếu chi phí lắp đặt đường ống dẫn nước là $1{,}5$ triệu đồng cho mỗi mét chiều dài ống, hãy tìm tọa độ vị trí đặt trạm bơm $M$ trên trục $Ox$ để tổng chi phí mua đường ống cho cả hai nhà máy là thấp nhất và tính số tiền tối thiểu đó (làm tròn đến hàng triệu đồng);</li><li>Nếu công suất máy bơm tại $M$ đòi hỏi phải thiết kế sao cho tổng $2MA^2 + MB^2$ đạt giá trị nhỏ nhất để giảm áp lực đường ống, khi đó trạm bơm $M$ cần đặt tại tọa độ nào trên trục $Ox$?</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex40" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 26</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$ (đơn vị trên mỗi trục tọa độ là mét), một vật nhỏ chuyển động thẳng từ vị trí điểm $A(1; 2; 1)$ đến vị trí điểm $B(5; 4; 3)$ dưới tác dụng đồng thời của hai lực không đổi $\overrightarrow{F}_1 = (30; 20; 10)$ và $\overrightarrow{F}_2 = (10; -5; 15)$ (đơn vị lực là Newton). <ol><li>Tìm tọa độ của hợp lực $\overrightarrow{F} = \overrightarrow{F}_1 + \overrightarrow{F}_2$ và tọa độ vectơ độ dịch chuyển $\overrightarrow{d} = \overrightarrow{AB}$;</li><li>Tính góc hợp bởi hướng của hợp lực $\overrightarrow{F}$ và hướng dịch chuyển của vật (làm tròn đến hàng phần mười của độ);</li><li>Biết công sinh bởi lực $\overrightarrow{F}$ khi vật dịch chuyển một đoạn $\overrightarrow{d}$ được tính bởi công thức $A = \overrightarrow{F} \cdot \overrightarrow{d}$ (đơn vị: Joule). Hãy tính tổng công thực hiện bởi hai lực trên trong quá trình vật di chuyển từ $A$ đến $B$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex41" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 27</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$ với gốc $O$ đặt tại đài radar mặt đất (đơn vị trên các trục tính bằng kilômét), tại thời điểm $t = 0$ (giờ), hai thiết bị bay không người lái xuất phát đồng thời: <ul><li>Thiết bị thứ nhất xuất phát từ vị trí $A(1; 2; 1)$ và bay thẳng đều với vectơ vận tốc $\overrightarrow{v}_1 = (2; 1; 1)$ (km/h);</li><li>Thiết bị thứ hai xuất phát từ vị trí $B(4; 0; 2)$ và bay thẳng đều với vectơ vận tốc $\overrightarrow{v}_2 = (1; 3; 0)$ (km/h).</li></ul> <ol><li>Viết tọa độ vị trí điểm $M(t)$ của thiết bị thứ nhất và điểm $N(t)$ của thiết bị thứ hai tại thời điểm $t$ ($t \ge 0$) giờ;</li><li>Tính khoảng cách giữa hai thiết bị bay sau $2$ giờ kể từ lúc xuất phát;</li><li>Tìm thời điểm $t$ để khoảng cách giữa hai thiết bị bay là ngắn nhất và tính khoảng cách ngắn nhất đó.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex42" data-kind="essay" data-dang="d2"><div class="eh"><span class="el">Câu 28</span></div><div class="qtext"><div class="tp">Một chiếc đèn chùm trang trí có trọng lượng $P = 120\text{ N}$ được treo dưới trần nhà phẳng nằm ngang bởi ba sợi dây cáp không giãn $SA$, $SB$, $SC$ có cùng chiều dài $1{,}3\text{ m}$. Chọn hệ trục tọa độ $Oxyz$ (đơn vị: mét) sao cho $O$ là tâm của tam giác đều $ABC$ trên trần nhà, mặt phẳng $(Oxy)$ trùng với trần nhà, tia $Oz$ hướng thẳng đứng xuống dưới và đi qua điểm treo đèn $S$. Biết khoảng cách từ tâm $O$ đến mỗi đỉnh $A$, $B$, $C$ là $0{,}5\text{ m}$ và $A$ nằm trên tia $Ox$. <ol><li>Xác định tọa độ các điểm $A$, $B$, $C$ và đỉnh $S$, từ đó suy ra tọa độ các vectơ $\overrightarrow{SA}$, $\overrightarrow{SB}$, $\overrightarrow{SC}$;</li><li>Tính góc hợp bởi mỗi sợi dây cáp với phương thẳng đứng $OS$;</li><li>Biết các lực căng dây $\overrightarrow{T}_1$, $\overrightarrow{T}_2$, $\overrightarrow{T}_3$ lần lượt cùng hướng với $\overrightarrow{SA}$, $\overrightarrow{SB}$, $\overrightarrow{SC}$ và có cùng độ lớn. Sử dụng điều kiện cân bằng lực $\overrightarrow{T}_1 + \overrightarrow{T}_2 + \overrightarrow{T}_3 + \overrightarrow{P} = \overrightarrow{0}$, hãy tìm độ lớn lực căng của mỗi sợi dây cáp.</li></ol></div><div class="center"><div class="tp"><div class="table-responsive figure" style="text-align:center;margin:10px 0"><!-- This file was generated by dvisvgm 3.4.3 -->
+<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='138.569933pt' height='142.744249pt' viewBox='-69.011212 -69.011211 138.569933 142.744249'>
+<defs>
+<path id='g0-65' d='M1.474471-.948443C1.107846-.366625 .781071-.286924 .494147-.263014C.414446-.255044 .318804-.247073 .318804-.111582C.318804-.087671 .334745 0 .430386 0C.502117 0 .549938-.02391 1.107846-.02391C1.649813-.02391 1.833126 0 1.872976 0S2.032379 0 2.032379-.151432C2.032379-.255044 1.928767-.263014 1.888917-.263014C1.721544-.270984 1.554172-.334745 1.554172-.510087C1.554172-.629639 1.617933-.73325 1.769365-.964384L2.311333-1.841096H4.495143L4.662516-.494147C4.662516-.382565 4.519054-.263014 4.144458-.263014C4.024907-.263014 3.921295-.263014 3.921295-.111582C3.921295-.103611 3.929265 0 4.056787 0C4.136488 0 4.439352-.01594 4.511083-.02391H5.0132C5.730511-.02391 5.866002 0 5.929763 0C5.961644 0 6.089166 0 6.089166-.151432C6.089166-.263014 5.985554-.263014 5.858032-.263014C5.419676-.263014 5.411706-.334745 5.387796-.533998L4.758157-5.459527C4.734247-5.634869 4.726276-5.69066 4.590785-5.69066C4.447323-5.69066 4.399502-5.610959 4.351681-5.531258L1.474471-.948443ZM2.478705-2.10411L4.128518-4.726276L4.463263-2.10411H2.478705Z'/>
+<path id='g0-66' d='M1.346949-.629639C1.275218-.326775 1.259278-.263014 .669489-.263014C.518057-.263014 .422416-.263014 .422416-.111582C.422416 0 .526027 0 .661519 0H3.618431C4.933499 0 5.913823-.932503 5.913823-1.705604C5.913823-2.287422 5.411706-2.757659 4.614695-2.84533C5.539228-3.020672 6.336239-3.626401 6.336239-4.327771C6.336239-4.925529 5.754421-5.443587 4.750187-5.443587H1.968618C1.825156-5.443587 1.721544-5.443587 1.721544-5.292154C1.721544-5.180573 1.817186-5.180573 1.952677-5.180573C2.215691-5.180573 2.446824-5.180573 2.446824-5.053051C2.446824-5.021171 2.438854-5.0132 2.414944-4.909589L1.346949-.629639ZM2.590286-2.940971L3.076463-4.885679C3.148194-5.156663 3.156164-5.180573 3.482939-5.180573H4.630635C5.411706-5.180573 5.587049-4.670486 5.587049-4.343711C5.587049-3.666252 4.861768-2.940971 3.841594-2.940971H2.590286ZM2.040349-.263014C1.968618-.278954 1.944707-.278954 1.944707-.334745C1.944707-.398506 1.960648-.462267 1.976588-.510087L2.534496-2.717808H4.152428C4.893649-2.717808 5.140722-2.215691 5.140722-1.769365C5.140722-.988294 4.375592-.263014 3.419178-.263014H2.040349Z'/>
+<path id='g0-67' d='M6.344209-5.395766C6.352179-5.427646 6.36812-5.475467 6.36812-5.515318C6.36812-5.571108 6.320299-5.610959 6.264508-5.610959S6.184807-5.587049 6.121046-5.515318L5.563138-4.901619C5.491407-5.00523 5.068991-5.610959 4.136488-5.610959C2.287422-5.610959 .422416-3.897385 .422416-2.064259C.422416-.67746 1.474471 .167372 2.741719 .167372C3.785803 .167372 4.670486-.470237 5.100872-1.091905C5.363885-1.482441 5.467497-1.865006 5.467497-1.912827C5.467497-1.984558 5.419676-2.016438 5.347945-2.016438C5.252304-2.016438 5.236364-1.976588 5.212453-1.888917C4.877709-.789041 3.801743-.095641 2.84533-.095641C2.032379-.095641 1.179577-.573848 1.179577-1.793275C1.179577-2.048319 1.267248-3.379328 2.15193-4.375592C2.749689-5.045081 3.56264-5.347945 4.192279-5.347945C5.196513-5.347945 5.610959-4.542964 5.610959-3.785803C5.610959-3.674222 5.579078-3.52279 5.579078-3.427148C5.579078-3.323537 5.68269-3.323537 5.71457-3.323537C5.818182-3.323537 5.834122-3.355417 5.866002-3.498879L6.344209-5.395766Z'/>
+<path id='g0-79' d='M6.224658-3.427148C6.224658-4.734247 5.316065-5.610959 4.040847-5.610959C2.183811-5.610959 .406476-3.769863 .406476-1.992528C.406476-.765131 1.267248 .167372 2.606227 .167372C4.391532 .167372 6.224658-1.546202 6.224658-3.427148ZM2.669988-.095641C1.857036-.095641 1.195517-.67746 1.195517-1.817186C1.195517-1.944707 1.195517-3.275716 2.11208-4.407472C2.406974-4.766127 3.124284-5.363885 3.985056-5.363885C4.782067-5.363885 5.483437-4.813948 5.483437-3.706102C5.483437-3.267746 5.316065-2.024408 4.495143-1.052055C4.032877-.502117 3.347447-.095641 2.669988-.095641Z'/>
+<path id='g0-83' d='M5.347945-5.395766C5.355915-5.427646 5.371856-5.475467 5.371856-5.515318C5.371856-5.571108 5.324035-5.610959 5.268244-5.610959S5.196513-5.595019 5.108842-5.499377C5.021171-5.395766 4.813948-5.140722 4.726276-5.045081C4.415442-5.499377 3.913325-5.610959 3.506849-5.610959C2.399004-5.610959 1.45056-4.678456 1.45056-3.769863C1.45056-3.307597 1.697634-3.036613 1.737484-2.980822C2.000498-2.701868 2.231631-2.638107 2.805479-2.502615C3.084433-2.430884 3.100374-2.430884 3.331507-2.375093S4.072727-2.191781 4.072727-1.530262C4.072727-.836862 3.387298-.095641 2.550436-.095641C2.032379-.095641 1.083935-.255044 1.083935-1.243337C1.083935-1.267248 1.083935-1.43462 1.131756-1.625903L1.139726-1.705604C1.139726-1.801245 1.052055-1.809215 1.020174-1.809215C.916563-1.809215 .908593-1.777335 .868742-1.594022L.541968-.294894C.510087-.175342 .454296 .039851 .454296 .063761C.454296 .127522 .502117 .167372 .557908 .167372S.621669 .159402 .70934 .055791L1.091905-.390535C1.275218-.151432 1.729514 .167372 2.534496 .167372C3.690162 .167372 4.638605-.876712 4.638605-1.833126C4.638605-2.199751 4.519054-2.486675 4.303861-2.709838C4.064757-2.972852 3.801743-3.036613 3.427148-3.132254C3.196015-3.188045 2.885181-3.259776 2.701868-3.307597C2.462765-3.363387 2.016438-3.52279 2.016438-4.080697C2.016438-4.702366 2.685928-5.371856 3.498879-5.371856C4.216189-5.371856 4.710336-4.99726 4.710336-4.136488C4.710336-3.945205 4.678456-3.777833 4.678456-3.745953C4.678456-3.650311 4.750187-3.634371 4.805978-3.634371C4.901619-3.634371 4.909589-3.666252 4.941469-3.793773L5.347945-5.395766Z'/>
+<path id='g0-120' d='M3.993026-3.180075C3.642341-3.092403 3.626401-2.781569 3.626401-2.749689C3.626401-2.574346 3.761893-2.454795 3.937235-2.454795S4.383562-2.590286 4.383562-2.933001C4.383562-3.387298 3.881445-3.514819 3.58655-3.514819C3.211955-3.514819 2.909091-3.251806 2.725778-2.940971C2.550436-3.363387 2.13599-3.514819 1.809215-3.514819C.940473-3.514819 .454296-2.518555 .454296-2.295392C.454296-2.223661 .510087-2.191781 .573848-2.191781C.669489-2.191781 .68543-2.231631 .70934-2.327273C.892653-2.909091 1.370859-3.291656 1.785305-3.291656C2.096139-3.291656 2.247572-3.068493 2.247572-2.781569C2.247572-2.622167 2.15193-2.255542 2.088169-2.000498C2.032379-1.769365 1.857036-1.060025 1.817186-.908593C1.705604-.478207 1.41868-.143462 1.060025-.143462C1.028144-.143462 .820922-.143462 .653549-.255044C1.020174-.342715 1.020174-.67746 1.020174-.68543C1.020174-.868742 .876712-.980324 .70137-.980324C.486177-.980324 .255044-.797011 .255044-.494147C.255044-.127522 .645579 .079701 1.052055 .079701C1.474471 .079701 1.769365-.239103 1.912827-.494147C2.088169-.103611 2.454795 .079701 2.83736 .079701C3.706102 .079701 4.184309-.916563 4.184309-1.139726C4.184309-1.219427 4.120548-1.243337 4.064757-1.243337C3.969116-1.243337 3.953176-1.187547 3.929265-1.107846C3.769863-.573848 3.315567-.143462 2.8533-.143462C2.590286-.143462 2.399004-.318804 2.399004-.653549C2.399004-.812951 2.446824-.996264 2.558406-1.44259C2.614197-1.681694 2.789539-2.383064 2.82939-2.534496C2.940971-2.948941 3.219925-3.291656 3.57858-3.291656C3.618431-3.291656 3.825654-3.291656 3.993026-3.180075Z'/>
+<path id='g0-121' d='M4.128518-3.004732C4.160399-3.116314 4.160399-3.132254 4.160399-3.188045C4.160399-3.387298 4.000996-3.435118 3.905355-3.435118C3.865504-3.435118 3.682192-3.427148 3.57858-3.219925C3.56264-3.180075 3.490909-2.893151 3.451059-2.725778L2.972852-.812951C2.964882-.789041 2.622167-.143462 2.040349-.143462C1.649813-.143462 1.514321-.430386 1.514321-.789041C1.514321-1.251308 1.785305-1.960648 1.968618-2.422914C2.048319-2.622167 2.072229-2.693898 2.072229-2.83736C2.072229-3.275716 1.721544-3.514819 1.354919-3.514819C.565878-3.514819 .239103-2.391034 .239103-2.295392C.239103-2.223661 .294894-2.191781 .358655-2.191781C.462267-2.191781 .470237-2.239601 .494147-2.319303C.70137-3.012702 1.044085-3.291656 1.331009-3.291656C1.45056-3.291656 1.522291-3.211955 1.522291-3.028643C1.522291-2.86127 1.458531-2.677958 1.40274-2.534496C1.075965-1.689664 .940473-1.283188 .940473-.908593C.940473-.127522 1.530262 .079701 2.000498 .079701C2.375093 .079701 2.646077-.087671 2.83736-.270984C2.725778 .175342 2.646077 .486177 2.343213 .868742C2.080199 1.195517 1.761395 1.40274 1.40274 1.40274C1.267248 1.40274 .964384 1.378829 .804981 1.139726C1.227397 1.107846 1.259278 .749191 1.259278 .70137C1.259278 .510087 1.115816 .406476 .948443 .406476C.773101 .406476 .494147 .541968 .494147 .932503C.494147 1.307098 .836862 1.625903 1.40274 1.625903C2.215691 1.625903 3.132254 .972354 3.371357 .00797L4.128518-3.004732Z'/>
+<path id='g0-122' d='M1.155666-.6934C1.44259-.988294 1.530262-1.075965 2.231631-1.657783C2.319303-1.729514 2.87721-2.191781 3.092403-2.399004C3.594521-2.893151 3.905355-3.331507 3.905355-3.419178C3.905355-3.490909 3.841594-3.514819 3.785803-3.514819C3.706102-3.514819 3.698132-3.498879 3.618431-3.379328C3.371357-3.012702 3.196015-2.948941 3.052553-2.948941C2.901121-2.948941 2.805479-3.012702 2.646077-3.172105C2.438854-3.371357 2.279452-3.514819 2.024408-3.514819C1.3868-3.514819 .988294-2.797509 .988294-2.582316C.988294-2.574346 .988294-2.486675 1.115816-2.486675C1.195517-2.486675 1.211457-2.518555 1.243337-2.606227C1.346949-2.83736 1.689664-2.917061 1.928767-2.917061C2.11208-2.917061 2.303362-2.86924 2.494645-2.81345C2.82939-2.725778 2.901121-2.725778 3.084433-2.725778C2.917061-2.550436 2.693898-2.327273 2.080199-1.825156C1.745455-1.546202 1.41071-1.275218 1.195517-1.067995C.605729-.486177 .350685-.095641 .350685-.01594C.350685 .055791 .406476 .079701 .470237 .079701C.549938 .079701 .565878 .055791 .605729 0C.765131-.239103 1.012204-.486177 1.315068-.486177C1.498381-.486177 1.578082-.414446 1.729514-.263014C1.984558-.01594 2.12802 .079701 2.359153 .079701C3.188045 .079701 3.690162-.908593 3.690162-1.155666C3.690162-1.227397 3.634371-1.259278 3.57061-1.259278C3.482939-1.259278 3.466999-1.211457 3.435118-1.131756C3.283686-.73325 2.84533-.518057 2.446824-.518057C2.295392-.518057 2.12005-.557908 1.880946-.621669C1.546202-.70934 1.466501-.70934 1.346949-.70934C1.267248-.70934 1.219427-.70934 1.155666-.6934Z'/>
+</defs>
+<g id='page1'>
+<g stroke-miterlimit='10' transform='translate(-5.247959,-36.316891)scale(0.996264,-0.996264)'>
+<g fill='#000' stroke='#000'>
+<g stroke-width='0.4'>
+<g stroke-linejoin='round'>
+<g stroke-linecap='round'>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M-34.14352-20.48598L45.52472 0L-11.38116 20.48598Z' fill='none'/>
+</g>
+<g stroke-dasharray='3.0,3.0' stroke-dashoffset='0.0'>
+<path d='M0 0L-34.14352-20.48598M0 0H45.52472M0 0L-11.38116 20.48598' fill='none'/>
+</g>
+<path d='M0 0L-50.6384-30.38309' fill='none'/>
+<g transform='matrix(-0.85747,-0.5145,0.5145,-0.85747,-50.63838,-30.38307)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+<g transform='translate(-60.67021,-33.13426)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-5.247959,-36.316891)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-5.247959' y='-36.316891' xlink:href='#g0-120'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M0 0H61.73447' fill='none'/>
+<g transform='translate(61.73447,0.0)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+<g transform='translate(67.26659,-0.94444)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-5.247959,-36.316891)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-5.247959' y='-36.316891' xlink:href='#g0-121'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M0 0V-98.15392' fill='none'/>
+<g transform='matrix(0.0,-1.0,1.0,0.0,0.0,-98.15392)'>
+<path d='M1.99997 0L-1.19998 1.59998L0 0L-1.19998-1.59998' stroke='none'/>
+</g>
+<g transform='translate(-2.14586,-107.13046)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-5.247959,-36.316891)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-5.247959' y='-36.316891' xlink:href='#g0-122'/>
+</g>
+</g>
+</g>
+</g>
+<g stroke-width='0.8'>
+<path d='M0-72.83948L-34.14352-20.48598M0-72.83948L45.52472 0M0-72.83948L-11.38116 20.48598' fill='none'/>
+</g>
+<path d='M.95999 0C.95999 .53018 .53018 .95999 0 .95999S-.95999 .53018-.95999 0S-.53018-.95999 0-.95999S.95999-.53018 .95999 0ZM0 0' stroke='none'/>
+<g transform='translate(-3.34282,3.53215)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-5.247959,-36.316891)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-5.247959' y='-36.316891' xlink:href='#g0-79'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M-33.18353-20.48598C-33.18353-19.9558-33.61334-19.52599-34.14352-19.52599S-35.10352-19.9558-35.10352-20.48598S-34.6737-21.44597-34.14352-21.44597S-33.18353-21.01616-33.18353-20.48598ZM-34.14352-20.48598' stroke='none'/>
+<g transform='translate(-44.04243,-16.95383)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-5.247959,-36.316891)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-5.247959' y='-36.316891' xlink:href='#g0-65'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M46.48471 0C46.48471 .53018 46.0549 .95999 45.52472 .95999S44.56473 .53018 44.56473 0S44.99454-.95999 45.52472-.95999S46.48471-.53018 46.48471 0ZM45.52472 0' stroke='none'/>
+<g transform='translate(49.05687,3.53215)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-5.247959,-36.316891)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-5.247959' y='-36.316891' xlink:href='#g0-66'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M-10.42117 20.48598C-10.42117 21.01616-10.85098 21.44597-11.38116 21.44597C-11.91135 21.44597-12.34116 21.01616-12.34116 20.48598S-11.91135 19.52599-11.38116 19.52599C-10.85098 19.52599-10.42117 19.9558-10.42117 20.48598ZM-11.38116 20.48598' stroke='none'/>
+<g transform='translate(-14.69287,24.01813)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-5.247959,-36.316891)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-5.247959' y='-36.316891' xlink:href='#g0-67'/>
+</g>
+</g>
+</g>
+</g>
+<path d='M.95999-72.83948C.95999-72.3093 .53018-71.87949 0-71.87949S-.95999-72.3093-.95999-72.83948S-.53018-73.79947 0-73.79947S.95999-73.36966 .95999-72.83948ZM0-72.83948' stroke='none'/>
+<g transform='translate(-9.14888,-81.83827)'>
+<g stroke='none' transform='scale(-1.00375,1.00375)translate(-5.247959,-36.316891)scale(-1,-1)'>
+<g fill='#000'>
+<g stroke='none'>
+<use x='-5.247959' y='-36.316891' xlink:href='#g0-83'/>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></div></div></div></div><div class="qtools"></div></div></div>
+    </main>
+    <div class="foot">Liên hệ TOÁN ANH KIÊN - 0987473509</div>
+    <div class="fab">
+        <div class="credit"><span class="cr-i">🖋 <b>TOÁN ANH KIÊN</b></span><span class="cr-i">📟 0987473509</span></div>
+        <button type="button" id="toTop" title="Lên đầu trang" hidden>⬆</button>
+    </div>
+
+    <script>
+        const MEDIA_SCOPE = '.lz';
+        const MEDIA_SVG_SEL = MEDIA_SCOPE.split(',').map(s => s.trim() + ' svg').join(', ');
+        const MEDIA_ALL_SEL = MEDIA_SCOPE.split(',').map(s => s.trim()).flatMap(s => [s + ' svg', s + ' img']).join(', ');
+
+        function svgNum(v) {
+            if (v == null) return NaN;
+            const m = String(v).trim().match(/^([0-9]*\.?[0-9]+)(px)?$/i);
+            return m ? parseFloat(m[1]) : NaN;
+        }
+
+        let __svgSeq = 0;
+        function uniquifySvgIds(svg) {
+            if (svg.dataset.idsDone) return;
+            svg.dataset.idsDone = '1';
+            const withId = svg.querySelectorAll('[id]');
+            if (!withId.length) return;
+            const prefix = 'svg' + (++__svgSeq) + '_';
+            const map = {};
+            withId.forEach(n => { map[n.id] = prefix + n.id; });
+            const ids = Object.keys(map);
+            const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const urlRe = /url\(\s*(['"]?)#([^)'"\s]+)\1\s*\)/g;
+            const fixUrls = str => str.replace(urlRe, (m, q, id) => map[id] ? `url(${q}#${map[id]}${q})` : m);
+
+            svg.querySelectorAll('*').forEach(n => {
+                if (n.tagName.toLowerCase() === 'style') {
+                    let css = fixUrls(n.textContent);
+                    css = css.replace(new RegExp('#(' + ids.map(esc).join('|') + ')(?![\\w-])', 'g'), '#' + prefix + '$1');
+                    n.textContent = css;
+                    return;
+                }
+                Array.from(n.attributes).forEach(a => {
+                    if (a.name === 'id' || a.value.indexOf('#') < 0) return;
+                    if ((a.name === 'href' || a.name === 'xlink:href') && a.value.charAt(0) === '#') {
+                        const id = a.value.slice(1);
+                        if (map[id]) n.setAttribute(a.name, '#' + map[id]);
+                    } else {
+                        const nv = fixUrls(a.value);
+                        if (nv !== a.value) n.setAttribute(a.name, nv);
+                    }
+                });
+            });
+            withId.forEach(n => { n.id = map[n.id]; });
+        }
+
+        function normalizeSvgs() {
+            document.querySelectorAll(MEDIA_SVG_SEL).forEach(svg => {
+                if (svg.closest('mjx-container')) return;
+                uniquifySvgIds(svg);
+                if (svg.dataset.normalized) return;
+                const w = svgNum(svg.getAttribute('width'));
+                const h = svgNum(svg.getAttribute('height'));
+
+                if (!svg.hasAttribute('viewBox')) {
+                    if (w > 0 && h > 0) {
+                        svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+                    } else {
+                        try {
+                            const b = svg.getBBox();
+                            if (b.width && b.height)
+                                svg.setAttribute('viewBox', `${b.x - 2} ${b.y - 2} ${b.width + 4} ${b.height + 4}`);
+                        } catch (e) { return; }
+                    }
+                }
+                if (svg.hasAttribute('viewBox')) {
+                    if (w > 0) { svg.style.width = '100%'; svg.style.maxWidth = w + 'px'; }
+                    svg.removeAttribute('height');
+                    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+                    svg.dataset.normalized = '1';
+                }
+            });
+        }
+
+        const __zoomRefresh = new Set();
+        let __zoomResizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(__zoomResizeTimer);
+            __zoomResizeTimer = setTimeout(() => __zoomRefresh.forEach(fn => fn()), 150);
+        });
+
+        function setupImageZoom() {
+            document.querySelectorAll(MEDIA_ALL_SEL).forEach(el => {
+                if (el.closest('.zoom-container') || el.closest('mjx-container') || el.classList.contains('no-zoom')) return;
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'zoom-container';
+                const viewport = document.createElement('div');
+                viewport.className = 'zoom-viewport';
+                el.parentNode.insertBefore(wrapper, el);
+                viewport.appendChild(el);
+                wrapper.appendChild(viewport);
+                el.classList.add('zoom-media');
+
+                let scale = 1;
+                const STEP = 0.25, MIN = 1, MAX = 4;
+
+                const toolbar = document.createElement('div');
+                toolbar.className = 'zoom-toolbar';
+                const mk = (txt, title) => {
+                    const b = document.createElement('button');
+                    b.type = 'button'; b.className = 'zoom-btn'; b.innerHTML = txt; b.title = title;
+                    b.setAttribute('aria-label', title);
+                    return b;
+                };
+                const btnIn = mk('➕', 'Phóng to'), btnOut = mk('➖', 'Thu nhỏ'), btnReset = mk('↺', 'Mặc định');
+
+                function apply(newScale) {
+                    const cx = viewport.scrollWidth ? (viewport.scrollLeft + viewport.clientWidth / 2) / viewport.scrollWidth : 0.5;
+                    const cy = viewport.scrollHeight ? (viewport.scrollTop + viewport.clientHeight / 2) / viewport.scrollHeight : 0.5;
+
+                    scale = Math.min(MAX, Math.max(MIN, Math.round(newScale * 100) / 100));
+
+                    el.classList.remove('zoomed');
+                    el.style.removeProperty('--zw');
+                    const base = el.getBoundingClientRect().width;
+                    if (scale > 1 && base > 0) {
+                        el.style.setProperty('--zw', (base * scale) + 'px');
+                        el.classList.add('zoomed');
+                        viewport.scrollLeft = cx * viewport.scrollWidth - viewport.clientWidth / 2;
+                        viewport.scrollTop = cy * viewport.scrollHeight - viewport.clientHeight / 2;
+                    }
+                    viewport.classList.toggle('can-pan', el.classList.contains('zoomed'));
+                    btnIn.disabled = scale >= MAX;
+                    btnOut.disabled = scale <= MIN;
+                }
+
+                btnIn.onclick = () => apply(scale + STEP);
+                btnOut.onclick = () => apply(scale - STEP);
+                btnReset.onclick = () => apply(1);
+                __zoomRefresh.add(() => { if (scale > 1) apply(scale); });
+
+                viewport.addEventListener('wheel', e => {
+                    if (!e.ctrlKey) return;
+                    e.preventDefault();
+                    apply(scale + (e.deltaY < 0 ? STEP : -STEP));
+                }, { passive: false });
+                viewport.addEventListener('dblclick', () => apply(scale > 1 ? 1 : 2));
+
+                let dragging = false, sx = 0, sy = 0, sl = 0, st = 0;
+                viewport.addEventListener('pointerdown', e => {
+                    if (e.pointerType !== 'mouse' || !el.classList.contains('zoomed')) return;
+                    dragging = true; sx = e.clientX; sy = e.clientY; sl = viewport.scrollLeft; st = viewport.scrollTop;
+                    viewport.setPointerCapture(e.pointerId);
+                    viewport.classList.add('dragging');
+                });
+                viewport.addEventListener('pointermove', e => {
+                    if (!dragging) return;
+                    viewport.scrollLeft = sl - (e.clientX - sx);
+                    viewport.scrollTop = st - (e.clientY - sy);
+                });
+                const stop = () => { dragging = false; viewport.classList.remove('dragging'); };
+                viewport.addEventListener('pointerup', stop);
+                viewport.addEventListener('pointercancel', stop);
+
+                toolbar.append(btnIn, btnOut, btnReset);
+                wrapper.appendChild(toolbar);
+                apply(1);
+            });
+        }
+
+        const MEDIA_TABLE_SEL = MEDIA_SCOPE.split(',').map(s => s.trim() + ' table').join(', ');
+        function wrapTables() {
+            document.querySelectorAll(MEDIA_TABLE_SEL).forEach(t => {
+                if (t.closest('mjx-container, .table-scroll, .table-responsive, #tblOverlay')) return;
+                if (!t.parentNode) return;
+                const w = document.createElement('div');
+                w.className = 'table-scroll';
+                t.parentNode.insertBefore(w, t);
+                w.appendChild(t);
+            });
+        }
+
+        const __tblRefresh = [];
+        window.addEventListener('resize', () => __tblRefresh.forEach(fn => fn()));
+        function tblState(box, sc) {
+            const over = sc.scrollWidth > sc.clientWidth + 2;
+            box.classList.toggle('has-scroll', over);
+            box.classList.toggle('at-end', !over || sc.scrollLeft + sc.clientWidth >= sc.scrollWidth - 2);
+        }
+        function enhanceTables() {
+            document.querySelectorAll('.table-responsive, .table-scroll').forEach(sc => {
+                if (sc.dataset.tblDone || sc.closest('#tblOverlay')) return;
+                const table = sc.querySelector('table');
+                if (!table || !sc.parentNode) return;
+                sc.dataset.tblDone = '1';
+                const box = document.createElement('div'); box.className = 'tbl-box';
+                const hint = document.createElement('div'); hint.className = 'tbl-hint';
+                const msg = document.createElement('span'); msg.textContent = '\u2194 Vuốt ngang để xem thêm';
+                const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'tbl-open'; btn.textContent = '\u26F6 Xem toàn màn hình';
+                btn.addEventListener('click', e => { e.stopPropagation(); openTableOverlay(table); });
+                hint.append(msg, btn);
+                const wrap = document.createElement('div'); wrap.className = 'tbl-wrap';
+                const fade = document.createElement('div'); fade.className = 'tbl-fade';
+                sc.parentNode.insertBefore(box, sc);
+                box.append(hint, wrap);
+                wrap.append(sc, fade);
+                const first = table.rows[0];
+                if (first && first.cells.length >= 4 && first.cells[0].colSpan === 1 && first.cells[0].rowSpan === 1) table.classList.add('sticky-first');
+                const upd = () => tblState(box, sc);
+                sc.addEventListener('scroll', upd, { passive: true });
+                if (window.ResizeObserver) new ResizeObserver(upd).observe(table);
+                __tblRefresh.push(upd);
+                upd();
+            });
+        }
+        let tblOv = null, tblScale = 1;
+        function closeTableOverlay() {
+            if (!tblOv) return;
+            tblOv.classList.remove('open');
+            document.documentElement.style.overflow = '';
+        }
+        function openTableOverlay(table) {
+            if (!tblOv) {
+                tblOv = document.createElement('div'); tblOv.id = 'tblOverlay';
+                tblOv.innerHTML = '<div class="tbl-ov-bar"><span class="ttl">Kéo để xem; A+ / A\u2212 đổi cỡ chữ</span>'
+                    + '<button type="button" class="zoom-btn" data-a="-">A\u2212</button><button type="button" class="zoom-btn" data-a="+">A+</button>'
+                    + '<button type="button" class="zoom-btn" data-a="x">\u2715 Đóng</button></div><div class="tbl-ov-body"></div>';
+                document.body.appendChild(tblOv);
+                tblOv.addEventListener('click', e => {
+                    const b = e.target.closest('button[data-a]');
+                    if (!b) return;
+                    if (b.dataset.a === 'x') { closeTableOverlay(); return; }
+                    tblScale = Math.min(2.6, Math.max(0.6, tblScale + (b.dataset.a === '+' ? 0.2 : -0.2)));
+                    tblOv.style.setProperty('--tbl-s', tblScale);
+                });
+                window.addEventListener('keydown', e => {
+                    if (!tblOv.classList.contains('open')) return;
+                    e.stopImmediatePropagation();
+                    if (e.key === 'Escape') closeTableOverlay();
+                }, true);
+            }
+            const body = tblOv.querySelector('.tbl-ov-body');
+            body.innerHTML = '';
+            const c = table.cloneNode(true);
+            c.querySelectorAll('[id]').forEach(n => n.removeAttribute('id'));
+            c.classList.remove('sticky-first');
+            body.appendChild(c);
+            tblScale = 1;
+            tblOv.style.setProperty('--tbl-s', 1);
+            tblOv.classList.add('open');
+            document.documentElement.style.overflow = 'hidden';
+            body.scrollTo(0, 0);
+        }
+
+        function initMedia() { wrapTables(); enhanceTables(); normalizeSvgs(); setupImageZoom(); }
+
+        window.addEventListener('load', () => setTimeout(initMedia, 300));
+
+        const $ = (s, r) => (r || document).querySelector(s);
+        const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+
+        let queue = [], busy = false, pendingJump = null;
+        function keepJump() { if (pendingJump) pendingJump.scrollIntoView({ block: 'start' }); }
+        function pump() {
+            if (busy) return;
+            const batch = [];
+            while (queue.length && batch.length < 3) {
+                const e = queue.shift();
+                if (!e.dataset.ts) { e.dataset.ts = '1'; batch.push(e); }
+            }
+            if (!batch.length) return;
+            busy = true;
+            const go = () => {
+                if (!(window.MathJax && MathJax.startup && MathJax.startup.promise)) { setTimeout(go, 150); return; }
+                MathJax.startup.promise = MathJax.startup.promise
+                    .then(() => MathJax.typesetPromise(batch))
+                    .then(() => { initMedia(); keepJump(); })
+                    .catch(err => console.warn(err))
+                    .then(() => { busy = false; setTimeout(pump, 0); });
+            };
+            go();
+        }
+        function want(els, front) {
+            els = els.filter(e => !e.dataset.ts);
+            queue = front ? els.concat(queue) : queue.concat(els);
+            pump();
+        }
+        function typesetNow(el) {
+            const go = () => {
+                if (!(window.MathJax && MathJax.startup && MathJax.startup.promise)) { setTimeout(go, 150); return; }
+                MathJax.startup.promise = MathJax.startup.promise
+                    .then(() => MathJax.typesetPromise([el]))
+                    .then(() => { initMedia(); })
+                    .catch(err => console.warn(err));
+            };
+            go();
+        }
+
+        const lzs = $$('.lz');
+        const title = $('#ttl');
+        want([title], true);
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(es => {
+                const vis = es.filter(e => e.isIntersecting).map(e => e.target);
+                if (vis.length) want(vis, true);
+            }, { rootMargin: '1500px 0px' });
+            lzs.forEach(e => io.observe(e));
+        }
+        want(lzs, false);
+
+        function openSol(q, force) {
+            const s = $('.solution-box', q), b = $('.sol-btn', q);
+            if (!s) return;
+            const open = s.style.display === 'block';
+            const target = force === undefined ? !open : force;
+            if (target === open) return;
+            s.style.display = target ? 'block' : 'none';
+            if (b) b.textContent = target ? 'Ẩn lời giải' : 'Xem lời giải';
+            if (target) {
+                markSeen(q);
+                if (!s.dataset.ts) {
+                    s.dataset.ts = '1';
+                    s.classList.remove('tex2jax_ignore');
+                    typesetNow(s);
+                } else initMedia();
+            }
+        }
+        let allOpen = false;
+        $('#btnAll').addEventListener('click', () => {
+            if (!allOpen) {
+                const risky = tracked.filter(q => q.dataset.ans && !(P[q.id] && P[q.id].st) && $('.solution-box', q));
+                if (risky.length && !confirm('Còn ' + risky.length + ' câu chưa làm xong. Xem lời giải bây giờ thì các câu đó sẽ được ghi nhận là "đã xem lời giải trước" và không tính đúng. Tiếp tục?')) return;
+            }
+            allOpen = !allOpen;
+            $$('.q').forEach(q => openSol(q, allOpen));
+            $('#btnAll').textContent = allOpen ? '🙈 Ẩn tất cả lời giải' : '👁 Hiện tất cả lời giải';
+        });
+
+        function norm(s) { return s.replace(/\u2212/g, '-').replace(/,/g, '.').replace(/\s+/g, ''); }
+        function sameAns(a, b) {
+            a = norm(a); b = norm(b);
+            if (a === '' || b === '') return false;
+            if (a === b) return true;
+            const x = Number(a), y = Number(b);
+            return isFinite(x) && isFinite(y) && Math.abs(x - y) < 1e-9;
+        }
+
+        const GOOD = ['c1', 'c2', 'cr', 'ok'];
+        const FB = {
+            c1: ['correct', '✔ Chính xác — đúng ngay lần đầu'],
+            c2: ['correct', '✔ Đúng (sau khi thử lại)'],
+            cr: ['correct', '✔ Đúng (khi làm lại)'],
+            w: ['wrong', '✘ Chưa đúng'],
+            p: ['partial', ''],
+            sv: ['partial', '👁 Em đã xem lời giải trước nên câu này không tính đúng']
+        };
+        const BADGE = { c1: '🥇 Đúng ngay lần đầu', c2: 'Đúng ở lần 2', cr: 'Đúng khi làm lại', w: 'Sai', p: 'Đúng một phần',
+                        sv: 'Đã xem lời giải trước', ok: '✔ Làm được', near: '~ Gần đúng', no: '✘ Chưa làm được' };
+        const BCLS = { c1: 'correct', c2: 'correct', cr: 'correct', ok: 'correct', w: 'wrong', no: 'wrong', p: 'partial', near: 'partial', sv: 'partial' };
+        const KIND_NAME = { mc: 'Trắc nghiệm', tf: 'Đúng/Sai', short: 'Trả lời ngắn', essay: 'Tự luận' };
+
+        function mk(tag, cls, html) {
+            const e = document.createElement(tag);
+            if (cls) e.className = cls;
+            if (html) e.innerHTML = html;
+            if (tag === 'button') e.type = 'button';
+            return e;
+        }
+        function kindOf(q) {
+            if (q.dataset.ans) return q.dataset.kind;
+            return $('.solution-box', q) ? 'essay' : '';
+        }
+        const qs = $$('.q');
+        const tracked = qs.filter(q => kindOf(q));
+
+        function hash(s) { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return (h >>> 0).toString(36); }
+        const LS_KEY = 'tex2html.lesson.' + hash(document.title + '|' + tracked.map(q =>
+            q.id + ':' + kindOf(q) + ':' + (q.dataset.ans || '') + $$('.tfrow', q).map(w => w.dataset.ans.charAt(0)).join('')).join('|'));
+        let P = {}, lsOK = true;
+        function load() {
+            let raw = null;
+            try { raw = localStorage.getItem(LS_KEY); } catch (e) { lsOK = false; return; }
+            try { const o = JSON.parse(raw || 'null'); if (o && o.q) P = o.q; } catch (e) { P = {}; }
+            const ids = new Set(tracked.map(q => q.id));
+            Object.keys(P).forEach(k => { if (!ids.has(k)) delete P[k]; });
+        }
+        function save() {
+            try {
+                if (Object.keys(P).length) localStorage.setItem(LS_KEY, JSON.stringify({ v: 1, t: Date.now(), q: P }));
+                else localStorage.removeItem(LS_KEY);
+            } catch (e) { lsOK = false; }
+            const w = $('#lsWarn'); if (w) w.hidden = lsOK;
+        }
+        function W(q) { return P[q.id] || (P[q.id] = { n: 0, st: '' }); }
+
+        function enhance(q) {
+            const kind = kindOf(q), tools = $('.qtools', q), eh = $('.eh', q);
+            if (eh) eh.appendChild(mk('span', 'stt'));
+            if (kind === 'tf') { const c = mk('button', 'tf-chk', 'Kiểm tra'); c.disabled = true; $('.opts', q).appendChild(c); }
+            if (kind === 'essay') {
+                const rd = mk('button', 'redo-btn', '↺ Làm lại'); rd.hidden = true; tools.appendChild(rd);
+                const rate = mk('div', 'rate', '<span class="rq">Sau khi xem lời giải, em tự đánh giá nhé:</span>' +
+                    '<button type="button" class="rb ok" data-r="ok">✔ Em làm được</button>' +
+                    '<button type="button" class="rb near" data-r="near">~ Gần đúng</button>' +
+                    '<button type="button" class="rb no" data-r="no">✘ Chưa</button>');
+                rate.hidden = true; q.appendChild(rate);
+            }
+            tools.appendChild(mk('button', 'rv-btn', '🔖 Ôn lại'));
+        }
+
+        function paint(q) {
+            const kind = kindOf(q), r = P[q.id] || {}, st = r.st || '', n = r.n || 0;
+            q.classList.remove('s-correct', 's-wrong', 's-partial');
+            if (st) q.classList.add('s-' + BCLS[st]);
+            const badge = $('.stt', q); if (badge) badge.textContent = BADGE[st] || '';
+            const rv = $('.rv-btn', q);
+            if (rv) { rv.classList.toggle('on', !!r.rv); rv.textContent = r.rv ? '🔖 Đã đánh dấu ôn lại' : '🔖 Ôn lại'; }
+            const redo = $('.redo-btn', q); if (redo) redo.hidden = !st;
+            if (kind === 'essay') {
+                $('.rate', q).hidden = !(r.sn || st);
+                $$('.rb', q).forEach(b => b.classList.toggle('on', b.dataset.r === st));
+                return;
+            }
+            const ans = q.dataset.ans, total = $$('.tfrow', q).length;
+            if (kind === 'mc') {
+                $$('.opt', q).forEach(o => {
+                    const bad = (r.bad || []).indexOf(o.dataset.k) >= 0;
+                    o.classList.toggle('wrong', bad);
+                    o.classList.toggle('correct', o.dataset.k === ans && (!!st || !!r.v));
+                    o.classList.toggle('locked', !!st || bad);
+                });
+            } else if (kind === 'tf') {
+                const tf = r.tf || {}, rows = $$('.tfrow', q);
+                rows.forEach(row => {
+                    const sel = tf[row.dataset.k], a = row.dataset.ans;
+                    row.classList.remove('r-ok', 'r-bad');
+                    if (st) row.classList.add(sel === a ? 'r-ok' : 'r-bad');
+                    $$('.tfb button', row).forEach(b => {
+                        const v = b.dataset.v;
+                        b.disabled = !!st;
+                        b.classList.toggle('sel', !st && sel === v);
+                        b.classList.toggle('correct', !!st && v === a);
+                        b.classList.toggle('wrong', !!st && sel === v && v !== a);
+                    });
+                });
+                const chk = $('.tf-chk', q);
+                chk.hidden = !!st;
+                chk.disabled = !rows.every(row => tf[row.dataset.k]);
+                chk.textContent = n >= 1 ? 'Kiểm tra lại' : 'Kiểm tra';
+            } else if (kind === 'short') {
+                const inp = $('.sans', q), chk = $('.chk', q), ta = $('.true-ans', q);
+                const right = sameAns(r.txt || '', ans);
+                inp.value = r.txt || '';
+                inp.readOnly = !!st;
+                inp.classList.remove('correct', 'wrong');
+                if (st) inp.classList.add(right ? 'correct' : 'wrong'); else if (n >= 1) inp.classList.add('wrong');
+                chk.disabled = !!st;
+                chk.textContent = n >= 1 && !st ? 'Kiểm tra lại' : 'Kiểm tra';
+                ta.hidden = !(st && !right);
+                ta.textContent = 'Đáp án đúng: ' + ans;
+            }
+            const fb = $('.fb', q);
+            let cls = '', txt = '';
+            if (st) {
+                cls = FB[st][0]; txt = FB[st][1];
+                if (st === 'p') txt = '½ Đúng ' + r.k + '/' + total + ' ý';
+            } else if (r.v) {
+                cls = 'partial'; txt = 'Em đã xem lời giải — câu này sẽ không được tính đúng.';
+            } else if (n >= 1) {
+                cls = 'wrong';
+                txt = kind === 'tf' ? 'Mới đúng ' + r.k + '/' + total + ' ý — em xem lại rồi chọn lại một lần nữa nhé.'
+                                    : 'Chưa đúng — em thử lại một lần nữa nhé.';
+            }
+            fb.textContent = txt;
+            fb.className = 'fb' + (cls ? ' f-' + cls : '');
+        }
+
+        function markSeen(q) {
+            const kind = kindOf(q);
+            if (!kind) return;
+            const r = W(q);
+            if (kind === 'essay') r.sn = 1;
+            else if (!r.st && !r.v) { r.v = 1; if (!r.rd) r.sv = 1; r.rv = 1; }
+            else return;
+            save(); paint(q); refresh();
+        }
+
+        function goodSt(r) { return r.rd ? 'cr' : (r.n === 1 ? 'c1' : 'c2'); }
+        function finishQ(q, st) {
+            const r = W(q);
+            r.st = st;
+            if (!r.first) r.first = st;
+            r.rv = GOOD.indexOf(st) >= 0 ? 0 : 1;
+            save(); paint(q); refresh();
+        }
+        function answerMC(q, val) {
+            const r = W(q);
+            if (r.st || (r.bad || []).indexOf(val) >= 0) return;
+            const ok = val === q.dataset.ans;
+            r.n = (r.n || 0) + 1;
+            r.bad = r.bad || [];
+            if (!ok) r.bad.push(val);
+            if (r.v) { r.pick = val; finishQ(q, 'sv'); return; }
+            if (ok) { r.pick = val; finishQ(q, goodSt(r)); return; }
+            if (r.n >= 2) { r.pick = val; finishQ(q, 'w'); return; }
+            save(); paint(q); refresh();
+        }
+        function pickTF(q, row, val) {
+            const r = W(q);
+            if (r.st) return;
+            r.tf = r.tf || {};
+            r.tf[row.dataset.k] = val;
+            save(); paint(q);
+        }
+        function checkTF(q) {
+            const r = W(q), rows = $$('.tfrow', q);
+            if (r.st || !r.tf || !rows.every(w => r.tf[w.dataset.k])) return;
+            r.n = (r.n || 0) + 1;
+            r.k = rows.filter(w => r.tf[w.dataset.k] === w.dataset.ans).length;
+            if (r.v) { finishQ(q, 'sv'); return; }
+            if (r.k === rows.length) { finishQ(q, goodSt(r)); return; }
+            if (r.n >= 2) { finishQ(q, r.k === 0 ? 'w' : 'p'); return; }
+            save(); paint(q); refresh();
+        }
+        function checkShort(q) {
+            const r = W(q);
+            if (r.st) return;
+            const inp = $('.sans', q);
+            if (norm(inp.value) === '') { inp.focus(); return; }
+            r.txt = inp.value.trim();
+            r.n = (r.n || 0) + 1;
+            if (r.v) { finishQ(q, 'sv'); return; }
+            if (sameAns(r.txt, q.dataset.ans)) { finishQ(q, goodSt(r)); return; }
+            if (r.n >= 2) { finishQ(q, 'w'); return; }
+            save(); paint(q); refresh();
+            inp.focus(); inp.select();
+        }
+        function rateQ(q, v) {
+            const r = W(q);
+            r.sn = 1;
+            r.st = v;
+            if (!r.first) r.first = v;
+            r.rv = v === 'ok' ? 0 : 1;
+            save(); paint(q); refresh();
+        }
+        function toggleRv(q) { const r = W(q); r.rv = r.rv ? 0 : 1; save(); paint(q); refresh(); }
+        function redoQ(q) {
+            const o = P[q.id] || {};
+            P[q.id] = { n: 0, st: '', first: o.first || '', sv: o.sv || 0, rd: (o.rd || 0) + 1, rv: o.rv || 0 };
+            openSol(q, false);
+            save(); paint(q); refresh();
+        }
+
+        function tally(list) {
+            const s = { n: list.length, done: 0, good: 0, first: 0, retry: 0, sv: 0, redo: 0, rev: 0, todo: 0, ok: 0, near: 0, no: 0 };
+            list.forEach(q => {
+                const r = P[q.id] || {}, st = r.st || '';
+                if (r.rv) s.rev++;
+                if (r.sv) s.sv++;
+                if (!st) { s.todo++; return; }
+                s.done++;
+                if (GOOD.indexOf(st) >= 0) s.good++; else s.redo++;
+                if (r.first === 'c1') s.first++; else if (st === 'c2' || st === 'cr') s.retry++;
+                if (st === 'ok' || st === 'near' || st === 'no') s[st]++;
+            });
+            return s;
+        }
+        function wrongList(list) { return list.filter(q => { const r = P[q.id]; return r && r.st && GOOD.indexOf(r.st) < 0; }); }
+
+        let flt = 'all';
+        const redoSet = new Set();
+        const FLT = {
+            all: () => true,
+            todo: q => !(P[q.id] && P[q.id].st),
+            rev: q => !!(P[q.id] && P[q.id].rv),
+            redo: q => redoSet.has(q.id)
+        };
+        function applyFilter() {
+            const on = flt !== 'all', f = FLT[flt] || FLT.all;
+            qs.forEach(q => { q.hidden = on && !(kindOf(q) && f(q)); });
+            $$('.lz').forEach(z => { z.hidden = on && !$$('.q', z).some(q => !q.hidden); });
+            const shown = qs.filter(q => !q.hidden).length;
+            $('#fltNote').hidden = !on;
+            $('#fltTxt').textContent = shown ? 'Đang lọc: ' + shown + ' câu' : 'Không có câu nào thuộc mục này.';
+            want($$('.lz').filter(z => !z.hidden), true);
+        }
+        function setFilter(v) {
+            if (v === 'redo' && !$('#fltSel option[value="redo"]')) { const o = mk('option'); o.value = 'redo'; $('#fltSel').appendChild(o); }
+            flt = v; $('#fltSel').value = v;
+            refresh();
+            applyFilter();
+        }
+        function jumpTo(el) {
+            pendingJump = el;
+            el.scrollIntoView({ block: 'start' });
+            want($$('.lz').filter(x => x.contains(el) || el.contains(x)), true);
+            setTimeout(() => { pendingJump = null; }, 2500);
+        }
+        function redoWrong(list) {
+            const l = wrongList(list);
+            if (!l.length) return;
+            l.forEach(q => { redoQ(q); redoSet.add(q.id); });
+            setFilter('redo');
+            window.scrollTo(0, 0);
+            jumpTo(l[0]);
+        }
+        function resetAll() {
+            if (!confirm('Xóa toàn bộ tiến độ của bài giảng này trên trình duyệt?')) return;
+            P = {}; redoSet.clear();
+            tracked.forEach(q => { openSol(q, false); paint(q); });
+            allOpen = false; $('#btnAll').textContent = '👁 Hiện tất cả lời giải';
+            save();
+            setFilter('all');
+        }
+
+        function buildGroups() {
+            const out = [];
+            const groupedIds = new Set();
+            $$('.dang').forEach(d => {
+                const l = tracked.filter(q => d.contains(q) || q.dataset.dang === d.id), db = d.querySelector(':scope > .db');
+                if (!l.length || !db) return;
+                l.forEach(q => groupedIds.add(q.id));
+                const no = $('.dno', d), tt = $('.dtt', d), label = no ? no.textContent : 'Dạng';
+                const g = { i: out.length, id: d.id, label: label, qs: l, sum: mk('div', 'dsum'),
+                            nameHtml: label + (tt && tt.innerHTML.trim() ? ': ' + tt.innerHTML : '') };
+                db.appendChild(g.sum);
+                out.push(g);
+            });
+            $$('h3.hd2').forEach(h => {
+                const l = tracked.filter(q => !groupedIds.has(q.id) && q.dataset.sub === h.id);
+                if (!l.length) return;
+                l.forEach(q => groupedIds.add(q.id));
+                out.push({ i: out.length, id: h.id, label: h.textContent, nameHtml: h.innerHTML, qs: l, sum: null });
+            });
+            const loose = tracked.filter(q => !groupedIds.has(q.id));
+            [['Ví dụ ngoài các dạng', loose.filter(q => !q.classList.contains('ex'))],
+             ['Bài tập luyện tập', loose.filter(q => q.classList.contains('ex'))]].forEach(p => {
+                if (p[1].length) out.push({ i: out.length, id: '', label: p[0], nameHtml: p[0], qs: p[1], sum: null });
+            });
+            return out;
+        }
+        const CARDS = [['done', 'Đã làm'], ['good', 'Đúng'], ['first', 'Đúng ngay lần đầu'], ['retry', 'Đúng sau thử lại'],
+                       ['sv', 'Xem lời giải trước'], ['redo', 'Cần làm lại'], ['todo', 'Chưa làm']];
+        function buildSummary() {
+            const sec = mk('section', 'sumsec');
+            sec.id = 'summary';
+            sec.innerHTML = '<h2 class="hd hd1">📊 Tổng kết</h2><p class="sline" id="sline"></p>' +
+                '<div class="sgrid">' + CARDS.map(c => '<div class="scard"><b data-s="' + c[0] + '">0</b><span>' + c[1] + '</span></div>').join('') + '</div>' +
+                '<h3 class="hd hd2">Theo dạng</h3>' +
+                '<div class="swrap"><table class="stab"><thead><tr><th>Dạng</th><th>Đã làm</th><th>Đúng</th><th>Cần ôn</th></tr></thead><tbody></tbody></table></div>' +
+                '<h3 class="hd hd2">Theo loại câu</h3><ul class="skind" id="skind"></ul>' +
+                '<div class="sbtns"><button type="button" class="dbtn" data-act="redo-all" id="sbRedo">🔁 Làm lại câu sai</button>' +
+                '<button type="button" class="dbtn" data-act="show-rev" id="sbRev">🔖 Xem câu cần ôn</button>' +
+                '<button type="button" class="dbtn" data-act="reset">🗑 Xóa tiến độ</button></div>' +
+                '<p class="snote">Tiến độ được lưu ngay trên trình duyệt này; mở lại bài giảng sẽ làm tiếp được. ' +
+                'Tự luận tính là đúng khi em tự đánh giá ✔. Câu xem lời giải trước khi làm xong không tính đúng.</p>';
+            const tb = $('tbody', sec);
+            groups.forEach(g => {
+                const tr = mk('tr', '', '<td>' + (g.id ? '<a href="#' + g.id + '" data-go="' + g.id + '">' + g.nameHtml + '</a>' : g.nameHtml) + '</td><td></td><td></td><td></td>');
+                tb.appendChild(tr); g.row = tr;
+            });
+            $('#content').appendChild(sec);
+            $('#toc').insertAdjacentHTML('beforeend', '<a class="l1" href="#summary">📊 Tổng kết</a>');
+            return sec;
+        }
+        function updateGroup(g) {
+            const s = tally(g.qs);
+            if (g.sum) {
+                g.sum.innerHTML = '<b>' + g.label + '</b><span>đã làm ' + s.done + '/' + s.n + ' · đúng ' + s.good + (s.rev ? ' · cần ôn ' + s.rev : '') + '</span>' +
+                    (s.redo ? '<button type="button" class="dbtn" data-act="redo-g" data-g="' + g.i + '">🔁 Làm lại câu sai (' + s.redo + ')</button>' : '');
+            }
+            const c = g.row.cells;
+            c[1].textContent = s.done + '/' + s.n; c[2].textContent = s.good; c[3].textContent = s.rev;
+        }
+        function refresh() {
+            const s = tally(tracked);
+            $('#ptxt').textContent = 'Đã làm ' + s.done + '/' + s.n + ' · đúng ' + s.good;
+            $('#pfill').style.width = (s.n ? Math.round(100 * s.done / s.n) : 0) + '%';
+            const lab = { todo: 'Chưa làm (' + s.todo + ')', rev: 'Cần ôn lại (' + s.rev + ')', redo: 'Đang làm lại (' + redoSet.size + ')' };
+            Object.keys(lab).forEach(k => { const o = $('#fltSel option[value="' + k + '"]'); if (o) o.textContent = lab[k]; });
+            groups.forEach(updateGroup);
+            $$('[data-s]', sumEl).forEach(b => { b.textContent = b.dataset.s === 'done' ? s.done + '/' + s.n : s[b.dataset.s]; });
+            $('#sline').textContent = s.done === s.n
+                ? '🎉 Em đã làm hết ' + s.n + ' câu, đúng ' + s.good + '.' + (s.redo ? ' Còn ' + s.redo + ' câu cần làm lại.' : ' Giỏi lắm!')
+                : 'Em đã làm ' + s.done + '/' + s.n + ' câu, đúng ' + s.good + '. Còn ' + s.todo + ' câu chưa làm.';
+            $('#skind').innerHTML = Object.keys(KIND_NAME).map(k => {
+                const l = tracked.filter(q => kindOf(q) === k);
+                if (!l.length) return '';
+                const t = tally(l);
+                return '<li><b>' + KIND_NAME[k] + ':</b> đã làm ' + t.done + '/' + t.n +
+                    (k === 'essay' ? ' · ✔ ' + t.ok + ' · ~ ' + t.near + ' · ✘ ' + t.no : ' · đúng ' + t.good + ' (ngay lần đầu ' + t.first + ')') + '</li>';
+            }).join('');
+            const br = $('#sbRedo'); br.textContent = '🔁 Làm lại câu sai (' + s.redo + ')'; br.disabled = !s.redo;
+            $('#sbRev').textContent = '🔖 Xem câu cần ôn (' + s.rev + ')';
+        }
+
+        load();
+        tracked.forEach(enhance);
+        $('#content').insertAdjacentHTML('afterbegin', '<div class="fltnote" id="fltNote" hidden><span id="fltTxt"></span>' +
+            '<button type="button" class="dbtn" data-act="flt-all">Hiện tất cả</button></div>');
+        const groups = tracked.length ? buildGroups() : [];
+        const sumEl = tracked.length ? buildSummary() : null;
+        if (tracked.length) {
+            tracked.forEach(paint);
+            $('#prow').hidden = false;
+            $('#btnSum').hidden = false;
+            refresh();
+            want([sumEl], false);
+        }
+        if (!lsOK) $('#lsWarn').hidden = false;
+        $('#btnSum').addEventListener('click', () => { if (sumEl) jumpTo(sumEl); });
+        $('#fltSel').addEventListener('change', e => { flt = e.target.value; applyFilter(); window.scrollTo(0, 0); });
+
+        function doAct(a) {
+            const act = a.dataset.act;
+            if (act === 'redo-g') redoWrong(groups[+a.dataset.g].qs);
+            else if (act === 'redo-all') redoWrong(tracked);
+            else if (act === 'show-rev') { setFilter('rev'); const f = tracked.find(q => !q.hidden); if (f) jumpTo(f); else window.scrollTo(0, 0); }
+            else if (act === 'flt-all') setFilter('all');
+            else if (act === 'reset') resetAll();
+        }
+
+        document.addEventListener('click', e => {
+            const t = e.target;
+            const go = t.closest('[data-go]');
+            if (go) {
+                e.preventDefault();
+                const el = document.getElementById(go.dataset.go);
+                if (el) { if (flt !== 'all') setFilter('all'); jumpTo(el); }
+                return;
+            }
+            const act = t.closest('[data-act]');
+            if (act) { doAct(act); return; }
+            const sb = t.closest('.sol-btn');
+            if (sb) { openSol(sb.closest('.q')); return; }
+            const q = t.closest('.q');
+            if (!q || !kindOf(q)) return;
+            if (t.closest('.redo-btn')) { redoQ(q); return; }
+            if (t.closest('.rv-btn')) { toggleRv(q); return; }
+            const rb = t.closest('.rb');
+            if (rb) { rateQ(q, rb.dataset.r); return; }
+            if (!q.dataset.ans) return;
+            const opt = t.closest('.opt');
+            if (opt && q.dataset.kind === 'mc' && !opt.classList.contains('static')) { answerMC(q, opt.dataset.k); return; }
+            const tb = t.closest('.tfb button');
+            if (tb) { pickTF(q, tb.closest('.tfrow'), tb.dataset.v); return; }
+            if (t.closest('.tf-chk')) { checkTF(q); return; }
+            if (t.closest('.chk')) checkShort(q);
+        });
+        document.addEventListener('keydown', e => {
+            const t = e.target;
+            if ((e.key === 'Enter' || e.key === ' ') && t.classList && t.classList.contains('opt') && !t.classList.contains('static')) {
+                e.preventDefault();
+                const q = t.closest('.q[data-ans]');
+                if (q) answerMC(q, t.dataset.k);
+            } else if (e.key === 'Enter' && t.classList && t.classList.contains('sans')) {
+                checkShort(t.closest('.q'));
+            }
+        });
+        document.addEventListener('input', e => {
+            const t = e.target;
+            if (t.classList && t.classList.contains('sans')) {
+                const q = t.closest('.q'), r = q && P[q.id];
+                if (!(r && r.st)) t.classList.remove('wrong');
+            }
+        });
+
+        const drawer = $('#drawer'), veil = $('#veil');
+        let tocDone = false;
+        function toc(open) {
+            drawer.classList.toggle('open', open);
+            veil.classList.toggle('open', open);
+            if (open && !tocDone) { tocDone = true; typesetNow($('#toc')); }
+        }
+        $('#btnToc').addEventListener('click', () => toc(true));
+        $('#btnTocClose').addEventListener('click', () => toc(false));
+        veil.addEventListener('click', () => toc(false));
+        $('#toc').addEventListener('click', e => {
+            const a = e.target.closest('a');
+            if (!a) return;
+            e.preventDefault();
+            const el = document.getElementById(a.getAttribute('href').slice(1));
+            toc(false);
+            if (el) jumpTo(el);
+        });
+        ['wheel', 'touchstart', 'keydown'].forEach(ev => window.addEventListener(ev, () => { pendingJump = null; }, { passive: true }));
+
+        const up = $('#toTop');
+        window.addEventListener('scroll', () => { up.hidden = window.scrollY < 600; }, { passive: true });
+        up.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+<script>
+(function () {
+    var PW = "0987473509";
+    var unlocked = false, pending = null, box = null, inp = null, err = null;
+    var RE_ALL = /(tất cả|toàn bộ)/i, RE_SOL = /(lời giải|đáp án)/i;
+
+    function isGate(b) {
+        if (b.closest('.sol-btn, .sol-all, .show-all-sol, #showAllSol, [data-act="sol-all"]')) return true;
+        var t = (b.textContent || '');
+        return RE_ALL.test(t) && RE_SOL.test(t);
+    }
+    function build() {
+        if (box) return;
+        box = document.createElement('div');
+        box.className = 'lz-lock';
+        box.setAttribute('role', 'dialog');
+        box.setAttribute('aria-modal', 'true');
+        box.innerHTML = '<div class="lz-lock-box"><h4>🔒 Mở khóa lời giải</h4>' +
+            '<p>Nhập mật khẩu của giáo viên để xem lời giải.</p>' +
+            '<input type="password" autocomplete="off" placeholder="Mật khẩu…">' +
+            '<div class="lz-lock-err"></div>' +
+            '<div class="lz-lock-btns"><button type="button" class="cancel">Hủy</button><button type="button" class="ok">Mở khóa</button></div></div>';
+        document.body.appendChild(box);
+        inp = box.querySelector('input');
+        err = box.querySelector('.lz-lock-err');
+        box.querySelector('.ok').onclick = submit;
+        box.querySelector('.cancel').onclick = close;
+        box.addEventListener('click', function (e) { if (e.target === box) close(); });
+        inp.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') { e.preventDefault(); submit(); }
+            else if (e.key === 'Escape') { e.preventDefault(); close(); }
+        });
+    }
+    function open(btn) {
+        build();
+        pending = btn;
+        inp.value = ''; inp.classList.remove('bad'); err.textContent = '';
+        box.classList.add('open');
+        setTimeout(function () { inp.focus(); }, 30);
+    }
+    function close() { if (box) box.classList.remove('open'); pending = null; }
+    function submit() {
+        if (inp.value.trim() === PW) {
+            unlocked = true;
+            var b = pending;
+            close();
+            if (b && document.contains(b)) b.click();
+        } else {
+            err.textContent = 'Mật khẩu không đúng!';
+            inp.classList.remove('bad'); void inp.offsetWidth; inp.classList.add('bad');
+            inp.select();
+        }
+    }
+    document.addEventListener('click', function (e) {
+        if (unlocked || !e.target || !e.target.closest) return;
+        var b = e.target.closest('button, a, [role="button"], input[type="button"]');
+        if (!b || !isGate(b)) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        open(b);
+    }, true);
+})();
+</script>
+</body>
+</html>
