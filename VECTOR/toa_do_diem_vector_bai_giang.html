@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Th.S Nguyễn Ngọc Kiên - 0987 473 509</title>
+    <style>
+        * { box-sizing: border-box; }
+        [hidden] { display: none !important; }
+        html { scroll-behavior: smooth; }
+        body { margin: 0; font-family: Arial, sans-serif; background: #f7fbff; color: #1c2b3a; line-height: 1.6; padding-bottom: 72px; }
+
+        .topbar { position: sticky; top: 0; z-index: 50; background: #1e88e5; color: #fff; padding: 8px 14px; box-shadow: 0 2px 6px rgba(30,136,229,.25); }
+        .topbar .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; max-width: 860px; margin: auto; }
+        .topbar h1 { margin: 0; font-size: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 200px; min-width: 0; }
+        .tools { display: flex; gap: 8px; flex-wrap: wrap; }
+        .tbtn { background: #fff; color: #1565c0; border: none; border-radius: 4px; padding: 5px 12px; font-weight: bold; cursor: pointer; font-size: 13px; white-space: nowrap; }
+        .tbtn:hover { background: #e3f0fb; }
+
+        main { max-width: 860px; margin: auto; padding: 14px; }
+        mjx-container { max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+        .lz { margin: 0 0 12px; }
+        .txt { margin: 8px 0; }
+
+        /* ---- tiêu đề ---- */
+        h2.hd1 { color: #1565c0; border-bottom: 3px solid #b3d4fc; padding-bottom: 6px; margin: 30px 0 12px; font-size: 22px; }
+        h3.hd2 { color: #1565c0; border-bottom: 2px solid #b3d4fc; padding-bottom: 4px; margin: 24px 0 10px; font-size: 18px; }
+        h4.hd3 { color: #0d47a1; margin: 20px 0 8px; font-size: 16px; }
+        .sub-banner { text-align: center; font-weight: bold; font-size: 17px; color: #0d47a1; margin: 18px 0 10px; padding: 4px 10px; }
+        .hd { scroll-margin-top: 104px; }
+
+        /* ---- khung lý thuyết ---- */
+        .box { border: 2px solid var(--bc, #b3d4fc); background: var(--bg, #eef6fc); border-radius: 8px; margin: 12px 0; overflow: hidden; }
+        .box .bh { background: var(--bc, #b3d4fc); color: var(--fg, #0d47a1); font-weight: bold; padding: 5px 12px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+        .box .bsub { font-weight: normal; }
+        .box .bb { padding: 8px 14px; overflow-x: auto; }
+        .box .box { margin: 8px 0; }
+        .box .bb > .tp:first-child { margin-top: 2px; }
+        .k-def  { --bc: #b3d4fc; --bg: #eef6fc; --fg: #0d47a1; }
+        .k-thm  { --bc: #c5b3f5; --bg: #f5f1fe; --fg: #3b1e8a; }
+        .k-note { --bc: #ffe08a; --bg: #fffbea; --fg: #7a5600; }
+        .k-warn { --bc: #ffb4a8; --bg: #fff3f0; --fg: #9a2410; }
+        .k-key  { --bc: #a5dfb5; --bg: #f0fbf3; --fg: #14602b; }
+        .k-sum  { --bc: #9ed8e3; --bg: #eefafc; --fg: #0b5563; }
+        .k-try  { --bc: #f5c18c; --bg: #fff6ec; --fg: #8a4a00; }
+        .k-ask  { --bc: #d5d5d5; --bg: #f7f7f7; --fg: #333; }
+
+        /* ---- dạng toán (cỡ chữ tiêu đề 18px bằng subsection) ---- */
+        .dang { border: 2px solid #1e88e5; border-radius: 8px; margin: 22px 0 12px; background: #fff; overflow: hidden; scroll-margin-top: 104px; }
+        .dang .dh { background: #1e88e5; color: #fff; padding: 7px 14px; font-weight: bold; font-size: 18px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+        .dang .dno { background: #fff; color: #1565c0; border-radius: 12px; padding: 0 10px; white-space: nowrap; }
+        .dang .db { padding: 8px 14px; overflow-x: auto; }
+
+        /* ---- ví dụ / câu hỏi ---- */
+        .q { background: #fff; border: 2px solid #b3d4fc; border-radius: 8px; padding: 12px 14px; margin: 14px 0; overflow-x: auto; }
+        .q.s-correct { border-color: #28a745; }
+        .q.s-wrong { border-color: #dc3545; }
+        .q.s-partial { border-color: #ff9800; }
+        .q .eh { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+        .q .el { background: #1e88e5; color: #fff; font-weight: bold; padding: 2px 12px; border-radius: 14px; }
+        .q.ex .el { background: #00897b; }
+        .q .tag { font-size: 12px; color: #1565c0; border: 1px solid #b3d4fc; border-radius: 10px; padding: 0 8px; background: #eef6fc; }
+        .qtext { margin-bottom: 8px; word-wrap: break-word; }
+
+        .opt { display: flex; gap: 8px; align-items: flex-start; background: #fff; border: 1px solid #b3d4fc; border-radius: 4px; padding: 8px 11px; margin: 6px 0; cursor: pointer; transition: .2s; }
+        .opt:hover:not(.locked):not(.static) { background: #e3f0fb; border-color: #1e88e5; }
+        .opt:focus-visible, .tfb button:focus-visible { outline: 3px solid #ff9800; outline-offset: 1px; }
+        .opt.static { cursor: default; }
+        .opt.locked { cursor: default; }
+        .opt.locked:not(.correct):not(.wrong) { opacity: .55; }
+        .opt.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+        .opt.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+        .lab { font-weight: bold; min-width: 1.7em; }
+        .ob { flex: 1; min-width: 0; overflow-x: auto; }
+
+        .tfrow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; background: #fff; border: 1px solid #b3d4fc; border-radius: 4px; padding: 7px 10px; margin: 6px 0; }
+        .tfrow.r-ok { border-color: #28a745; }
+        .tfrow.r-bad { border-color: #dc3545; }
+        .tfc { flex: 1 1 60%; min-width: 0; overflow-x: auto; }
+        .tfb { display: flex; gap: 8px; }
+        .tfb button { padding: 6px 16px; font-weight: bold; border: 2px solid #b3d4fc; background: #fff; border-radius: 5px; cursor: pointer; }
+        .tfb button:hover:not(:disabled) { background: #e3f0fb; }
+        .tfb button:disabled { cursor: default; }
+        .tfb button.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+        .tfb button.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+
+        .shortrow { display: flex; gap: 8px; flex-wrap: wrap; }
+        .sans { width: 190px; max-width: 100%; padding: 8px 12px; font-size: 17px; font-weight: bold; border: 2px solid #1e88e5; border-radius: 5px; color: #1565c0; }
+        .sans.correct { background: #d4edda; border-color: #28a745; color: #155724; }
+        .sans.wrong { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+        .chk { background: #ffc107; border: none; border-radius: 5px; padding: 0 18px; font-weight: bold; cursor: pointer; min-height: 40px; }
+        .chk:disabled { background: #ccc; cursor: default; }
+        .true-ans { margin-top: 8px; color: #28a745; font-weight: bold; }
+
+        .fb { margin-top: 6px; font-weight: bold; min-height: 1.2em; }
+        .f-correct { color: #28a745; } .f-wrong { color: #dc3545; } .f-partial { color: #ef6c00; }
+        .qtools { margin-top: 6px; display: flex; gap: 8px; flex-wrap: wrap; }
+        .sol-btn { background: #17a2b8; color: #fff; border: none; border-radius: 4px; padding: 6px 14px; cursor: pointer; font-weight: bold; }
+        .sol-btn:hover { background: #138496; }
+        .redo-btn { background: #fff; color: #1565c0; border: 1px solid #1e88e5; border-radius: 4px; padding: 6px 12px; cursor: pointer; font-weight: bold; }
+        .solution-box { display: none; margin-top: 10px; padding: 12px 14px; background: #e8f4fc; border-left: 5px solid #0288d1; border-radius: 4px; overflow-x: auto; }
+
+        /* ---- mục lục (ngăn kéo) ---- */
+        .drawer { position: fixed; top: 0; bottom: 0; left: 0; width: min(360px, 88vw); z-index: 80; background: #fff; box-shadow: 4px 0 18px rgba(0,0,0,.25); transform: translateX(-105%); transition: transform .25s; display: flex; flex-direction: column; }
+        .drawer.open { transform: none; }
+        .drawer .dtop { background: #1e88e5; color: #fff; padding: 10px 14px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; }
+        .drawer .dtop button { background: none; border: none; color: #fff; font-size: 20px; cursor: pointer; }
+        .toc { overflow-y: auto; padding: 8px 6px 20px; }
+        .toc a { display: block; padding: 5px 10px; color: #1c2b3a; text-decoration: none; border-radius: 4px; font-size: 14px; line-height: 1.4; }
+        .toc a:hover { background: #e3f0fb; }
+        .toc a.l1 { font-weight: bold; color: #1565c0; margin-top: 8px; }
+        .toc a.l2 { padding-left: 18px; }
+        .toc a.l3 { padding-left: 30px; font-size: 13px; }
+        .toc a.l4 { padding-left: 30px; font-size: 13px; color: #00695c; }
+        .veil { position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 70; display: none; }
+        .veil.open { display: block; }
+
+        .foot { text-align: center; font-size: 12px; color: #5f7b94; padding: 10px; }
+        .foot:empty { display: none; }
+        @media screen { .foot { display: none; } }
+
+        /* ---- góc dưới phải ---- */
+        .fab { position: fixed; right: 14px; bottom: 14px; z-index: 40; display: flex; align-items: center; gap: 8px; max-width: calc(100vw - 28px); pointer-events: none; }
+        .fab > * { pointer-events: auto; }
+        .credit { display: flex; align-items: center; flex-wrap: wrap; gap: 0 12px; min-height: 42px; padding: 4px 14px; background: #fff; color: #1565c0; border: 1px solid #b3d4fc; border-radius: 21px; font-size: 12px; line-height: 1.35; box-shadow: 0 2px 8px rgba(30,136,229,.18); min-width: 0; }
+        .credit:empty { display: none; }
+        .credit .cr-i { white-space: nowrap; }
+        .credit .cr-i b { font-weight: bold; }
+        #toTop { flex: 0 0 42px; background: #1e88e5; color: #fff; border: none; border-radius: 50%; width: 42px; height: 42px; font-size: 18px; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.3); }
+
+        /* ---- tiến độ học tập ---- */
+        .prow { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; max-width: 860px; margin: 6px auto 0; font-size: 13px; }
+        .ptxt { font-weight: bold; white-space: nowrap; }
+        .ptrack { flex: 1 1 90px; min-width: 70px; height: 8px; background: rgba(255,255,255,.35); border-radius: 4px; overflow: hidden; }
+        .pfill { height: 100%; width: 0; background: #fff; transition: width .3s; }
+        .fsel { background: #fff; color: #1565c0; border: none; border-radius: 4px; padding: 3px 6px; font-weight: bold; font-size: 13px; max-width: 100%; }
+        .lswarn { background: #fff3cd; color: #7a5600; border-radius: 4px; padding: 0 8px; font-size: 12px; }
+        .fltnote { margin: 4px 0 10px; padding: 6px 12px; background: #fff6ec; border: 1px solid #f5c18c; border-radius: 6px; color: #8a4a00; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+        /* ---- trạng thái từng câu ---- */
+        .stt { font-size: 12px; font-weight: bold; border: 1px solid transparent; border-radius: 10px; padding: 0 8px; }
+        .stt:empty { display: none; }
+        .s-correct .stt { color: #155724; background: #d4edda; border-color: #28a745; }
+        .s-partial .stt { color: #8a4a00; background: #fff3e0; border-color: #ff9800; }
+        .s-wrong .stt { color: #721c24; background: #f8d7da; border-color: #dc3545; }
+        .tfb button.sel { background: #e3f0fb; border-color: #1e88e5; color: #1565c0; }
+        .tf-chk { background: #ffc107; border: none; border-radius: 5px; padding: 0 18px; font-weight: bold; cursor: pointer; min-height: 40px; margin-top: 6px; }
+        .tf-chk:disabled { background: #ccc; cursor: default; }
+        .rv-btn { background: #fff; color: #8a4a00; border: 1px solid #f5c18c; border-radius: 4px; padding: 6px 12px; cursor: pointer; font-weight: bold; }
+        .rv-btn.on { background: #fff6ec; border-color: #ff9800; }
+        .rate { margin-top: 10px; padding: 8px 12px; background: #f7fbff; border: 1px dashed #b3d4fc; border-radius: 6px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+        .rate .rq { font-weight: bold; color: #1565c0; margin-right: 4px; }
+        .rb { border: 2px solid #b3d4fc; background: #fff; border-radius: 5px; padding: 5px 14px; font-weight: bold; cursor: pointer; }
+        .rb:hover { background: #e3f0fb; }
+        .rb.ok.on { background: #d4edda; border-color: #28a745; color: #155724; }
+        .rb.near.on { background: #fff3e0; border-color: #ff9800; color: #8a4a00; }
+        .rb.no.on { background: #f8d7da; border-color: #dc3545; color: #721c24; }
+
+        /* ---- tổng kết ---- */
+        .dsum { margin-top: 10px; padding: 6px 12px; background: #eef6fc; border: 1px solid #b3d4fc; border-radius: 6px; font-size: 14px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+        .dsum:empty { display: none; }
+        .dbtn { background: #fff; color: #1565c0; border: 1px solid #1e88e5; border-radius: 4px; padding: 3px 10px; cursor: pointer; font-weight: bold; }
+        .dbtn:disabled { color: #999; border-color: #ccc; cursor: default; }
+        .sumsec { margin: 34px 0 10px; scroll-margin-top: 104px; }
+        .sumsec .sline { font-weight: bold; color: #0d47a1; }
+        .sgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 8px; margin: 10px 0 14px; }
+        .scard { background: #fff; border: 2px solid #b3d4fc; border-radius: 8px; padding: 8px 10px; text-align: center; }
+        .scard b { display: block; font-size: 22px; color: #1565c0; }
+        .scard span { font-size: 12px; color: #5f7b94; }
+        .swrap { overflow-x: auto; }
+        .stab { border-collapse: collapse; width: 100%; background: #fff; }
+        .stab th, .stab td { border: 1px solid #b3d4fc; padding: 5px 10px; text-align: center; }
+        .stab th { background: #e8f4fc; color: #0d47a1; }
+        .stab td:first-child { text-align: left; }
+        .skind { margin: 6px 0; padding-left: 20px; }
+        .sbtns { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 6px; }
+        .sbtns .dbtn { padding: 7px 14px; }
+        .snote { font-size: 12px; color: #5f7b94; margin: 4px 0; }
+
+        /* --- SVG / ẢNH + KHUNG ZOOM --- */
+        :root {
+            --zoom-accent: #1e88e5; --zoom-accent-hover: #1565c0;
+            --zoom-border: #b3d4fc; --zoom-bar-bg: #eef6fc; --zoom-max-h: none;
+        }
+        svg { max-width: 100%; height: auto; display: block; margin: 10px auto; overflow: visible; }
+        svg text { font-family: Arial, sans-serif; }
+        img { max-width: 100%; height: auto; }
+        .zoom-container { display: flex; align-items: flex-start; gap: 10px; margin: 15px 0; }
+        .zoom-viewport {
+            flex: 1 1 auto; min-width: 0;
+            overflow: auto; -webkit-overflow-scrolling: touch;
+            border: 1px solid var(--zoom-border); border-radius: 4px; background: #fff;
+            box-sizing: border-box; padding: 4px;
+        }
+        .zoom-viewport.can-pan { cursor: grab; max-height: var(--zoom-max-h); overscroll-behavior: contain; }
+        .zoom-viewport.dragging { cursor: grabbing; user-select: none; }
+        .zoom-toolbar { display: flex; flex-direction: column; gap: 5px; background: var(--zoom-bar-bg); padding: 5px; border-radius: 4px; border: 1px solid var(--zoom-border); flex-shrink: 0; }
+        .zoom-btn { background: var(--zoom-accent); color: #fff; border: none; padding: 6px 10px; font-size: 14px; border-radius: 4px; cursor: pointer; transition: background .2s, opacity .2s; white-space: nowrap; }
+        .zoom-btn:hover:not(:disabled) { background: var(--zoom-accent-hover); }
+        .zoom-btn:disabled { background: #ccc; cursor: not-allowed; opacity: .6; }
+        .zoom-media { display: block; margin: 0 auto; max-width: 100%; height: auto; user-select: none; -webkit-user-drag: none; }
+        .zoom-media.zoomed { width: var(--zw) !important; max-width: none !important; height: auto !important; }
+
+        /* --- BẢNG DÀI & BẢNG RỘNG --- */
+        .table-scroll { display: block; width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; margin: 10px 0; }
+        .table-scroll > table { margin: 0; max-width: 100%; border-collapse: collapse; }
+        .table-scroll th, .table-scroll td { overflow-wrap: break-word; }
+        .table-responsive { display: block; width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; margin: 15px 0; }
+        .tbl-box { position: relative; margin: 12px 0; max-width: 100%; min-width: 0; }
+        .tbl-box > .tbl-wrap { position: relative; }
+        .tbl-box .table-responsive, .tbl-box .table-scroll { margin: 0; }
+        .tbl-hint { display: none; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 4px; font-size: 12.5px; color: #5f7b94; }
+        .tbl-box.has-scroll > .tbl-hint { display: flex; }
+        .tbl-open { font: inherit; font-size: 12.5px; padding: 4px 10px; border-radius: 14px; border: 1px solid var(--zoom-border); background: var(--zoom-bar-bg); color: var(--zoom-accent-hover); cursor: pointer; white-space: nowrap; }
+        .tbl-fade { display: none; position: absolute; top: 0; right: 0; bottom: 0; width: 30px; pointer-events: none; background: linear-gradient(to right, rgba(255,255,255,0), rgba(120,140,160,.28)); }
+        .tbl-box.has-scroll:not(.at-end) .tbl-fade { display: block; }
+        .tbl-box.has-scroll table.sticky-first tr > :first-child { position: sticky; left: 0; z-index: 2; background: #fff; box-shadow: 2px 0 4px -2px rgba(0,0,0,.35); }
+        @media (max-width: 600px) {
+            .tbl-box td, .tbl-box th { font-size: 14px; padding: 4px 7px !important; }
+        }
+        #tblOverlay { position: fixed; inset: 0; z-index: 99999; background: #fff; display: none; flex-direction: column; }
+        #tblOverlay.open { display: flex; }
+        .tbl-ov-bar { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: var(--zoom-bar-bg); border-bottom: 1px solid var(--zoom-border); }
+        .tbl-ov-bar .ttl { flex: 1; min-width: 0; font-size: 13px; font-weight: bold; color: #333; }
+        .tbl-ov-body { flex: 1; overflow: auto; -webkit-overflow-scrolling: touch; padding: 10px; touch-action: pan-x pan-y; }
+        .tbl-ov-body table { margin: 0; width: auto; max-width: none; border-collapse: collapse; font-size: calc(15px * var(--tbl-s, 1)); }
+        .tbl-ov-body td, .tbl-ov-body th { font-size: inherit !important; padding: 5px 9px; }
+
+        /* ===== Bổ sung định dạng TeX2HTML ===== */
+        .tp { margin: 6px 0; }
+        .center { text-align: center; }
+        .lvl { display: inline-block; margin-left: 8px; padding: 1px 10px; border-radius: 12px; border: 1px solid; font-size: 12px; font-weight: bold; line-height: 1.6; white-space: nowrap; vertical-align: middle; cursor: help; }
+        .lvl .dots { letter-spacing: 1px; margin-right: 4px; }
+        .lvl.lv1 { background: #e6f4ea; border-color: #34a853; color: #1b6b32; }
+        .lvl.lv2 { background: #e3f0fb; border-color: #4a90d9; color: #0d47a1; }
+        .lvl.lv3 { background: #fff3e0; border-color: #fb8c00; color: #8a4b00; }
+        .lvl.lv4 { background: #fdeaea; border-color: #e53935; color: #a31515; }
+        .figure svg, .figure img { max-width: 100%; height: auto; }
+        .fig-error { color: #b00020; border: 1px dashed #b00020; padding: 6px 10px; text-align: center; margin: 8px 0; font-size: 14px; }
+        .fbox { border: 1px solid currentColor; padding: 0 4px; }
+        blockquote { margin: 8px 20px; }
+        img { max-width: 100%; height: auto; }
+        ul, ol { margin: 6px 0; padding-left: 24px; }
+        ul.desc, li.cl { list-style: none; }
+        li.cl .lbl { font-weight: bold; margin-right: .4em; }
+        ol[class^="paren-"] { list-style: none; counter-reset: pc; padding-left: 2.2em; }
+        ol[class^="paren-"] > li { counter-increment: pc; position: relative; margin: 4px 0; }
+        ol[class^="paren-"] > li::before { position: absolute; left: -2.2em; width: 2em; text-align: right; font-weight: bold; }
+        ol.paren-a > li::before { content: counter(pc, lower-alpha) ")"; }
+        ol.paren-A > li::before { content: counter(pc, upper-alpha) ")"; }
+        ol.paren-i > li::before { content: counter(pc, lower-roman) ")"; }
+        ol.paren-I > li::before { content: counter(pc, upper-roman) ")"; }
+        ol.paren-1 > li::before { content: counter(pc, decimal) ")"; }
+        table.tex-table { border-collapse: collapse; margin: 8px auto; }
+        table.tex-table td { padding: 4px 10px; }
+        table.tex-table.bordered td { border: 1px solid #555; }
+        .tex-fa { margin: 0 .25em; font-style: normal; }
+
+        @media (max-width: 600px) {
+            main { padding: 10px; } .q { padding: 10px; } .tfc { flex-basis: 100%; }
+            .tbtn { padding: 5px 9px; }
+            .credit { flex-direction: column; align-items: flex-start; justify-content: center; gap: 0; font-size: 11px; padding: 3px 10px; border-radius: 14px; }
+        }
+        @media print {
+            .topbar, .fab, #toTop, .drawer, .veil, .qtools, .rate, .tf-chk, .dsum, .fltnote, .sumsec { display: none !important; }
+            .solution-box.show-print { display: block !important; }
+        }
+    </style>
+
+    <script>
+        window.MathJax = {
+          tex: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [['$$','$$'], ['\\[','\\]']], processEscapes: true, macros: {"wideparen": ["\\overset{\\frown}{#1}", 1], "overarc": ["\\overset{\\frown}{#1}", 1]} },
+          startup: { typeset: false },
+          options: { enableMenu: false, ignoreHtmlClass: 'tex2jax_ignore', processHtmlClass: 'tex2jax_process' }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-chtml.min.js"></script>
+<style>
+.lz-lock { position: fixed; inset: 0; z-index: 100000; display: none; align-items: center; justify-content: center; padding: 14px; background: rgba(0,0,0,.5); }
+.lz-lock.open { display: flex; }
+.lz-lock-box { background: #fff; color: #1c2b3a; width: 100%; max-width: 360px; border-radius: 10px; padding: 20px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,.35); font-family: Arial, sans-serif; }
+.lz-lock-box h4 { margin: 0 0 6px; color: #1565c0; font-size: 18px; }
+.lz-lock-box p { margin: 0 0 12px; font-size: 14px; color: #555; }
+.lz-lock-box input { width: 100%; box-sizing: border-box; padding: 10px; font-size: 16px; border: 2px solid #1e88e5; border-radius: 6px; }
+.lz-lock-box input.bad { border-color: #dc3545; animation: lzshake .3s; }
+.lz-lock-err { min-height: 1.3em; margin: 6px 0 2px; font-size: 13px; color: #dc3545; font-weight: bold; }
+.lz-lock-btns { display: flex; gap: 8px; margin-top: 8px; }
+.lz-lock-btns button { flex: 1; padding: 10px; border: none; border-radius: 6px; font-weight: bold; font-size: 15px; cursor: pointer; color: #fff; background: #1e88e5; }
+.lz-lock-btns button.cancel { background: #6c757d; }
+@keyframes lzshake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
+</style>
+</head>
+<body>
+    <div class="topbar">
+        <div class="row">
+            <h1 id="ttl">Th.S Nguyễn Ngọc Kiên - 0987 473 509</h1>
+            <div class="tools">
+                <button type="button" class="tbtn" id="btnToc">☰ Mục lục</button>
+                <button type="button" class="tbtn" id="btnAll">👁 Hiện tất cả lời giải</button>
+                <button type="button" class="tbtn" id="btnSum" hidden>📊 Tổng kết</button>
+            </div>
+        </div>
+        <div class="prow" id="prow" hidden>
+            <span class="ptxt" id="ptxt">Đã làm 0/0 · đúng 0</span>
+            <div class="ptrack"><div class="pfill" id="pfill"></div></div>
+            <select class="fsel" id="fltSel" aria-label="Lọc câu hỏi">
+                <option value="all">Tất cả</option>
+                <option value="todo">Chưa làm</option>
+                <option value="rev">Cần ôn lại</option>
+            </select>
+            <span class="lswarn" id="lsWarn" hidden>⚠ Trình duyệt không cho lưu tiến độ</span>
+        </div>
+    </div>
+
+    <div class="veil" id="veil"></div>
+    <aside class="drawer" id="drawer" aria-label="Mục lục">
+        <div class="dtop"><span>Mục lục</span><button type="button" id="btnTocClose" aria-label="Đóng">✕</button></div>
+        <nav class="toc" id="toc"><a class="l1" href="#sec1">Toạ độ điểm, toạ độ vectơ</a><a class="l2" href="#sub1_1">Tóm tắt lý thuyết</a><a class="l3" href="#subsub1_1_1">Tọa độ của vectơ</a><a class="l3" href="#subsub1_1_2">Tọa độ của điểm</a><a class="l3" href="#subsub1_1_3">Liên hệ giữa tọa độ điểm và tọa độ vectơ</a><a class="l3" href="#subsub1_1_4">Hình chiếu vuông góc và Điểm đối xứng</a><a class="l2" href="#sub1_2">Bài tập vận dụng</a></nav>
+    </aside>
+
+    <main id="content">
+<div class="lz"><h2 class="hd hd1" id="sec1">Toạ độ điểm, toạ độ vectơ</h2></div><div class="lz"><h3 class="hd hd2" id="sub1_1">Tóm tắt lý thuyết</h3></div><div class="lz"><h4 class="hd hd3" id="subsub1_1_1">Tọa độ của vectơ</h4></div><div class="lz"><div class="txt"><div class="tp">Trong không gian với hệ tọa độ $Oxyz$ <ul><li><b>Định nghĩa toạ độ vectơ:</b>$\overrightarrow{u} = (x; y; z) \Leftrightarrow \overrightarrow{u} = x\overrightarrow{i} + y\overrightarrow{j} + z\overrightarrow{k}$.</li><li><b>Vectơ đơn vị: </b>$\overrightarrow{i} = (1; 0; 0)$, $\overrightarrow{j} = (0; 1; 0)$, $\overrightarrow{k} = (0; 0; 1)$, $\overrightarrow{0} = (0; 0; 0)$.</li><li><b>Hai vectơ bằng nhau:</b> Cho $\overrightarrow{a} = (x_1; y_1; z_1)$ và $\overrightarrow{b} = (x_2; y_2; z_2)$, khi đó $\overrightarrow{a} = \overrightarrow{b} \Leftrightarrow \begin{cases} x_1 = x_2 \\ y_1 = y_2 \\ z_1 = z_2 \end{cases}$.</li></ul></div></div></div><div class="lz"><h4 class="hd hd3" id="subsub1_1_2">Tọa độ của điểm</h4></div><div class="lz"><div class="txt"><ul><li><b>Định nghĩa:</b> $M(x; y; z) \Leftrightarrow \overrightarrow{OM} = (x; y; z) = x\overrightarrow{i} + y\overrightarrow{j} + z\overrightarrow{k}$.</li><li><b>Gốc tọa độ:</b> $O(0; 0; 0)$.</li><li><b>Điểm thuộc các trục tọa độ:</b> <ul><li>$M \in Ox \Leftrightarrow M(x; 0; 0)$</li><li>$M \in Oy \Leftrightarrow M(0; y; 0)$</li><li>$M \in Oz \Leftrightarrow M(0; 0; z)$</li></ul></li><li><b>Điểm thuộc các mặt phẳng tọa độ:</b> <ul><li>$M \in (Oxy) \Leftrightarrow M(x; y; 0)$</li><li>$M \in (Oyz) \Leftrightarrow M(0; y; z)$</li><li>$M \in (Oxz) \Leftrightarrow M(x; 0; z)$</li></ul></li></ul></div></div><div class="lz"><h4 class="hd hd3" id="subsub1_1_3">Liên hệ giữa tọa độ điểm và tọa độ vectơ</h4></div><div class="lz"><div class="txt"><ul><li>$\overrightarrow{AB} = (x_B - x_A; y_B - y_A; z_B - z_A)$.</li><li>$AB = |\overrightarrow{AB}| = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}$.</li><li><b>Tọa độ trung điểm $I$ của đoạn thẳng $AB$:</b> $$I\left( \dfrac{x_A + x_B}{2}; \dfrac{y_A + y_B}{2}; \dfrac{z_A + z_B}{2} \right)$$</li><li><b>Tọa độ trọng tâm $G$ của tam giác $ABC$</b>: $$G\left( \dfrac{x_A + x_B + x_C}{3}; \dfrac{y_A + y_B + y_C}{3}; \dfrac{z_A + z_B + z_C}{3} \right)$$</li><li><b>Tọa độ trọng tâm $G$ của tứ diện $ABCD$</b>: $$G\left( \dfrac{x_A + x_B + x_C + x_D}{4}; \dfrac{y_A + y_B + y_C + y_D}{4}; \dfrac{z_A + z_B + z_C + z_D}{4} \right)$$</li></ul></div></div><div class="lz"><h4 class="hd hd3" id="subsub1_1_4">Hình chiếu vuông góc và Điểm đối xứng</h4></div><div class="lz"><div class="txt"><div class="tp">Cho điểm $M(x_0; y_0; z_0)$: <ul><li><b>Hình chiếu vuông góc của $M$:</b> <ul><li>Lên trục $Ox$: $M_1(x_0; 0; 0)$</li><li>Lên trục $Oy$: $M_2(0; y_0; 0)$</li><li>Lên trục $Oz$: $M_3(0; 0; z_0)$</li><li>Lên mặt phẳng $(Oxy)$: $H_1(x_0; y_0; 0)$</li><li>Lên mặt phẳng $(Oyz)$: $H_2(0; y_0; z_0)$</li><li>Lên mặt phẳng $(Oxz)$: $H_3(x_0; 0; z_0)$</li></ul></li><li><b>Điểm đối xứng của $M$:</b> <ul><li>Qua gốc tọa độ $O$: $M'(-x_0; -y_0; -z_0)$</li><li>Qua trục $Ox$: $M_1'(x_0; -y_0; -z_0)$</li><li>Qua trục $Oy$: $M_2'(-x_0; y_0; -z_0)$</li><li>Qua trục $Oz$: $M_3'(-x_0; -y_0; z_0)$</li><li>Qua mặt phẳng $(Oxy)$: $H_1'(x_0; y_0; -z_0)$</li><li>Qua mặt phẳng $(Oyz)$: $H_2'(-x_0; y_0; z_0)$</li><li>Qua mặt phẳng $(Oxz)$: $H_3'(x_0; -y_0; z_0)$</li></ul></li></ul></div></div></div><div class="lz"><h3 class="hd hd2" id="sub1_2">Bài tập vận dụng</h3></div><div class="lz"><div class="q ex" id="ex1" data-kind="essay" data-sub="sub1_2"><div class="eh"><span class="el">Câu 1</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, tìm tọa độ của các vectơ sau: <ol><li>$\overrightarrow{a} = 2\overrightarrow{i} - 3\overrightarrow{j} + 5\overrightarrow{k}$;</li><li>$\overrightarrow{b} = \overrightarrow{i} - 4\overrightarrow{k}$;</li><li>$\overrightarrow{c} = 3\overrightarrow{j} - \dfrac{1}{2}\overrightarrow{i}$;</li><li>$\overrightarrow{d} = -7\overrightarrow{k} + 2\left(\overrightarrow{i} - 3\overrightarrow{j}\right)$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex2" data-kind="essay" data-sub="sub1_2"><div class="eh"><span class="el">Câu 2</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, hãy biểu diễn các vectơ và tọa độ điểm sau qua ba vectơ đơn vị $\overrightarrow{i}$, $\overrightarrow{j}$, $\overrightarrow{k}$: <ol><li>$\overrightarrow{u} = (4; -1; 3)$;</li><li>$\overrightarrow{v} = (0; -5; 2)$;</li><li>$\overrightarrow{OA}$ với $A\left(-2; \dfrac{3}{2}; 0\right)$;</li><li>$\overrightarrow{OB}$ với $B(0; 0; -6)$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex3" data-kind="essay" data-sub="sub1_2"><div class="eh"><span class="el">Câu 3</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, tìm các số thực $x$, $y$, $z$ để hai vectơ $\overrightarrow{u}$ và $\overrightarrow{v}$ bằng nhau trong mỗi trường hợp sau: <ol><li>$\overrightarrow{u} = (2x - 1; 3; z + 2)$ và $\overrightarrow{v} = (5; y - 2; -1)$;</li><li>$\overrightarrow{u} = (x + y)\overrightarrow{i} + 4\overrightarrow{j} + (2z - 3)\overrightarrow{k}$ và $\overrightarrow{v} = 3\overrightarrow{i} + (x - y)\overrightarrow{j} - 5\overrightarrow{k}$;</li><li>$\overrightarrow{u} = \left(\dfrac{x - 2}{3}; y^2 - 1; 2z\right)$ và $\overrightarrow{v} = (-1; 3; x + z)$ với $y &lt; 0$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex4" data-kind="essay" data-sub="sub1_2"><div class="eh"><span class="el">Câu 4</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho điểm $M(3; -4; 5)$. Tìm tọa độ: <ol><li>Hình chiếu vuông góc của $M$ lên các trục $Ox$, $Oy$, $Oz$;</li><li>Hình chiếu vuông góc của $M$ lên các mặt phẳng $(Oxy)$, $(Oyz)$, $(Ozx)$;</li><li>Điểm đối xứng của $M$ qua gốc tọa độ $O$;</li><li>Điểm đối xứng của $M$ qua các trục $Ox$, $Oy$, $Oz$;</li><li>Điểm đối xứng của $M$ qua các mặt phẳng $(Oxy)$, $(Oyz)$, $(Ozx)$;</li><li>Trung điểm của đoạn thẳng nối hai hình chiếu của $M$ trên $Ox$ và $(Oyz)$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex5" data-kind="essay" data-sub="sub1_2"><div class="eh"><span class="el">Câu 5</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho điểm $A(-2; 5; 1)$. <ol><li>Gọi $H$ là hình chiếu vuông góc của $A$ lên mặt phẳng $(Oxy)$ và $K$ là điểm đối xứng của $H$ qua trục $Oy$. Tìm tọa độ các điểm $H$ và $K$;</li><li>Gọi $B$ là điểm đối xứng của $A$ qua mặt phẳng $(Ozx)$, sau đó lấy $C$ là hình chiếu vuông góc của $B$ lên trục $Oz$. Biểu diễn vectơ $\overrightarrow{OC}$ theo các vectơ đơn vị;</li><li>Tìm điểm $D$ sao cho $A$ là điểm đối xứng của $D$ qua trục $Ox$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex6" data-kind="essay" data-sub="sub1_2"><div class="eh"><span class="el">Câu 6</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho hình lập phương $ABCD.A'B'C'D'$ có độ dài cạnh bằng $a$ ($a &gt; 0$). Giả sử đỉnh $A$ trùng với gốc tọa độ $O$, tia $AB$ trùng với tia $Ox$, tia $AD$ trùng với tia $Oy$ và tia $AA'$ trùng với tia $Oz$. <ol><li>Tìm tọa độ tất cả các đỉnh của hình lập phương theo $a$;</li><li>Tìm tọa độ hình chiếu vuông góc của đỉnh $C'$ lên các mặt phẳng $(Oxy)$, $(Oyz)$, $(Ozx)$ và nhận xét vị trí hình học của các hình chiếu đó trên hình lập phương.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex7" data-kind="essay" data-sub="sub1_2"><div class="eh"><span class="el">Câu 7</span></div><div class="qtext"><div class="tp">Trong không gian $Oxyz$, cho hình chóp $S.OABC$ có đáy $OABC$ là hình chữ nhật nằm trong mặt phẳng $(Oxy)$ với $A \in Ox$ ($x_A &gt; 0$), $C \in Oy$ ($y_C &gt; 0$), cạnh $SA$ vuông góc với mặt phẳng đáy và điểm $S$ có cao độ dương. Biết $OA = 2$, $OC = 6$ và $SA = 4$. <ol><li>Tìm tọa độ các điểm $O$, $A$, $B$, $C$;</li><li>Tìm tọa độ đỉnh $S$ và điểm đối xứng của $S$ qua mặt phẳng $(Oxy)$.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex8" data-kind="essay" data-sub="sub1_2"><div class="eh"><span class="el">Câu 8</span></div><div class="qtext"><div class="tp">Một phòng học có dạng hình hộp chữ nhật với chiều dài $8\text{ m}$, chiều rộng $6\text{ m}$ và chiều cao $3{,}5\text{ m}$. Người ta chọn hệ trục tọa độ $Oxyz$ có gốc $O$ tại một góc phòng trên mặt sàn, trục $Ox$ chạy dọc theo mép tường chiều rộng, trục $Oy$ chạy dọc theo mép tường chiều dài và trục $Oz$ chạy dọc theo mép tường thẳng đứng từ sàn lên trần nhà (đơn vị trên mỗi trục là mét). <ol><li>Một chiếc đèn chiếu sáng được treo trên trần nhà, cách bức tường chứa mặt phẳng $(Oyz)$ một khoảng $3\text{ m}$ và cách bức tường chứa mặt phẳng $(Ozx)$ một khoảng $4\text{ m}$. Tìm tọa độ vị trí bóng đèn;</li><li>Một máy chiếu được gắn trên thanh treo cách trần nhà $0{,}5\text{ m}$, nằm chính giữa phòng theo cả chiều dài và chiều rộng. Tìm tọa độ của máy chiếu và hình chiếu vuông góc của nó xuống mặt sàn phòng học;</li><li>Một camera an ninh được lắp trên bức tường chứa mặt phẳng $(Oyz)$, cách sàn nhà $3\text{ m}$ và cách góc tường trục $Oz$ một khoảng $2\text{ m}$. Tìm tọa độ của camera đó.</li></ol></div></div><div class="qtools"></div></div></div><div class="lz"><div class="q ex" id="ex9" data-kind="essay" data-sub="sub1_2"><div class="eh"><span class="el">Câu 9</span></div><div class="qtext"><div class="tp">Một trạm kiểm soát không lưu đặt tại gốc tọa độ $O(0; 0; 0)$ trên mặt đất bằng phẳng. Hệ trục tọa độ $Oxyz$ được thiết lập sao cho tia $Ox$ chỉ hướng Nam, tia $Oy$ chỉ hướng Đông và tia $Oz$ hướng thẳng đứng lên trời (đơn vị trên mỗi trục tính bằng kilômét). Tại thời điểm khảo sát, một thiết bị bay không người lái (drone) đang ở vị trí cách trạm kiểm soát $3\text{ km}$ về phía Bắc, $5\text{ km}$ về phía Đông và ở độ cao $0{,}8\text{ km}$ so với mặt đất. <ol><li>Xác định tọa độ vị trí điểm $M$ của thiết bị bay tại thời điểm đó và biểu diễn vectơ $\overrightarrow{OM}$ theo các vectơ đơn vị $\overrightarrow{i}$, $\overrightarrow{j}$, $\overrightarrow{k}$;</li><li>Xác định tọa độ bóng nắng $M'$ của thiết bị bay trên mặt đất khi mặt trời chiếu thẳng đứng từ trên đỉnh đầu xuống mặt phẳng $(Oxy)$;</li><li>Một thiết bị bay thứ hai ở vị trí $N$ đối xứng với $M$ qua mặt phẳng phân chia hướng Đông -- Tây (tức mặt phẳng $(Oyz)$). Thiết bị bay thứ hai đang ở hướng nào và cách trạm kiểm soát theo phương Bắc -- Nam bao nhiêu kilômét?</li></ol></div></div><div class="qtools"></div></div></div>
+    </main>
+    <div class="foot">Liên hệ TOÁN ANH KIÊN - 0987473509</div>
+    <div class="fab">
+        <div class="credit"><span class="cr-i">🖋 <b>TOÁN ANH KIÊN</b></span><span class="cr-i">📟 0987473509</span></div>
+        <button type="button" id="toTop" title="Lên đầu trang" hidden>⬆</button>
+    </div>
+
+    <script>
+        const MEDIA_SCOPE = '.lz';
+        const MEDIA_SVG_SEL = MEDIA_SCOPE.split(',').map(s => s.trim() + ' svg').join(', ');
+        const MEDIA_ALL_SEL = MEDIA_SCOPE.split(',').map(s => s.trim()).flatMap(s => [s + ' svg', s + ' img']).join(', ');
+
+        function svgNum(v) {
+            if (v == null) return NaN;
+            const m = String(v).trim().match(/^([0-9]*\.?[0-9]+)(px)?$/i);
+            return m ? parseFloat(m[1]) : NaN;
+        }
+
+        let __svgSeq = 0;
+        function uniquifySvgIds(svg) {
+            if (svg.dataset.idsDone) return;
+            svg.dataset.idsDone = '1';
+            const withId = svg.querySelectorAll('[id]');
+            if (!withId.length) return;
+            const prefix = 'svg' + (++__svgSeq) + '_';
+            const map = {};
+            withId.forEach(n => { map[n.id] = prefix + n.id; });
+            const ids = Object.keys(map);
+            const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const urlRe = /url\(\s*(['"]?)#([^)'"\s]+)\1\s*\)/g;
+            const fixUrls = str => str.replace(urlRe, (m, q, id) => map[id] ? `url(${q}#${map[id]}${q})` : m);
+
+            svg.querySelectorAll('*').forEach(n => {
+                if (n.tagName.toLowerCase() === 'style') {
+                    let css = fixUrls(n.textContent);
+                    css = css.replace(new RegExp('#(' + ids.map(esc).join('|') + ')(?![\\w-])', 'g'), '#' + prefix + '$1');
+                    n.textContent = css;
+                    return;
+                }
+                Array.from(n.attributes).forEach(a => {
+                    if (a.name === 'id' || a.value.indexOf('#') < 0) return;
+                    if ((a.name === 'href' || a.name === 'xlink:href') && a.value.charAt(0) === '#') {
+                        const id = a.value.slice(1);
+                        if (map[id]) n.setAttribute(a.name, '#' + map[id]);
+                    } else {
+                        const nv = fixUrls(a.value);
+                        if (nv !== a.value) n.setAttribute(a.name, nv);
+                    }
+                });
+            });
+            withId.forEach(n => { n.id = map[n.id]; });
+        }
+
+        function normalizeSvgs() {
+            document.querySelectorAll(MEDIA_SVG_SEL).forEach(svg => {
+                if (svg.closest('mjx-container')) return;
+                uniquifySvgIds(svg);
+                if (svg.dataset.normalized) return;
+                const w = svgNum(svg.getAttribute('width'));
+                const h = svgNum(svg.getAttribute('height'));
+
+                if (!svg.hasAttribute('viewBox')) {
+                    if (w > 0 && h > 0) {
+                        svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+                    } else {
+                        try {
+                            const b = svg.getBBox();
+                            if (b.width && b.height)
+                                svg.setAttribute('viewBox', `${b.x - 2} ${b.y - 2} ${b.width + 4} ${b.height + 4}`);
+                        } catch (e) { return; }
+                    }
+                }
+                if (svg.hasAttribute('viewBox')) {
+                    if (w > 0) { svg.style.width = '100%'; svg.style.maxWidth = w + 'px'; }
+                    svg.removeAttribute('height');
+                    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+                    svg.dataset.normalized = '1';
+                }
+            });
+        }
+
+        const __zoomRefresh = new Set();
+        let __zoomResizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(__zoomResizeTimer);
+            __zoomResizeTimer = setTimeout(() => __zoomRefresh.forEach(fn => fn()), 150);
+        });
+
+        function setupImageZoom() {
+            document.querySelectorAll(MEDIA_ALL_SEL).forEach(el => {
+                if (el.closest('.zoom-container') || el.closest('mjx-container') || el.classList.contains('no-zoom')) return;
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'zoom-container';
+                const viewport = document.createElement('div');
+                viewport.className = 'zoom-viewport';
+                el.parentNode.insertBefore(wrapper, el);
+                viewport.appendChild(el);
+                wrapper.appendChild(viewport);
+                el.classList.add('zoom-media');
+
+                let scale = 1;
+                const STEP = 0.25, MIN = 1, MAX = 4;
+
+                const toolbar = document.createElement('div');
+                toolbar.className = 'zoom-toolbar';
+                const mk = (txt, title) => {
+                    const b = document.createElement('button');
+                    b.type = 'button'; b.className = 'zoom-btn'; b.innerHTML = txt; b.title = title;
+                    b.setAttribute('aria-label', title);
+                    return b;
+                };
+                const btnIn = mk('➕', 'Phóng to'), btnOut = mk('➖', 'Thu nhỏ'), btnReset = mk('↺', 'Mặc định');
+
+                function apply(newScale) {
+                    const cx = viewport.scrollWidth ? (viewport.scrollLeft + viewport.clientWidth / 2) / viewport.scrollWidth : 0.5;
+                    const cy = viewport.scrollHeight ? (viewport.scrollTop + viewport.clientHeight / 2) / viewport.scrollHeight : 0.5;
+
+                    scale = Math.min(MAX, Math.max(MIN, Math.round(newScale * 100) / 100));
+
+                    el.classList.remove('zoomed');
+                    el.style.removeProperty('--zw');
+                    const base = el.getBoundingClientRect().width;
+                    if (scale > 1 && base > 0) {
+                        el.style.setProperty('--zw', (base * scale) + 'px');
+                        el.classList.add('zoomed');
+                        viewport.scrollLeft = cx * viewport.scrollWidth - viewport.clientWidth / 2;
+                        viewport.scrollTop = cy * viewport.scrollHeight - viewport.clientHeight / 2;
+                    }
+                    viewport.classList.toggle('can-pan', el.classList.contains('zoomed'));
+                    btnIn.disabled = scale >= MAX;
+                    btnOut.disabled = scale <= MIN;
+                }
+
+                btnIn.onclick = () => apply(scale + STEP);
+                btnOut.onclick = () => apply(scale - STEP);
+                btnReset.onclick = () => apply(1);
+                __zoomRefresh.add(() => { if (scale > 1) apply(scale); });
+
+                viewport.addEventListener('wheel', e => {
+                    if (!e.ctrlKey) return;
+                    e.preventDefault();
+                    apply(scale + (e.deltaY < 0 ? STEP : -STEP));
+                }, { passive: false });
+                viewport.addEventListener('dblclick', () => apply(scale > 1 ? 1 : 2));
+
+                let dragging = false, sx = 0, sy = 0, sl = 0, st = 0;
+                viewport.addEventListener('pointerdown', e => {
+                    if (e.pointerType !== 'mouse' || !el.classList.contains('zoomed')) return;
+                    dragging = true; sx = e.clientX; sy = e.clientY; sl = viewport.scrollLeft; st = viewport.scrollTop;
+                    viewport.setPointerCapture(e.pointerId);
+                    viewport.classList.add('dragging');
+                });
+                viewport.addEventListener('pointermove', e => {
+                    if (!dragging) return;
+                    viewport.scrollLeft = sl - (e.clientX - sx);
+                    viewport.scrollTop = st - (e.clientY - sy);
+                });
+                const stop = () => { dragging = false; viewport.classList.remove('dragging'); };
+                viewport.addEventListener('pointerup', stop);
+                viewport.addEventListener('pointercancel', stop);
+
+                toolbar.append(btnIn, btnOut, btnReset);
+                wrapper.appendChild(toolbar);
+                apply(1);
+            });
+        }
+
+        const MEDIA_TABLE_SEL = MEDIA_SCOPE.split(',').map(s => s.trim() + ' table').join(', ');
+        function wrapTables() {
+            document.querySelectorAll(MEDIA_TABLE_SEL).forEach(t => {
+                if (t.closest('mjx-container, .table-scroll, .table-responsive, #tblOverlay')) return;
+                if (!t.parentNode) return;
+                const w = document.createElement('div');
+                w.className = 'table-scroll';
+                t.parentNode.insertBefore(w, t);
+                w.appendChild(t);
+            });
+        }
+
+        const __tblRefresh = [];
+        window.addEventListener('resize', () => __tblRefresh.forEach(fn => fn()));
+        function tblState(box, sc) {
+            const over = sc.scrollWidth > sc.clientWidth + 2;
+            box.classList.toggle('has-scroll', over);
+            box.classList.toggle('at-end', !over || sc.scrollLeft + sc.clientWidth >= sc.scrollWidth - 2);
+        }
+        function enhanceTables() {
+            document.querySelectorAll('.table-responsive, .table-scroll').forEach(sc => {
+                if (sc.dataset.tblDone || sc.closest('#tblOverlay')) return;
+                const table = sc.querySelector('table');
+                if (!table || !sc.parentNode) return;
+                sc.dataset.tblDone = '1';
+                const box = document.createElement('div'); box.className = 'tbl-box';
+                const hint = document.createElement('div'); hint.className = 'tbl-hint';
+                const msg = document.createElement('span'); msg.textContent = '\u2194 Vuốt ngang để xem thêm';
+                const btn = document.createElement('button'); btn.type = 'button'; btn.className = 'tbl-open'; btn.textContent = '\u26F6 Xem toàn màn hình';
+                btn.addEventListener('click', e => { e.stopPropagation(); openTableOverlay(table); });
+                hint.append(msg, btn);
+                const wrap = document.createElement('div'); wrap.className = 'tbl-wrap';
+                const fade = document.createElement('div'); fade.className = 'tbl-fade';
+                sc.parentNode.insertBefore(box, sc);
+                box.append(hint, wrap);
+                wrap.append(sc, fade);
+                const first = table.rows[0];
+                if (first && first.cells.length >= 4 && first.cells[0].colSpan === 1 && first.cells[0].rowSpan === 1) table.classList.add('sticky-first');
+                const upd = () => tblState(box, sc);
+                sc.addEventListener('scroll', upd, { passive: true });
+                if (window.ResizeObserver) new ResizeObserver(upd).observe(table);
+                __tblRefresh.push(upd);
+                upd();
+            });
+        }
+        let tblOv = null, tblScale = 1;
+        function closeTableOverlay() {
+            if (!tblOv) return;
+            tblOv.classList.remove('open');
+            document.documentElement.style.overflow = '';
+        }
+        function openTableOverlay(table) {
+            if (!tblOv) {
+                tblOv = document.createElement('div'); tblOv.id = 'tblOverlay';
+                tblOv.innerHTML = '<div class="tbl-ov-bar"><span class="ttl">Kéo để xem; A+ / A\u2212 đổi cỡ chữ</span>'
+                    + '<button type="button" class="zoom-btn" data-a="-">A\u2212</button><button type="button" class="zoom-btn" data-a="+">A+</button>'
+                    + '<button type="button" class="zoom-btn" data-a="x">\u2715 Đóng</button></div><div class="tbl-ov-body"></div>';
+                document.body.appendChild(tblOv);
+                tblOv.addEventListener('click', e => {
+                    const b = e.target.closest('button[data-a]');
+                    if (!b) return;
+                    if (b.dataset.a === 'x') { closeTableOverlay(); return; }
+                    tblScale = Math.min(2.6, Math.max(0.6, tblScale + (b.dataset.a === '+' ? 0.2 : -0.2)));
+                    tblOv.style.setProperty('--tbl-s', tblScale);
+                });
+                window.addEventListener('keydown', e => {
+                    if (!tblOv.classList.contains('open')) return;
+                    e.stopImmediatePropagation();
+                    if (e.key === 'Escape') closeTableOverlay();
+                }, true);
+            }
+            const body = tblOv.querySelector('.tbl-ov-body');
+            body.innerHTML = '';
+            const c = table.cloneNode(true);
+            c.querySelectorAll('[id]').forEach(n => n.removeAttribute('id'));
+            c.classList.remove('sticky-first');
+            body.appendChild(c);
+            tblScale = 1;
+            tblOv.style.setProperty('--tbl-s', 1);
+            tblOv.classList.add('open');
+            document.documentElement.style.overflow = 'hidden';
+            body.scrollTo(0, 0);
+        }
+
+        function initMedia() { wrapTables(); enhanceTables(); normalizeSvgs(); setupImageZoom(); }
+
+        window.addEventListener('load', () => setTimeout(initMedia, 300));
+
+        const $ = (s, r) => (r || document).querySelector(s);
+        const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
+
+        let queue = [], busy = false, pendingJump = null;
+        function keepJump() { if (pendingJump) pendingJump.scrollIntoView({ block: 'start' }); }
+        function pump() {
+            if (busy) return;
+            const batch = [];
+            while (queue.length && batch.length < 3) {
+                const e = queue.shift();
+                if (!e.dataset.ts) { e.dataset.ts = '1'; batch.push(e); }
+            }
+            if (!batch.length) return;
+            busy = true;
+            const go = () => {
+                if (!(window.MathJax && MathJax.startup && MathJax.startup.promise)) { setTimeout(go, 150); return; }
+                MathJax.startup.promise = MathJax.startup.promise
+                    .then(() => MathJax.typesetPromise(batch))
+                    .then(() => { initMedia(); keepJump(); })
+                    .catch(err => console.warn(err))
+                    .then(() => { busy = false; setTimeout(pump, 0); });
+            };
+            go();
+        }
+        function want(els, front) {
+            els = els.filter(e => !e.dataset.ts);
+            queue = front ? els.concat(queue) : queue.concat(els);
+            pump();
+        }
+        function typesetNow(el) {
+            const go = () => {
+                if (!(window.MathJax && MathJax.startup && MathJax.startup.promise)) { setTimeout(go, 150); return; }
+                MathJax.startup.promise = MathJax.startup.promise
+                    .then(() => MathJax.typesetPromise([el]))
+                    .then(() => { initMedia(); })
+                    .catch(err => console.warn(err));
+            };
+            go();
+        }
+
+        const lzs = $$('.lz');
+        const title = $('#ttl');
+        want([title], true);
+        if ('IntersectionObserver' in window) {
+            const io = new IntersectionObserver(es => {
+                const vis = es.filter(e => e.isIntersecting).map(e => e.target);
+                if (vis.length) want(vis, true);
+            }, { rootMargin: '1500px 0px' });
+            lzs.forEach(e => io.observe(e));
+        }
+        want(lzs, false);
+
+        function openSol(q, force) {
+            const s = $('.solution-box', q), b = $('.sol-btn', q);
+            if (!s) return;
+            const open = s.style.display === 'block';
+            const target = force === undefined ? !open : force;
+            if (target === open) return;
+            s.style.display = target ? 'block' : 'none';
+            if (b) b.textContent = target ? 'Ẩn lời giải' : 'Xem lời giải';
+            if (target) {
+                markSeen(q);
+                if (!s.dataset.ts) {
+                    s.dataset.ts = '1';
+                    s.classList.remove('tex2jax_ignore');
+                    typesetNow(s);
+                } else initMedia();
+            }
+        }
+        let allOpen = false;
+        $('#btnAll').addEventListener('click', () => {
+            if (!allOpen) {
+                const risky = tracked.filter(q => q.dataset.ans && !(P[q.id] && P[q.id].st) && $('.solution-box', q));
+                if (risky.length && !confirm('Còn ' + risky.length + ' câu chưa làm xong. Xem lời giải bây giờ thì các câu đó sẽ được ghi nhận là "đã xem lời giải trước" và không tính đúng. Tiếp tục?')) return;
+            }
+            allOpen = !allOpen;
+            $$('.q').forEach(q => openSol(q, allOpen));
+            $('#btnAll').textContent = allOpen ? '🙈 Ẩn tất cả lời giải' : '👁 Hiện tất cả lời giải';
+        });
+
+        function norm(s) { return s.replace(/\u2212/g, '-').replace(/,/g, '.').replace(/\s+/g, ''); }
+        function sameAns(a, b) {
+            a = norm(a); b = norm(b);
+            if (a === '' || b === '') return false;
+            if (a === b) return true;
+            const x = Number(a), y = Number(b);
+            return isFinite(x) && isFinite(y) && Math.abs(x - y) < 1e-9;
+        }
+
+        const GOOD = ['c1', 'c2', 'cr', 'ok'];
+        const FB = {
+            c1: ['correct', '✔ Chính xác — đúng ngay lần đầu'],
+            c2: ['correct', '✔ Đúng (sau khi thử lại)'],
+            cr: ['correct', '✔ Đúng (khi làm lại)'],
+            w: ['wrong', '✘ Chưa đúng'],
+            p: ['partial', ''],
+            sv: ['partial', '👁 Em đã xem lời giải trước nên câu này không tính đúng']
+        };
+        const BADGE = { c1: '🥇 Đúng ngay lần đầu', c2: 'Đúng ở lần 2', cr: 'Đúng khi làm lại', w: 'Sai', p: 'Đúng một phần',
+                        sv: 'Đã xem lời giải trước', ok: '✔ Làm được', near: '~ Gần đúng', no: '✘ Chưa làm được' };
+        const BCLS = { c1: 'correct', c2: 'correct', cr: 'correct', ok: 'correct', w: 'wrong', no: 'wrong', p: 'partial', near: 'partial', sv: 'partial' };
+        const KIND_NAME = { mc: 'Trắc nghiệm', tf: 'Đúng/Sai', short: 'Trả lời ngắn', essay: 'Tự luận' };
+
+        function mk(tag, cls, html) {
+            const e = document.createElement(tag);
+            if (cls) e.className = cls;
+            if (html) e.innerHTML = html;
+            if (tag === 'button') e.type = 'button';
+            return e;
+        }
+        function kindOf(q) {
+            if (q.dataset.ans) return q.dataset.kind;
+            return $('.solution-box', q) ? 'essay' : '';
+        }
+        const qs = $$('.q');
+        const tracked = qs.filter(q => kindOf(q));
+
+        function hash(s) { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) | 0; return (h >>> 0).toString(36); }
+        const LS_KEY = 'tex2html.lesson.' + hash(document.title + '|' + tracked.map(q =>
+            q.id + ':' + kindOf(q) + ':' + (q.dataset.ans || '') + $$('.tfrow', q).map(w => w.dataset.ans.charAt(0)).join('')).join('|'));
+        let P = {}, lsOK = true;
+        function load() {
+            let raw = null;
+            try { raw = localStorage.getItem(LS_KEY); } catch (e) { lsOK = false; return; }
+            try { const o = JSON.parse(raw || 'null'); if (o && o.q) P = o.q; } catch (e) { P = {}; }
+            const ids = new Set(tracked.map(q => q.id));
+            Object.keys(P).forEach(k => { if (!ids.has(k)) delete P[k]; });
+        }
+        function save() {
+            try {
+                if (Object.keys(P).length) localStorage.setItem(LS_KEY, JSON.stringify({ v: 1, t: Date.now(), q: P }));
+                else localStorage.removeItem(LS_KEY);
+            } catch (e) { lsOK = false; }
+            const w = $('#lsWarn'); if (w) w.hidden = lsOK;
+        }
+        function W(q) { return P[q.id] || (P[q.id] = { n: 0, st: '' }); }
+
+        function enhance(q) {
+            const kind = kindOf(q), tools = $('.qtools', q), eh = $('.eh', q);
+            if (eh) eh.appendChild(mk('span', 'stt'));
+            if (kind === 'tf') { const c = mk('button', 'tf-chk', 'Kiểm tra'); c.disabled = true; $('.opts', q).appendChild(c); }
+            if (kind === 'essay') {
+                const rd = mk('button', 'redo-btn', '↺ Làm lại'); rd.hidden = true; tools.appendChild(rd);
+                const rate = mk('div', 'rate', '<span class="rq">Sau khi xem lời giải, em tự đánh giá nhé:</span>' +
+                    '<button type="button" class="rb ok" data-r="ok">✔ Em làm được</button>' +
+                    '<button type="button" class="rb near" data-r="near">~ Gần đúng</button>' +
+                    '<button type="button" class="rb no" data-r="no">✘ Chưa</button>');
+                rate.hidden = true; q.appendChild(rate);
+            }
+            tools.appendChild(mk('button', 'rv-btn', '🔖 Ôn lại'));
+        }
+
+        function paint(q) {
+            const kind = kindOf(q), r = P[q.id] || {}, st = r.st || '', n = r.n || 0;
+            q.classList.remove('s-correct', 's-wrong', 's-partial');
+            if (st) q.classList.add('s-' + BCLS[st]);
+            const badge = $('.stt', q); if (badge) badge.textContent = BADGE[st] || '';
+            const rv = $('.rv-btn', q);
+            if (rv) { rv.classList.toggle('on', !!r.rv); rv.textContent = r.rv ? '🔖 Đã đánh dấu ôn lại' : '🔖 Ôn lại'; }
+            const redo = $('.redo-btn', q); if (redo) redo.hidden = !st;
+            if (kind === 'essay') {
+                $('.rate', q).hidden = !(r.sn || st);
+                $$('.rb', q).forEach(b => b.classList.toggle('on', b.dataset.r === st));
+                return;
+            }
+            const ans = q.dataset.ans, total = $$('.tfrow', q).length;
+            if (kind === 'mc') {
+                $$('.opt', q).forEach(o => {
+                    const bad = (r.bad || []).indexOf(o.dataset.k) >= 0;
+                    o.classList.toggle('wrong', bad);
+                    o.classList.toggle('correct', o.dataset.k === ans && (!!st || !!r.v));
+                    o.classList.toggle('locked', !!st || bad);
+                });
+            } else if (kind === 'tf') {
+                const tf = r.tf || {}, rows = $$('.tfrow', q);
+                rows.forEach(row => {
+                    const sel = tf[row.dataset.k], a = row.dataset.ans;
+                    row.classList.remove('r-ok', 'r-bad');
+                    if (st) row.classList.add(sel === a ? 'r-ok' : 'r-bad');
+                    $$('.tfb button', row).forEach(b => {
+                        const v = b.dataset.v;
+                        b.disabled = !!st;
+                        b.classList.toggle('sel', !st && sel === v);
+                        b.classList.toggle('correct', !!st && v === a);
+                        b.classList.toggle('wrong', !!st && sel === v && v !== a);
+                    });
+                });
+                const chk = $('.tf-chk', q);
+                chk.hidden = !!st;
+                chk.disabled = !rows.every(row => tf[row.dataset.k]);
+                chk.textContent = n >= 1 ? 'Kiểm tra lại' : 'Kiểm tra';
+            } else if (kind === 'short') {
+                const inp = $('.sans', q), chk = $('.chk', q), ta = $('.true-ans', q);
+                const right = sameAns(r.txt || '', ans);
+                inp.value = r.txt || '';
+                inp.readOnly = !!st;
+                inp.classList.remove('correct', 'wrong');
+                if (st) inp.classList.add(right ? 'correct' : 'wrong'); else if (n >= 1) inp.classList.add('wrong');
+                chk.disabled = !!st;
+                chk.textContent = n >= 1 && !st ? 'Kiểm tra lại' : 'Kiểm tra';
+                ta.hidden = !(st && !right);
+                ta.textContent = 'Đáp án đúng: ' + ans;
+            }
+            const fb = $('.fb', q);
+            let cls = '', txt = '';
+            if (st) {
+                cls = FB[st][0]; txt = FB[st][1];
+                if (st === 'p') txt = '½ Đúng ' + r.k + '/' + total + ' ý';
+            } else if (r.v) {
+                cls = 'partial'; txt = 'Em đã xem lời giải — câu này sẽ không được tính đúng.';
+            } else if (n >= 1) {
+                cls = 'wrong';
+                txt = kind === 'tf' ? 'Mới đúng ' + r.k + '/' + total + ' ý — em xem lại rồi chọn lại một lần nữa nhé.'
+                                    : 'Chưa đúng — em thử lại một lần nữa nhé.';
+            }
+            fb.textContent = txt;
+            fb.className = 'fb' + (cls ? ' f-' + cls : '');
+        }
+
+        function markSeen(q) {
+            const kind = kindOf(q);
+            if (!kind) return;
+            const r = W(q);
+            if (kind === 'essay') r.sn = 1;
+            else if (!r.st && !r.v) { r.v = 1; if (!r.rd) r.sv = 1; r.rv = 1; }
+            else return;
+            save(); paint(q); refresh();
+        }
+
+        function goodSt(r) { return r.rd ? 'cr' : (r.n === 1 ? 'c1' : 'c2'); }
+        function finishQ(q, st) {
+            const r = W(q);
+            r.st = st;
+            if (!r.first) r.first = st;
+            r.rv = GOOD.indexOf(st) >= 0 ? 0 : 1;
+            save(); paint(q); refresh();
+        }
+        function answerMC(q, val) {
+            const r = W(q);
+            if (r.st || (r.bad || []).indexOf(val) >= 0) return;
+            const ok = val === q.dataset.ans;
+            r.n = (r.n || 0) + 1;
+            r.bad = r.bad || [];
+            if (!ok) r.bad.push(val);
+            if (r.v) { r.pick = val; finishQ(q, 'sv'); return; }
+            if (ok) { r.pick = val; finishQ(q, goodSt(r)); return; }
+            if (r.n >= 2) { r.pick = val; finishQ(q, 'w'); return; }
+            save(); paint(q); refresh();
+        }
+        function pickTF(q, row, val) {
+            const r = W(q);
+            if (r.st) return;
+            r.tf = r.tf || {};
+            r.tf[row.dataset.k] = val;
+            save(); paint(q);
+        }
+        function checkTF(q) {
+            const r = W(q), rows = $$('.tfrow', q);
+            if (r.st || !r.tf || !rows.every(w => r.tf[w.dataset.k])) return;
+            r.n = (r.n || 0) + 1;
+            r.k = rows.filter(w => r.tf[w.dataset.k] === w.dataset.ans).length;
+            if (r.v) { finishQ(q, 'sv'); return; }
+            if (r.k === rows.length) { finishQ(q, goodSt(r)); return; }
+            if (r.n >= 2) { finishQ(q, r.k === 0 ? 'w' : 'p'); return; }
+            save(); paint(q); refresh();
+        }
+        function checkShort(q) {
+            const r = W(q);
+            if (r.st) return;
+            const inp = $('.sans', q);
+            if (norm(inp.value) === '') { inp.focus(); return; }
+            r.txt = inp.value.trim();
+            r.n = (r.n || 0) + 1;
+            if (r.v) { finishQ(q, 'sv'); return; }
+            if (sameAns(r.txt, q.dataset.ans)) { finishQ(q, goodSt(r)); return; }
+            if (r.n >= 2) { finishQ(q, 'w'); return; }
+            save(); paint(q); refresh();
+            inp.focus(); inp.select();
+        }
+        function rateQ(q, v) {
+            const r = W(q);
+            r.sn = 1;
+            r.st = v;
+            if (!r.first) r.first = v;
+            r.rv = v === 'ok' ? 0 : 1;
+            save(); paint(q); refresh();
+        }
+        function toggleRv(q) { const r = W(q); r.rv = r.rv ? 0 : 1; save(); paint(q); refresh(); }
+        function redoQ(q) {
+            const o = P[q.id] || {};
+            P[q.id] = { n: 0, st: '', first: o.first || '', sv: o.sv || 0, rd: (o.rd || 0) + 1, rv: o.rv || 0 };
+            openSol(q, false);
+            save(); paint(q); refresh();
+        }
+
+        function tally(list) {
+            const s = { n: list.length, done: 0, good: 0, first: 0, retry: 0, sv: 0, redo: 0, rev: 0, todo: 0, ok: 0, near: 0, no: 0 };
+            list.forEach(q => {
+                const r = P[q.id] || {}, st = r.st || '';
+                if (r.rv) s.rev++;
+                if (r.sv) s.sv++;
+                if (!st) { s.todo++; return; }
+                s.done++;
+                if (GOOD.indexOf(st) >= 0) s.good++; else s.redo++;
+                if (r.first === 'c1') s.first++; else if (st === 'c2' || st === 'cr') s.retry++;
+                if (st === 'ok' || st === 'near' || st === 'no') s[st]++;
+            });
+            return s;
+        }
+        function wrongList(list) { return list.filter(q => { const r = P[q.id]; return r && r.st && GOOD.indexOf(r.st) < 0; }); }
+
+        let flt = 'all';
+        const redoSet = new Set();
+        const FLT = {
+            all: () => true,
+            todo: q => !(P[q.id] && P[q.id].st),
+            rev: q => !!(P[q.id] && P[q.id].rv),
+            redo: q => redoSet.has(q.id)
+        };
+        function applyFilter() {
+            const on = flt !== 'all', f = FLT[flt] || FLT.all;
+            qs.forEach(q => { q.hidden = on && !(kindOf(q) && f(q)); });
+            $$('.lz').forEach(z => { z.hidden = on && !$$('.q', z).some(q => !q.hidden); });
+            const shown = qs.filter(q => !q.hidden).length;
+            $('#fltNote').hidden = !on;
+            $('#fltTxt').textContent = shown ? 'Đang lọc: ' + shown + ' câu' : 'Không có câu nào thuộc mục này.';
+            want($$('.lz').filter(z => !z.hidden), true);
+        }
+        function setFilter(v) {
+            if (v === 'redo' && !$('#fltSel option[value="redo"]')) { const o = mk('option'); o.value = 'redo'; $('#fltSel').appendChild(o); }
+            flt = v; $('#fltSel').value = v;
+            refresh();
+            applyFilter();
+        }
+        function jumpTo(el) {
+            pendingJump = el;
+            el.scrollIntoView({ block: 'start' });
+            want($$('.lz').filter(x => x.contains(el) || el.contains(x)), true);
+            setTimeout(() => { pendingJump = null; }, 2500);
+        }
+        function redoWrong(list) {
+            const l = wrongList(list);
+            if (!l.length) return;
+            l.forEach(q => { redoQ(q); redoSet.add(q.id); });
+            setFilter('redo');
+            window.scrollTo(0, 0);
+            jumpTo(l[0]);
+        }
+        function resetAll() {
+            if (!confirm('Xóa toàn bộ tiến độ của bài giảng này trên trình duyệt?')) return;
+            P = {}; redoSet.clear();
+            tracked.forEach(q => { openSol(q, false); paint(q); });
+            allOpen = false; $('#btnAll').textContent = '👁 Hiện tất cả lời giải';
+            save();
+            setFilter('all');
+        }
+
+        function buildGroups() {
+            const out = [];
+            const groupedIds = new Set();
+            $$('.dang').forEach(d => {
+                const l = tracked.filter(q => d.contains(q) || q.dataset.dang === d.id), db = d.querySelector(':scope > .db');
+                if (!l.length || !db) return;
+                l.forEach(q => groupedIds.add(q.id));
+                const no = $('.dno', d), tt = $('.dtt', d), label = no ? no.textContent : 'Dạng';
+                const g = { i: out.length, id: d.id, label: label, qs: l, sum: mk('div', 'dsum'),
+                            nameHtml: label + (tt && tt.innerHTML.trim() ? ': ' + tt.innerHTML : '') };
+                db.appendChild(g.sum);
+                out.push(g);
+            });
+            $$('h3.hd2').forEach(h => {
+                const l = tracked.filter(q => !groupedIds.has(q.id) && q.dataset.sub === h.id);
+                if (!l.length) return;
+                l.forEach(q => groupedIds.add(q.id));
+                out.push({ i: out.length, id: h.id, label: h.textContent, nameHtml: h.innerHTML, qs: l, sum: null });
+            });
+            const loose = tracked.filter(q => !groupedIds.has(q.id));
+            [['Ví dụ ngoài các dạng', loose.filter(q => !q.classList.contains('ex'))],
+             ['Bài tập luyện tập', loose.filter(q => q.classList.contains('ex'))]].forEach(p => {
+                if (p[1].length) out.push({ i: out.length, id: '', label: p[0], nameHtml: p[0], qs: p[1], sum: null });
+            });
+            return out;
+        }
+        const CARDS = [['done', 'Đã làm'], ['good', 'Đúng'], ['first', 'Đúng ngay lần đầu'], ['retry', 'Đúng sau thử lại'],
+                       ['sv', 'Xem lời giải trước'], ['redo', 'Cần làm lại'], ['todo', 'Chưa làm']];
+        function buildSummary() {
+            const sec = mk('section', 'sumsec');
+            sec.id = 'summary';
+            sec.innerHTML = '<h2 class="hd hd1">📊 Tổng kết</h2><p class="sline" id="sline"></p>' +
+                '<div class="sgrid">' + CARDS.map(c => '<div class="scard"><b data-s="' + c[0] + '">0</b><span>' + c[1] + '</span></div>').join('') + '</div>' +
+                '<h3 class="hd hd2">Theo dạng</h3>' +
+                '<div class="swrap"><table class="stab"><thead><tr><th>Dạng</th><th>Đã làm</th><th>Đúng</th><th>Cần ôn</th></tr></thead><tbody></tbody></table></div>' +
+                '<h3 class="hd hd2">Theo loại câu</h3><ul class="skind" id="skind"></ul>' +
+                '<div class="sbtns"><button type="button" class="dbtn" data-act="redo-all" id="sbRedo">🔁 Làm lại câu sai</button>' +
+                '<button type="button" class="dbtn" data-act="show-rev" id="sbRev">🔖 Xem câu cần ôn</button>' +
+                '<button type="button" class="dbtn" data-act="reset">🗑 Xóa tiến độ</button></div>' +
+                '<p class="snote">Tiến độ được lưu ngay trên trình duyệt này; mở lại bài giảng sẽ làm tiếp được. ' +
+                'Tự luận tính là đúng khi em tự đánh giá ✔. Câu xem lời giải trước khi làm xong không tính đúng.</p>';
+            const tb = $('tbody', sec);
+            groups.forEach(g => {
+                const tr = mk('tr', '', '<td>' + (g.id ? '<a href="#' + g.id + '" data-go="' + g.id + '">' + g.nameHtml + '</a>' : g.nameHtml) + '</td><td></td><td></td><td></td>');
+                tb.appendChild(tr); g.row = tr;
+            });
+            $('#content').appendChild(sec);
+            $('#toc').insertAdjacentHTML('beforeend', '<a class="l1" href="#summary">📊 Tổng kết</a>');
+            return sec;
+        }
+        function updateGroup(g) {
+            const s = tally(g.qs);
+            if (g.sum) {
+                g.sum.innerHTML = '<b>' + g.label + '</b><span>đã làm ' + s.done + '/' + s.n + ' · đúng ' + s.good + (s.rev ? ' · cần ôn ' + s.rev : '') + '</span>' +
+                    (s.redo ? '<button type="button" class="dbtn" data-act="redo-g" data-g="' + g.i + '">🔁 Làm lại câu sai (' + s.redo + ')</button>' : '');
+            }
+            const c = g.row.cells;
+            c[1].textContent = s.done + '/' + s.n; c[2].textContent = s.good; c[3].textContent = s.rev;
+        }
+        function refresh() {
+            const s = tally(tracked);
+            $('#ptxt').textContent = 'Đã làm ' + s.done + '/' + s.n + ' · đúng ' + s.good;
+            $('#pfill').style.width = (s.n ? Math.round(100 * s.done / s.n) : 0) + '%';
+            const lab = { todo: 'Chưa làm (' + s.todo + ')', rev: 'Cần ôn lại (' + s.rev + ')', redo: 'Đang làm lại (' + redoSet.size + ')' };
+            Object.keys(lab).forEach(k => { const o = $('#fltSel option[value="' + k + '"]'); if (o) o.textContent = lab[k]; });
+            groups.forEach(updateGroup);
+            $$('[data-s]', sumEl).forEach(b => { b.textContent = b.dataset.s === 'done' ? s.done + '/' + s.n : s[b.dataset.s]; });
+            $('#sline').textContent = s.done === s.n
+                ? '🎉 Em đã làm hết ' + s.n + ' câu, đúng ' + s.good + '.' + (s.redo ? ' Còn ' + s.redo + ' câu cần làm lại.' : ' Giỏi lắm!')
+                : 'Em đã làm ' + s.done + '/' + s.n + ' câu, đúng ' + s.good + '. Còn ' + s.todo + ' câu chưa làm.';
+            $('#skind').innerHTML = Object.keys(KIND_NAME).map(k => {
+                const l = tracked.filter(q => kindOf(q) === k);
+                if (!l.length) return '';
+                const t = tally(l);
+                return '<li><b>' + KIND_NAME[k] + ':</b> đã làm ' + t.done + '/' + t.n +
+                    (k === 'essay' ? ' · ✔ ' + t.ok + ' · ~ ' + t.near + ' · ✘ ' + t.no : ' · đúng ' + t.good + ' (ngay lần đầu ' + t.first + ')') + '</li>';
+            }).join('');
+            const br = $('#sbRedo'); br.textContent = '🔁 Làm lại câu sai (' + s.redo + ')'; br.disabled = !s.redo;
+            $('#sbRev').textContent = '🔖 Xem câu cần ôn (' + s.rev + ')';
+        }
+
+        load();
+        tracked.forEach(enhance);
+        $('#content').insertAdjacentHTML('afterbegin', '<div class="fltnote" id="fltNote" hidden><span id="fltTxt"></span>' +
+            '<button type="button" class="dbtn" data-act="flt-all">Hiện tất cả</button></div>');
+        const groups = tracked.length ? buildGroups() : [];
+        const sumEl = tracked.length ? buildSummary() : null;
+        if (tracked.length) {
+            tracked.forEach(paint);
+            $('#prow').hidden = false;
+            $('#btnSum').hidden = false;
+            refresh();
+            want([sumEl], false);
+        }
+        if (!lsOK) $('#lsWarn').hidden = false;
+        $('#btnSum').addEventListener('click', () => { if (sumEl) jumpTo(sumEl); });
+        $('#fltSel').addEventListener('change', e => { flt = e.target.value; applyFilter(); window.scrollTo(0, 0); });
+
+        function doAct(a) {
+            const act = a.dataset.act;
+            if (act === 'redo-g') redoWrong(groups[+a.dataset.g].qs);
+            else if (act === 'redo-all') redoWrong(tracked);
+            else if (act === 'show-rev') { setFilter('rev'); const f = tracked.find(q => !q.hidden); if (f) jumpTo(f); else window.scrollTo(0, 0); }
+            else if (act === 'flt-all') setFilter('all');
+            else if (act === 'reset') resetAll();
+        }
+
+        document.addEventListener('click', e => {
+            const t = e.target;
+            const go = t.closest('[data-go]');
+            if (go) {
+                e.preventDefault();
+                const el = document.getElementById(go.dataset.go);
+                if (el) { if (flt !== 'all') setFilter('all'); jumpTo(el); }
+                return;
+            }
+            const act = t.closest('[data-act]');
+            if (act) { doAct(act); return; }
+            const sb = t.closest('.sol-btn');
+            if (sb) { openSol(sb.closest('.q')); return; }
+            const q = t.closest('.q');
+            if (!q || !kindOf(q)) return;
+            if (t.closest('.redo-btn')) { redoQ(q); return; }
+            if (t.closest('.rv-btn')) { toggleRv(q); return; }
+            const rb = t.closest('.rb');
+            if (rb) { rateQ(q, rb.dataset.r); return; }
+            if (!q.dataset.ans) return;
+            const opt = t.closest('.opt');
+            if (opt && q.dataset.kind === 'mc' && !opt.classList.contains('static')) { answerMC(q, opt.dataset.k); return; }
+            const tb = t.closest('.tfb button');
+            if (tb) { pickTF(q, tb.closest('.tfrow'), tb.dataset.v); return; }
+            if (t.closest('.tf-chk')) { checkTF(q); return; }
+            if (t.closest('.chk')) checkShort(q);
+        });
+        document.addEventListener('keydown', e => {
+            const t = e.target;
+            if ((e.key === 'Enter' || e.key === ' ') && t.classList && t.classList.contains('opt') && !t.classList.contains('static')) {
+                e.preventDefault();
+                const q = t.closest('.q[data-ans]');
+                if (q) answerMC(q, t.dataset.k);
+            } else if (e.key === 'Enter' && t.classList && t.classList.contains('sans')) {
+                checkShort(t.closest('.q'));
+            }
+        });
+        document.addEventListener('input', e => {
+            const t = e.target;
+            if (t.classList && t.classList.contains('sans')) {
+                const q = t.closest('.q'), r = q && P[q.id];
+                if (!(r && r.st)) t.classList.remove('wrong');
+            }
+        });
+
+        const drawer = $('#drawer'), veil = $('#veil');
+        let tocDone = false;
+        function toc(open) {
+            drawer.classList.toggle('open', open);
+            veil.classList.toggle('open', open);
+            if (open && !tocDone) { tocDone = true; typesetNow($('#toc')); }
+        }
+        $('#btnToc').addEventListener('click', () => toc(true));
+        $('#btnTocClose').addEventListener('click', () => toc(false));
+        veil.addEventListener('click', () => toc(false));
+        $('#toc').addEventListener('click', e => {
+            const a = e.target.closest('a');
+            if (!a) return;
+            e.preventDefault();
+            const el = document.getElementById(a.getAttribute('href').slice(1));
+            toc(false);
+            if (el) jumpTo(el);
+        });
+        ['wheel', 'touchstart', 'keydown'].forEach(ev => window.addEventListener(ev, () => { pendingJump = null; }, { passive: true }));
+
+        const up = $('#toTop');
+        window.addEventListener('scroll', () => { up.hidden = window.scrollY < 600; }, { passive: true });
+        up.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+<script>
+(function () {
+    var PW = "0987473509";
+    var unlocked = false, pending = null, box = null, inp = null, err = null;
+    var RE_ALL = /(tất cả|toàn bộ)/i, RE_SOL = /(lời giải|đáp án)/i;
+
+    function isGate(b) {
+        if (b.closest('.sol-btn, .sol-all, .show-all-sol, #showAllSol, [data-act="sol-all"]')) return true;
+        var t = (b.textContent || '');
+        return RE_ALL.test(t) && RE_SOL.test(t);
+    }
+    function build() {
+        if (box) return;
+        box = document.createElement('div');
+        box.className = 'lz-lock';
+        box.setAttribute('role', 'dialog');
+        box.setAttribute('aria-modal', 'true');
+        box.innerHTML = '<div class="lz-lock-box"><h4>🔒 Mở khóa lời giải</h4>' +
+            '<p>Nhập mật khẩu của giáo viên để xem lời giải.</p>' +
+            '<input type="password" autocomplete="off" placeholder="Mật khẩu…">' +
+            '<div class="lz-lock-err"></div>' +
+            '<div class="lz-lock-btns"><button type="button" class="cancel">Hủy</button><button type="button" class="ok">Mở khóa</button></div></div>';
+        document.body.appendChild(box);
+        inp = box.querySelector('input');
+        err = box.querySelector('.lz-lock-err');
+        box.querySelector('.ok').onclick = submit;
+        box.querySelector('.cancel').onclick = close;
+        box.addEventListener('click', function (e) { if (e.target === box) close(); });
+        inp.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') { e.preventDefault(); submit(); }
+            else if (e.key === 'Escape') { e.preventDefault(); close(); }
+        });
+    }
+    function open(btn) {
+        build();
+        pending = btn;
+        inp.value = ''; inp.classList.remove('bad'); err.textContent = '';
+        box.classList.add('open');
+        setTimeout(function () { inp.focus(); }, 30);
+    }
+    function close() { if (box) box.classList.remove('open'); pending = null; }
+    function submit() {
+        if (inp.value.trim() === PW) {
+            unlocked = true;
+            var b = pending;
+            close();
+            if (b && document.contains(b)) b.click();
+        } else {
+            err.textContent = 'Mật khẩu không đúng!';
+            inp.classList.remove('bad'); void inp.offsetWidth; inp.classList.add('bad');
+            inp.select();
+        }
+    }
+    document.addEventListener('click', function (e) {
+        if (unlocked || !e.target || !e.target.closest) return;
+        var b = e.target.closest('button, a, [role="button"], input[type="button"]');
+        if (!b || !isGate(b)) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        open(b);
+    }, true);
+})();
+</script>
+</body>
+</html>
